@@ -13,7 +13,10 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.DriveTrain;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.drive.TankDrive;
 
+@SuppressWarnings("deprecation")
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -25,6 +28,10 @@ public class Robot extends TimedRobot {
   public static DriveTrain m_subsystem = new DriveTrain();
   public static OI m_oi;
 
+  TankDrive           robotDrive;
+  Talon               motorLeft, motorRight;
+  Joystick            stick;
+
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -32,13 +39,51 @@ public class Robot extends TimedRobot {
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
    */
+  public Robot() 
+    {
+        System.out.println("Robot.constructor()");
+    }
+
   @Override
   public void robotInit() {
     m_oi = new OI();
     //m_chooser.setDefaultOption("DriveTrain", new DriveTrain());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
+
+    System.out.println("Robot.robotInit()");
+ 
+        // Create two PWM Talon motor controller objects for left & right motors on PWM ports 0 & 1.
+        // Assumes robot has two motors controlled by Talon controllers connected via PWM.
+        // Add them to a drive controller class that can do tank and arcade driving based on
+        // joystick input.
+
+        motorLeft = new Talon(0);
+        motorRight = new Talon(1);
+
+        robotDrive = new TankDrive(motorLeft, motorRight);  
+        
+        robotDrive.setExpiration(0.1);   // need to see motor input at least every 
+                                         // 10th of a second or stop motors.
+
+        // One side has motors reversed so the wheels turn in the same direction.
+        robotDrive.setRightSideInverted(false);
+
+        stick = new Joystick(0);         // joystick on usb port 0.
   }
+
+  public void autonomous() 
+    {
+        System.out.println("Robot.autonomous()");
+
+        robotDrive.setSafetyEnabled(false);     // motor safety off due to the fact
+                                                // we want the motor to run 2 sec
+                                                // with no other input.
+
+        robotDrive.tankDrive(0.5, 0.5);         // drive forwards half speed
+        Timer.delay(2.0);                       //    for 2 seconds.
+        robotDrive.tankDrive(0.0, 0.0);         // stop motors.
+    }
 
   /**
    * This function is called every robot packet, no matter the mode. Use
