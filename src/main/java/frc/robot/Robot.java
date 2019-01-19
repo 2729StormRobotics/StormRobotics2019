@@ -13,11 +13,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.DriveTrain;
-import frc.robot.util.Controller;
 import edu.wpi.first.wpilibj.Joystick;
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.drive.TankDrive;
 
 @SuppressWarnings("deprecation")
 /**
@@ -31,12 +28,11 @@ public class Robot extends TimedRobot {
   public static DriveTrain m_subsystem = new DriveTrain();
   public static OI m_oi;
 
-  DifferentialDrive           robotDrive;
-  CANSparkMax               motorLeft, motorRight;
+  TankDrive           robotDrive;
+  Talon               motorLeft, motorRight;
   Joystick            stick;
 
   Command m_autonomousCommand;
-  Controller controller = new Controller();
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   /**
@@ -62,16 +58,16 @@ public class Robot extends TimedRobot {
         // Add them to a drive controller class that can do tank and arcade driving based on
         // joystick input.
 
-        motorLeft = new CANSparkMax(0, MotorType.kBrushless); //change numbers
-        motorRight = new CANSparkMax(1, MotorType.kBrushless);
+        motorLeft = new Talon(0);
+        motorRight = new Talon(1);
 
-        robotDrive = new DifferentialDrive(motorLeft, motorRight);  
+        robotDrive = new TankDrive(motorLeft, motorRight);  
         
         robotDrive.setExpiration(0.1);   // need to see motor input at least every 
                                          // 10th of a second or stop motors.
 
         // One side has motors reversed so the wheels turn in the same direction.
-        //robotDrive.setRightSideInverted(false);
+        robotDrive.setRightSideInverted(false);
 
         stick = new Joystick(0);         // joystick on usb port 0.
   }
@@ -80,13 +76,13 @@ public class Robot extends TimedRobot {
     {
         System.out.println("Robot.autonomous()");
 
-        //robotDrive.setSafetyEnabled(false);     // motor safety off due to the fact
+        robotDrive.setSafetyEnabled(false);     // motor safety off due to the fact
                                                 // we want the motor to run 2 sec
                                                 // with no other input.
 
-        //robotDrive.tankDrive(0.5, 0.5);         // drive forwards half speed
-        //Timer.delay(2.0);                       //    for 2 seconds.
-        //robotDrive.tankDrive(0.0, 0.0);         // stop motors.
+        robotDrive.tankDrive(0.5, 0.5);         // drive forwards half speed
+        Timer.delay(2.0);                       //    for 2 seconds.
+        robotDrive.tankDrive(0.0, 0.0);         // stop motors.
     }
 
   /**
@@ -168,8 +164,6 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    motorLeft.set(controller.getLeftSpeed());
-    motorRight.set(controller.getRightSpeed());
   }
 
   /**
