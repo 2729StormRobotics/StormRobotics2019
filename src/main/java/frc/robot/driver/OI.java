@@ -5,7 +5,14 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.driver;
+package frc.robot.driver;
+
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.Button;
+import frc.robot.constants.*;
+
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -19,6 +26,11 @@ public class OI {
   // number it is.
   // Joystick stick = new Joystick(port);
   // Button button = new JoystickButton(stick, buttonNumber);
+  
+  private XboxController driver = new XboxController(ControllerMap.DRIVER_PORT);
+  private Button aButton = new JoystickButton(driver, ControllerMap.A_BUTTON_PORT);
+  private XboxController weapons = new XboxController(ControllerMap.WEAPONS_PORT);
+  
 
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
@@ -30,7 +42,18 @@ public class OI {
 
   // Start the command when the button is pressed and let it run the command
   // until it is finished as determined by it's isFinished method.
-  // button.whenPressed(new ExampleCommand());
+  
+  public OI() {
+  
+  }
+
+  public double getLeftSpeed() {
+    return driver.getY(GenericHID.Hand.kLeft);
+  }
+
+  public double getRightSpeed() {
+    return driver.getY(GenericHID.Hand.kRight);
+  }
 
   // Run the command while the button is being held down and interrupt it once
   // the button is released.
@@ -39,4 +62,7 @@ public class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
+
+  
+
 }
