@@ -7,7 +7,7 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -26,10 +26,8 @@ import frc.robot.*;
  * creating this project, you must also update the build.gradle file in the
  * project.
  */
-public class Robot extends TimedRobot {
+public class Robot extends IterativeRobot {
 
-  public static DriveTrain driveTrain = new DriveTrain();
-  public static OI oi = new OI();
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -40,9 +38,10 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    oi = new OI();
+
     //m_chooser.setDefaultOption("DriveTrain", new DriveTrain());
     // chooser.addOption("My Auto", new MyAutoCommand());
+    CommandBase.init();
     SmartDashboard.putData("Auto mode", m_chooser);
   }
 

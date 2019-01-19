@@ -51,6 +51,8 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   
   public OI() {
+
+    aButton.whenPressed(new Drive());
   
   }
 

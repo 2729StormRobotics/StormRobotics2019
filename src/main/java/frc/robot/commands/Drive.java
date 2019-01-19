@@ -8,10 +8,10 @@ import frc.robot.util.*;
 import frc.robot.*;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Drive extends Command {
+public class Drive extends CommandBase {
 
     public Drive() {
-    	requires(Robot.driveTrain); // drivetrain is an instance of our Drivetrain subsystem
+    	requires(driveTrain); // drivetrain is an instance of our Drivetrain subsystem
     }
 
     protected void initialize() {
@@ -23,7 +23,7 @@ public class Drive extends Command {
      * (for example, if we want the joysticks to be less sensitive, we can multiply them by .5 in the getLeftSpeed method and leave our command the same).
      */
     protected void execute() {
-    	Robot.driveTrain.tankDrive(Robot.oi.getLeftSpeed(), Robot.oi.getRightSpeed());
+    	driveTrain.tankDrive(oi.getLeftSpeed(), oi.getRightSpeed());
     }
 
     /*
