@@ -13,6 +13,13 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Button;
 import frc.robot.constants.*;
 
+import frc.robot.commands.*;
+import frc.robot.constants.*;
+import frc.robot.driver.*;
+import frc.robot.subsystems.*;
+import frc.robot.util.*;
+import frc.robot.*;
+
 
 /**
  * This class is the glue that binds the controls on the physical operator

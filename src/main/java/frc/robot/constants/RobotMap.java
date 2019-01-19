@@ -7,6 +7,13 @@
 
 package frc.robot.constants;
 
+import frc.robot.commands.*;
+import frc.robot.constants.*;
+import frc.robot.driver.*;
+import frc.robot.subsystems.*;
+import frc.robot.util.*;
+import frc.robot.*;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking

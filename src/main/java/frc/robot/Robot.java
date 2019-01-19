@@ -12,7 +12,13 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.subsystems.*;
+
+import frc.robot.commands.*;
+import frc.robot.constants.*;
+import frc.robot.driver.*;
+import frc.robot.subsystems.*;
+import frc.robot.util.*;
+import frc.robot.*;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
