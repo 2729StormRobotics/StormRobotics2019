@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Drive extends Command {
 
     public Drive() {
-    	//requires(new DriveTrain());// drivetrain is an instance of our Drivetrain subsystem
+    	requires(Robot.driveTrain); // drivetrain is an instance of our Drivetrain subsystem
     }
 
     protected void initialize() {
