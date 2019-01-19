@@ -1,7 +1,7 @@
-package frc.robot.subsystems;
+package frc.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.RobotMap;
+import frc.constants.RobotMap;
 
 /**
  * An example subsystem.  You can replace me with your own Subsystem.
