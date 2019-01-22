@@ -8,11 +8,10 @@ import frc.robot.util.*;
 import frc.robot.*;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class HatchPickup extends CommandBase {
+public class ToggleArm extends CommandBase {
 
-    public HatchPickup() {
+    public ToggleArm() {
     	requires(airsystem); // airsystem is an instance of our Airsystem subsystem
-    
     }
 
     protected void initialize() {
@@ -24,7 +23,7 @@ public class HatchPickup extends CommandBase {
      * (for example, if we want the joysticks to be less sensitive, we can multiply them by .5 in the getLeftSpeed method and leave our command the same).
      */
     protected void execute() {
-    	airsystem.pickupHatch();
+    	airsystem.toggleArm();
     }
 
     /*

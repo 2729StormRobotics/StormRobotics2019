@@ -40,6 +40,11 @@ public class Airsystem extends Subsystem {
         
     }
 
+    public void toggleArm(){
+        solArm.set(!solArm.get());
+        
+    }
+
     @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

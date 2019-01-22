@@ -11,8 +11,9 @@ import edu.wpi.first.wpilibj.command.Command;
 public class HatchPunch extends CommandBase {
 
     public HatchPunch() {
-    	requires(airsystem); // drivetrain is an instance of our Drivetrain subsystem
+    	requires(airsystem); // airsystem is an instance of our Airsystem subsystem
     }
+    
 
     protected void initialize() {
     }
