@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.command.*;
 public abstract class CommandBase extends Command {
     public static OI oi;
     public static DriveTrain driveTrain = new DriveTrain();
+    public static Airsystem airsystem = new Airsystem();
+
 
     public static void init() {
         oi = new OI();

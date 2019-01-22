@@ -27,7 +27,10 @@ public class RobotMap {
   // public static int rightMotor = 2;
   public static int LEFT_MOTOR_ID;
   public static int RIGHT_MOTOR_ID;
-
+  public static int SOL_PICKUP_PORT;
+  public static int SOL_PUNCH_PORT;
+  public static int SOL_HAB_PORT;
+  public static int SOL_ARM_PORT;
   // If you are using multiple modules, make sure to define both the port
   // number and the module. For example you with a rangefinder:
   // public static int rangefinderPort = 1;
