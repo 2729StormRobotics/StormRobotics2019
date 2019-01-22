@@ -45,6 +45,11 @@ public class Airsystem extends Subsystem {
         
     }
 
+    public void toggleHab(){
+        solHab.set(!solHab.get());
+        
+    }
+
     @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
