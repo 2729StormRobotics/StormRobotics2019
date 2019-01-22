@@ -8,9 +8,9 @@ import frc.robot.util.*;
 import frc.robot.*;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class HatchPunch extends CommandBase {
+public class TogglePunch extends CommandBase {
 
-    public HatchPunch() {
+    public TogglePunch() {
     	requires(airsystem); // airsystem is an instance of our Airsystem subsystem
     }
     
