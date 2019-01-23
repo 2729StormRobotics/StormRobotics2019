@@ -31,6 +31,9 @@ public class RobotMap {
   public static int SOL_PUNCH_PORT;
   public static int SOL_HAB_PORT;
   public static int SOL_ARM_PORT;
+  public static int PHO_RIGHT_PORT;
+  public static int PHO_MIDDLE_PORT;
+  public static int PHO_LEFT_PORT;
   // If you are using multiple modules, make sure to define both the port
   // number and the module. For example you with a rangefinder:
   // public static int rangefinderPort = 1;

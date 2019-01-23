@@ -26,25 +26,10 @@ public class LineFollower extends Subsystem {
 
      }
 
-     /*public void pickupHatch(){
-         solPickUp.set(!solPickUp.get());
+     //public void followLine(){
+         //lineRight.set(!lineRight.get());
          
-     }
-
-     public void punchHatch(){
-        solPunch.set(!solPunch.get());
-        
-    }
-
-    public void toggleArm(){
-        solArm.set(!solArm.get());
-        
-    }
-
-    public void toggleHab(){
-        solHab.set(!solHab.get());
-        
-    }*/
+     //}
 
     @Override
   public void initDefaultCommand() {
