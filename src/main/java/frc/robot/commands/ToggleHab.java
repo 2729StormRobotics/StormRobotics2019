@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ToggleHab extends CommandBase {
 
     public ToggleHab() {
-    	requires(airsystem); // airsystem is an instance of our Airsystem subsystem
+    	requires(pneumatics); // airsystem is an instance of our Airsystem subsystem
     }
 
     protected void initialize() {
@@ -23,7 +23,7 @@ public class ToggleHab extends CommandBase {
      * (for example, if we want the joysticks to be less sensitive, we can multiply them by .5 in the getLeftSpeed method and leave our command the same).
      */
     protected void execute() {
-    	airsystem.toggleHab();
+    	pneumatics.toggleHab();
     }
 
     /*
