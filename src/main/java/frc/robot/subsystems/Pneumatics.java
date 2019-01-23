@@ -12,14 +12,14 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Solenoid;
 
-public class Airsystem extends Subsystem {
+public class Pneumatics extends Subsystem {
      //private AxisCamera camera;                       //defines Axis Camera
      private Solenoid solPickUp;
      private Solenoid solPunch;                             //defines solenoids
      private Solenoid solHab;
      private Solenoid solArm;
 
-     public Airsystem() {
+     public Pneumatics() {
           Compressor airCompressor = new Compressor();  //Digtial I/O,Relay
           airCompressor.start();                        // Start the air compressor
 
