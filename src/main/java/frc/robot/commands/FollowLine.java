@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class FollowLine extends CommandBase {
 
     public FollowLine() {
-    	requires(airsystem); // airsystem is an instance of our Airsystem subsystem
+    	//requires(airsystem); // airsystem is an instance of our Airsystem subsystem
     }
 
     protected void initialize() {
