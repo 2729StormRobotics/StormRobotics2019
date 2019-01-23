@@ -10,9 +10,9 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.*;
 
-public class Controller {
+public class Controller extends XboxController {
 
-    private XboxController controller;
+    //private XboxController controller;
     private Button aBtn;
     private Button bBtn;
     private Button xBtn;
@@ -23,30 +23,31 @@ public class Controller {
     private Button rtBtn;
 
     public Controller(int port) {
-        controller = new XboxController(port);
-        aBtn = new JoystickButton(controller, ControllerMap.A_BUTTON_PORT);
-        bBtn = new JoystickButton(controller, ControllerMap.B_BUTTON_PORT);
-        xBtn = new JoystickButton(controller, ControllerMap.X_BUTTON_PORT);
-        yBtn = new JoystickButton(controller, ControllerMap.Y_BUTTON_PORT);
-        lbBtn = new JoystickButton(controller, ControllerMap.LB_PORT);
-        rbBtn = new JoystickButton(controller, ControllerMap.RB_PORT);
-        ltBtn = new JoystickButton(controller, ControllerMap.LT_PORT);
-        rtBtn = new JoystickButton(controller, ControllerMap.RT_PORT);
+        super(port);
+        //controller = new XboxController(port);
+        aBtn = new JoystickButton(this, ControllerMap.A_BUTTON_PORT);
+        bBtn = new JoystickButton(this, ControllerMap.B_BUTTON_PORT);
+        xBtn = new JoystickButton(this, ControllerMap.X_BUTTON_PORT);
+        yBtn = new JoystickButton(this, ControllerMap.Y_BUTTON_PORT);
+        lbBtn = new JoystickButton(this, ControllerMap.LB_PORT);
+        rbBtn = new JoystickButton(this, ControllerMap.RB_PORT);
+        ltBtn = new JoystickButton(this, ControllerMap.LT_PORT);
+        rtBtn = new JoystickButton(this, ControllerMap.RT_PORT);
     }
 
-    public Button getA() {
+    public Button getABtn() {
         return aBtn;
     }
 
-    public Button getB() {
+    public Button getBBtn() {
         return bBtn;
     }
 
-    public Button getX() {
+    public Button getXBtn() {
         return xBtn;
     }
 
-    public Button getY() {
+    public Button getYBtn() {
         return yBtn;
     }
 
@@ -65,5 +66,6 @@ public class Controller {
     public Button getRT() {
         return rtBtn;
     }
+
 
 }

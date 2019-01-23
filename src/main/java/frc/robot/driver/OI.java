@@ -34,7 +34,9 @@ public class OI {
   // Joystick stick = new Joystick(port);
   // Button button = new JoystickButton(stick, buttonNumber);
   
-  private XboxController driver = new XboxController(ControllerMap.DRIVER_PORT);
+  private Controller driver = new Controller(ControllerMap.DRIVER_PORT);
+  private Controller weapons = new Controller(ControllerMap.WEAPONS_PORT);
+  /*private XboxController driver = new XboxController(ControllerMap.DRIVER_PORT);
   private XboxController weapons = new XboxController(ControllerMap.WEAPONS_PORT);
 
   private Button aBtnDriver = new JoystickButton(driver, ControllerMap.A_BUTTON_PORT);
@@ -45,7 +47,7 @@ public class OI {
   private Button aBtnWeapons = new JoystickButton(weapons, ControllerMap.A_BUTTON_PORT);
   private Button bBtnWeapons = new JoystickButton(weapons, ControllerMap.B_BUTTON_PORT);
   private Button xBtnWeapons = new JoystickButton(weapons, ControllerMap.X_BUTTON_PORT);
-  private Button yBtnWeapons = new JoystickButton(weapons, ControllerMap.Y_BUTTON_PORT);
+  private Button yBtnWeapons = new JoystickButton(weapons, ControllerMap.Y_BUTTON_PORT);*/
 
 
   // There are a few additional built in buttons you can use. Additionally,
@@ -62,10 +64,10 @@ public class OI {
   public OI() {
 
   
-    aBtnWeapons.whenPressed(new ToggleGrab());
-    bBtnWeapons.whenPressed(new TogglePunch());
-    xBtnWeapons.whenPressed(new ToggleArm());
-    yBtnWeapons.whenPressed(new ToggleHab());
+    weapons.getABtn().whenPressed(new ToggleGrab());
+    weapons.getBBtn().whenPressed(new TogglePunch());
+    weapons.getXBtn().whenPressed(new ToggleArm());
+    weapons.getYBtn().whenPressed(new ToggleHab());
 
   }
 
