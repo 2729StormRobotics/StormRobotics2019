@@ -9,27 +9,62 @@ import frc.robot.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.constants.RobotMap;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.AnalogInput;
 
 public class LineFollower extends Subsystem {
      //private AxisCamera camera;                       //defines Axis Camera
-     private DigitalInput lineRight;
-     private DigitalInput lineLeft;
-     private DigitalInput lineMiddle;
+     private AnalogInput lineRight;
+     private AnalogInput lineLeft;
+     private AnalogInput lineMiddle;
+
+     
+     
 
 
      public LineFollower() {
-          
-        lineRight = new DigitalInput(RobotMap.PHO_RIGHT_PORT);                        // Solenoid port
-        lineLeft = new DigitalInput(RobotMap.PHO_LEFT_PORT);
-        lineMiddle = new DigitalInput(RobotMap.PHO_MIDDLE_PORT);
+        
+        RobotMap.LIGHT_THRESHOLD = 2000; // limit for tape values 
+
+        lineLeft = new AnalogInput(RobotMap.PHO_LEFT_PORT);
+        lineMiddle = new AnalogInput(RobotMap.PHO_MIDDLE_PORT);                        // Solenoid port
+        lineRight = new AnalogInput(RobotMap.PHO_RIGHT_PORT);
 
      }
 
-     //public void followLine(){
-         //lineRight.set(!lineRight.get());
-         
-     //}
+     public void followLine(){
+      switch (updateState()){
+        case("000"):
+          // stop motors;
+        case("100"):
+          // drive left;
+        case("010"):
+          // drive forward;
+        case("001"):
+          // drive right;
+        case("110"):
+          // drive left slowly;
+        case("011"):
+          // drive right slowly;
+        case("111"):
+          // error, shouldnt be possible
+      }
+        
+
+
+     }
+
+     public String updateState() {
+      return isLine(lineLeft) + isLine(lineMiddle) + isLine(lineRight);
+     }
+
+
+     public String isLine(AnalogInput lineFollow) {
+        if (lineFollow.getValue() >= RobotMap.LIGHT_THRESHOLD) {
+          return "1";
+        } 
+
+        return "0";
+     }
 
     @Override
   public void initDefaultCommand() {
