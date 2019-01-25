@@ -22,8 +22,6 @@ public class LineFollower extends Subsystem {
 
 
      public LineFollower() {
-        
-        RobotMap.LIGHT_THRESHOLD = 2000; // limit for tape values 
 
         lineLeft = new AnalogInput(RobotMap.PHO_LEFT_PORT);
         lineMiddle = new AnalogInput(RobotMap.PHO_MIDDLE_PORT);                        // Solenoid port

@@ -16,6 +16,8 @@ public abstract class CommandBase extends Command {
 
     public static void init() {
         oi = new OI();
+        driveTrain = new DriveTrain();
+        pneumatics = new Pneumatics();
     }
 
     public CommandBase(String name) {super(name); }

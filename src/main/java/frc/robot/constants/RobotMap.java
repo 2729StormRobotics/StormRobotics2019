@@ -25,19 +25,30 @@ public class RobotMap {
   // following variables to use with your drivetrain subsystem.
   // public static int leftMotor = 1;
   // public static int rightMotor = 2;
-  public static int LEFT_MOTOR_ID;
-  public static int RIGHT_MOTOR_ID;
+  public final static int LEFT_MOTOR_ID = 0;
+  public final static int RIGHT_MOTOR_ID = 1;
+  public final static int RAMP_RATE = 0;
 
-  public static int SOL_PICKUP_PORT;
-  public static int SOL_PUNCH_PORT;
-  public static int SOL_HAB_PORT;
-  public static int SOL_ARM_PORT;
+  public final static double PROPORTION = 0;
+  public final static double INTEGRAL = 0;
+  public final static double DIFFERENTIAL = 0;
 
-  public static int PHO_RIGHT_PORT;
-  public static int PHO_MIDDLE_PORT;
-  public static int PHO_LEFT_PORT;
+  public final static int STALL_LIMIT = 255;
+  public final static int FREE_LIMIT = 255;
+  public final static int RPM_LIMIT = 5700;
+
+  public final static int SOL_PICKUP_PORT = 0;
+  public final static int SOL_PUNCH_PORT = 1;
+  public final static int SOL_HAB_PORT = 2;
+  public final static int SOL_ARM_PORT = 3;
+
+  public final static int PHO_RIGHT_PORT = 0;
+  public final static int PHO_MIDDLE_PORT = 0;
+  public final static int PHO_LEFT_PORT = 0;
   
-  public static int LIGHT_THRESHOLD;
+  public final static double LIGHT_THRESHOLD = 3000;
+
+
   // If you are using multiple modules, make sure to define both the port
   // number and the module. For example you with a rangefinder:
   // public static int rangefinderPort = 1;
