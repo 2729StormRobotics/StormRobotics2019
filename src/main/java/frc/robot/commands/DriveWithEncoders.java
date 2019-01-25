@@ -18,8 +18,7 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import robot.Constants;
-import util.DriveState;
+
 
 public class DrivewithEncoders extends CommandBase {
     public boolean acceleration = false;
