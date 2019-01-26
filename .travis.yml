@@ -1,0 +1,29 @@
+language: java
+
+addons:
+  sonarcloud:
+    organization: "storm-robotics-2729-github"
+    token:
+      secure: "UM+JTT07IntI0cz48l0zUXIk+LMVOWHKH7hxbmK+nrXMfUUWhlbvIQldwhIzI5ln9jO3gJ2kzjNjZQtE/M3fMk4xXOJGC8ESOqF01jZRXyaOCpuVF4XO4pCqe6pPfbumwZuNZ93oNWCUJ7ERg64eK5RGxtKRA085zKg1J5yOjXyrVqH/bVZ3FPoj5xDlRxkzCSFYt3E40OnH7ZdFHVUPz4JV/xHZxennT/zIOU/Ej1oRg70QXN+t2+o0fn7kJGPA/FsVybSCLmyQ5ecV1hpVQ1efA4SdqQaQM8/c7E4wR2u952U1L5zDoE7zZAALVYLIkoDXqDisYo9yAQCBNJmG/V2YbmYFXCsMCEX6uvIv8kAa0AshtVM+q0VPFCSPthaF7YnBHB3qa2wzghvfho6gkwVeHIEAvZ8W8bMv2aAScC0jGls+ZoJOADQF/Mi/4toytjy+SFDmto4jsL/zlvTznz56ENS5C6/wsoMoJkfP4QdjrNwI/6gC3IEovxCAgnwWmYMm7+zjM57rww9VhFdPNycALRMHHLnLqhstlt4oovVo3YtHFNjPHfWZv/lXGTKUTiV5w7DbdnLOvObHcYslqpOJXKlTdKJRiC/IgOHnaf4K7r2gXkOqZbjOK6EW5gVNEQKQ81w9xnh4uHt+13Bi7X2m7/3lMel+tZe76neXR/s="
+    branches:
+      - master
+      - maintenance
+      - Dev
+      - dev
+
+jdk:
+  - oraclejdk11
+  - openjdk11
+
+script:
+  - git fetch --unshallow
+  - sonar-scanner
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.sonar/cache
