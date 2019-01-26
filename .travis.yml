@@ -4,12 +4,14 @@ addons:
   sonarcloud:
     organization: "storm-robotics-2729-github"
     token:
-      secure: "UM+JTT07IntI0cz48l0zUXIk+LMVOWHKH7hxbmK+nrXMfUUWhlbvIQldwhIzI5ln9jO3gJ2kzjNjZQtE/M3fMk4xXOJGC8ESOqF01jZRXyaOCpuVF4XO4pCqe6pPfbumwZuNZ93oNWCUJ7ERg64eK5RGxtKRA085zKg1J5yOjXyrVqH/bVZ3FPoj5xDlRxkzCSFYt3E40OnH7ZdFHVUPz4JV/xHZxennT/zIOU/Ej1oRg70QXN+t2+o0fn7kJGPA/FsVybSCLmyQ5ecV1hpVQ1efA4SdqQaQM8/c7E4wR2u952U1L5zDoE7zZAALVYLIkoDXqDisYo9yAQCBNJmG/V2YbmYFXCsMCEX6uvIv8kAa0AshtVM+q0VPFCSPthaF7YnBHB3qa2wzghvfho6gkwVeHIEAvZ8W8bMv2aAScC0jGls+ZoJOADQF/Mi/4toytjy+SFDmto4jsL/zlvTznz56ENS5C6/wsoMoJkfP4QdjrNwI/6gC3IEovxCAgnwWmYMm7+zjM57rww9VhFdPNycALRMHHLnLqhstlt4oovVo3YtHFNjPHfWZv/lXGTKUTiV5w7DbdnLOvObHcYslqpOJXKlTdKJRiC/IgOHnaf4K7r2gXkOqZbjOK6EW5gVNEQKQ81w9xnh4uHt+13Bi7X2m7/3lMel+tZe76neXR/s="
+      secure: "GWHZIIwloBC++ZSikm2GdlKzMt7wFvJwU8JRV3JgVPKFYW0JQAuCjURTrofnRvynVcRyBjJLUKxLKETMIO8xO+w6Ap62z1FOGBFMqfM7vzYpIl706boh8WBTs4tGWXdBZcdA9LMVtKdfZd9oHmeT3eXtjJHQ2GKTQN2bh783r8l9DDsstCToueJqq35UA39LpxmosnkS9sKcefTCDA3QzkE6lHnNCH7Iq/tzpdh+YMB8aqppXE5Fqj8Tg4MSCI2hYQmRP7T6sH5LrXxo61L3QfeyJ/tqUdkp7wDtHxucIXoqpfPCnHA4NkhJpPCp4A8nOb2wulkajJLCI9xQZG6EDvCMvYUsFId27qEu8sfteqCb2qGWg1OAdlslLhyFicUr9wO1a2jadz0GnpQ4Bi7ktelabiFsiRh0VEo1PqmAr+WPjgCsd0dV04e6bXrZdALnEObkFQbBJXXyHkc85piqFRrhM+YjFk3xoMv7FCIOhVEGfRbT/n5zCXYWjYLncD7nXbw07k2r9wO7p+e7EtTJ7hyhrh0MBy1LZrK0Y2qcqsS+wlPSKzc7C76N3A2SV0Tu6iKTFFMEbE0F1AnTJGV9q4Rf+9KtC/dKNt/VQubJFxBANYdTl+y9T1KLMJ0uGiAzKVyt305ag2ItPz9Iz/bAy7PkgIFhRwPH/4F9CDqPVf4="
     branches:
       - master
       - maintenance
       - Dev
       - dev
+      - develop
+      - development
 
 jdk:
   - oraclejdk11
