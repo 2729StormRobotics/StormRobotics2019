@@ -52,8 +52,6 @@ public class Robot extends TimedRobot {
     driveTrain = new DriveTrain();
     pneumatics = new Pneumatics();
 
-    scoreAll = new ScoreAll();
-   
 
 
 
