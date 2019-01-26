@@ -8,10 +8,10 @@ import frc.robot.util.*;
 import frc.robot.*;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class TogglePunch extends CommandBase {
+public class TogglePunch extends Command {
 
     public TogglePunch() {
-    	requires(pneumatics); // airsystem is an instance of our Airsystem subsystem
+    	requires(Robot.pneumatics); // airsystem is an instance of our Airsystem subsystem
     }
     
 
@@ -24,7 +24,7 @@ public class TogglePunch extends CommandBase {
      * (for example, if we want the joysticks to be less sensitive, we can multiply them by .5 in the getLeftSpeed method and leave our command the same).
      */
     protected void execute() {
-        pneumatics.punchHatch();
+        Robot.pneumatics.punchHatch();
 
 
     }

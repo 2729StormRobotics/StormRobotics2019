@@ -18,16 +18,16 @@ public class Pneumatics extends Subsystem {
      private Solenoid solPunch;                             //defines solenoids
      private Solenoid solHab;
      private Solenoid solArm;
+     private Compressor airCompressor;
 
      public Pneumatics() {
-          Compressor airCompressor = new Compressor();  //Digtial I/O,Relay
+          airCompressor = new Compressor();  //Digtial I/O,Relay
           airCompressor.start();                        // Start the air compressor
 
           solPickUp = new Solenoid(RobotMap.SOL_PICKUP_PORT);                        // Solenoid port
           solPunch = new Solenoid(RobotMap.SOL_PUNCH_PORT);
           solHab = new Solenoid(RobotMap.SOL_HAB_PORT);
           solArm = new Solenoid(RobotMap.SOL_ARM_PORT);
-
      }
 
      public void pickupHatch(){
@@ -46,8 +46,11 @@ public class Pneumatics extends Subsystem {
     }
 
     public void toggleHab(){
-        solHab.set(!solHab.get());
-        
+        solHab.set(!solHab.get()); 
+    }
+
+    public void disableCompressor() {
+        airCompressor.close();
     }
 
     @Override
@@ -55,4 +58,6 @@ public class Pneumatics extends Subsystem {
     // Set the default command for a subsystem here.
     //setDefaultCommand();
   }
+
+  
 }
