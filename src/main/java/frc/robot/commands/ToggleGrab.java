@@ -16,6 +16,7 @@ public class ToggleGrab extends Command {
     }
 
     protected void initialize() {
+        Robot.pneumatics.pickupHatch();
     }
 
     /*
@@ -24,19 +25,19 @@ public class ToggleGrab extends Command {
      * (for example, if we want the joysticks to be less sensitive, we can multiply them by .5 in the getLeftSpeed method and leave our command the same).
      */
     protected void execute() {
-    	Robot.pneumatics.pickupHatch();
     }
 
     /*
-     * isFinished - Our isFinished method always returns false meaning this command never completes on it's own. The reason we do this is that this command will be set as the default command for the subsystem. This means that whenever the subsystem is not running another command, it will run this command. If any other command is scheduled it will interrupt this command, then return to this command when the other command completes.
+     * isFinished - Our isFinished method always returns true, meaning this command completes during initialization
      */
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     protected void end() {
     }
 
     protected void interrupted() {
+        end();
     }
 }

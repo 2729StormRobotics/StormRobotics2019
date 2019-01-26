@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class ScoreHatch extends CommandGroup {
 
-    public  ScoreHatch() {
-        addSequential(new DriveDistance(100));
+    public ScoreHatch() {
+        addSequential(new DriveDistance(100.0, 1.0));
     }
 }

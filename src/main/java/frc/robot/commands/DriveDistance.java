@@ -11,13 +11,21 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveDistance extends Command {
 
     private double distance;
+    private double power;
+    private double initialLeftPos;
+    private double initialRightPos;
+    private double currentLeftPos;
+    private double currentRightPos;
 
-    public DriveDistance(double distance) {
+    public DriveDistance(double distance, double power) {
         requires(Robot.driveTrain); // drivetrain is an instance of our Drivetrain subsystem
         this.distance = distance;
+        this.power = power;
     }
 
     protected void initialize() {
+        initialLeftPos = Robot.driveTrain.getLeftPos();
+        initialRightPos = Robot.driveTrain.getRightPos();
     }
 
     /*
@@ -26,19 +34,24 @@ public class DriveDistance extends Command {
      * (for example, if we want the joysticks to be less sensitive, we can multiply them by .5 in the getLeftSpeed method and leave our command the same).
      */
     protected void execute() {
-    	Robot.driveTrain.tankDrive(Robot.oi.getLeftSpeed(), Robot.oi.getRightSpeed());
+        Robot.driveTrain.tankDrive(power, power);
+        currentLeftPos = Robot.driveTrain.getLeftPos();
+        currentRightPos = Robot.driveTrain.getRightPos();
+
     }
 
     /*
-     * isFinished - Our isFinished method always returns false meaning this command never completes on it's own. The reason we do this is that this command will be set as the default command for the subsystem. This means that whenever the subsystem is not running another command, it will run this command. If any other command is scheduled it will interrupt this command, then return to this command when the other command completes.
+     * isFinished - Our isFinished method is called when both wheels reach the target distance.
      */
     protected boolean isFinished() {
-        return false;
+        return ((currentLeftPos - initialLeftPos) > distance && (currentRightPos - initialRightPos) < distance);
     }
 
     protected void end() {
+        Robot.driveTrain.stopDrive();
     }
 
     protected void interrupted() {
+        end();
     }
 }

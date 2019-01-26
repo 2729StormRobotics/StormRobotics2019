@@ -73,6 +73,32 @@ public class DriveTrain extends Subsystem {
     rightMotor.set(rightSpeed);
   }
 
+  public void stopDrive() {
+    leftMotor.set(0);
+    rightMotor.set(0);
+  }
+
+  public void disableDrive() {
+    leftMotor.disable();
+    rightMotor.disable();
+  }
+
+  public double getLeftPos() {
+    return leftEncoder.getPosition();
+  }
+
+  public double getRightPos() {
+    return rightEncoder.getPosition();
+  }
+
+  public double getLeftVelocity() {
+    return leftEncoder.getVelocity();
+  }
+
+  public double getRightVelocity() {
+    return rightEncoder.getVelocity();
+  }
+
 
   @Override
   public void initDefaultCommand() {

@@ -9,6 +9,7 @@ package frc.robot.driver;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Button;
 import frc.robot.constants.*;
@@ -36,18 +37,6 @@ public class OI {
   
   private Controller driver = new Controller(ControllerMap.DRIVER_PORT);
   private Controller weapons = new Controller(ControllerMap.WEAPONS_PORT);
-  /*private XboxController driver = new XboxController(ControllerMap.DRIVER_PORT);
-  private XboxController weapons = new XboxController(ControllerMap.WEAPONS_PORT);
-
-  private Button aBtnDriver = new JoystickButton(driver, ControllerMap.A_BUTTON_PORT);
-  private Button bBtnDriver = new JoystickButton(driver, ControllerMap.B_BUTTON_PORT);
-  private Button xBtnDriver = new JoystickButton(driver, ControllerMap.X_BUTTON_PORT);
-  private Button yBtnDriver = new JoystickButton(driver, ControllerMap.Y_BUTTON_PORT);
-
-  private Button aBtnWeapons = new JoystickButton(weapons, ControllerMap.A_BUTTON_PORT);
-  private Button bBtnWeapons = new JoystickButton(weapons, ControllerMap.B_BUTTON_PORT);
-  private Button xBtnWeapons = new JoystickButton(weapons, ControllerMap.X_BUTTON_PORT);
-  private Button yBtnWeapons = new JoystickButton(weapons, ControllerMap.Y_BUTTON_PORT);*/
 
 
   // There are a few additional built in buttons you can use. Additionally,
@@ -63,13 +52,10 @@ public class OI {
   
   public OI() {
 
-    
-
     weapons.getABtn().whenPressed(new ToggleGrab());
     weapons.getBBtn().whenPressed(new TogglePunch());
     weapons.getXBtn().whenPressed(new ToggleArm());
     weapons.getYBtn().whenPressed(new ToggleHab());
-
 
   }
 

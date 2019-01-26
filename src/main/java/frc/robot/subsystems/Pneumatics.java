@@ -35,18 +35,34 @@ public class Pneumatics extends Subsystem {
          
      }
 
+     public boolean getPickupHatch(){
+        return solPickUp.get();
+     }
+
      public void punchHatch(){
         solPunch.set(!solPunch.get());
         
     }
+
+    public boolean getPunchHatch(){
+        return solPunch.get();
+     }
 
     public void toggleArm(){
         solArm.set(!solArm.get());
         
     }
 
+    public boolean getArm(){
+        return solPickUp.get();
+     }
+
     public void toggleHab(){
         solHab.set(!solHab.get()); 
+    }
+
+    public boolean getHab() {
+        return solHab.get();
     }
 
     public void disableCompressor() {

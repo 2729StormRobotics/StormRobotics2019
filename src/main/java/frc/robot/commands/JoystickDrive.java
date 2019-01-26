@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class JoystickDrive extends Command {
 
     public JoystickDrive() {
-    	requires(Robot.driveTrain); // drivetrain is an instance of our Drivetrain subsystem
+    	requires(Robot.driveTrain); // driveTrain is an instance of our DriveTrain subsystem
     }
 
     protected void initialize() {
@@ -34,8 +34,10 @@ public class JoystickDrive extends Command {
     }
 
     protected void end() {
+        
     }
 
     protected void interrupted() {
+        end();
     }
 }
