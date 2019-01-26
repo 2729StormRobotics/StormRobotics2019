@@ -10,8 +10,11 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class DriveDistance extends Command {
 
-    public DriveDistance() {
-    	requires(Robot.driveTrain); // drivetrain is an instance of our Drivetrain subsystem
+    private double distance;
+
+    public DriveDistance(double distance) {
+        requires(Robot.driveTrain); // drivetrain is an instance of our Drivetrain subsystem
+        this.distance = distance;
     }
 
     protected void initialize() {
