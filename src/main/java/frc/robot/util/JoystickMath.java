@@ -1,5 +1,6 @@
 package frc.robot.util;
 
+import frc.robot.Robot;
 import frc.robot.commands.*;
 import frc.robot.constants.*;
 import frc.robot.driver.*;
@@ -22,6 +23,10 @@ public abstract class JoystickMath {
      * @return the corresponding stick value after precision curves are applied
      */
     public static double getPower(double stickValue, double power) {
+        if (Math.abs(stickValue) < RobotMap.CONTROLLER_DEADZONE) {
+            return 0;
+        }
+
         if (stickValue >= 0) {
             return Math.pow(stickValue, power);
         }

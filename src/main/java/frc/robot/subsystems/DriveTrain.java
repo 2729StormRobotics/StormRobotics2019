@@ -73,17 +73,6 @@ public class DriveTrain extends Subsystem {
     rightMotor.set(rightSpeed);
   }
 
-  public void tankDrive(double distance){
-    //may need to adjust speed values
-    /** implementation required (PID)
-    leftMotor.set(leftSpeed);
-    rightMotor.set(rightSpeed);
-    */
-  }
-
-  
-
-
 
   @Override
   public void initDefaultCommand() {
