@@ -16,7 +16,6 @@ jdk:
   - openjdk11
 
 script:
-  - git fetch --unshallow
   - sonar-scanner
 
 before_cache:
