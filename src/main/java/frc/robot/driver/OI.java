@@ -56,6 +56,9 @@ public class OI {
     weapons.getBBtn().whenPressed(new TogglePunch());
     weapons.getXBtn().whenPressed(new ToggleArm());
     weapons.getYBtn().whenPressed(new ToggleHab());
+    
+    weapons.getLB().whenPressed(new TogglePickupCargo());
+    weapons.getRB().whenPressed(new ToggleShoot());
 
   }
 
