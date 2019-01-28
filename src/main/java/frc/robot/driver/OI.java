@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import frc.robot.constants.*;
 
 import frc.robot.commands.*;
+import frc.robot.commandgroups.*;
 import frc.robot.constants.*;
 import frc.robot.driver.*;
 import frc.robot.subsystems.*;
@@ -59,6 +60,8 @@ public class OI {
     
     weapons.getLB().whenPressed(new TogglePickupCargo());
     weapons.getRB().whenPressed(new ToggleShoot());
+    
+    driver.getLT().whileHeld(new CheckLine());
 
   }
 

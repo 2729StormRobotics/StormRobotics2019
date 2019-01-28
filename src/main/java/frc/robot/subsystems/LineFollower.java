@@ -17,6 +17,7 @@ public class LineFollower extends Subsystem {
      private AnalogInput lineLeft;
      private AnalogInput lineMiddle;
      private AnalogInput infrared;
+     private boolean noLine;
 
      
      
@@ -28,32 +29,41 @@ public class LineFollower extends Subsystem {
         lineMiddle = new AnalogInput(RobotMap.PHO_MIDDLE_PORT);                        // Solenoid port
         lineRight = new AnalogInput(RobotMap.PHO_RIGHT_PORT);
         infrared = new AnalogInput(RobotMap.INFRA_PORT);
+        noLine = false;
 
      }
 
      public void followLine(){
-      switch (updateState()){
+       noLine = false;
+      switch (getState()){
         case("000"):
-          // stop motors;
+          // finish command;
+          Robot.driveTrain.stopDrive();
         case("100"):
           // drive left;
+          Robot.driveTrain.tankDrive(0.5, 1);
         case("010"):
           // drive forward;
+          Robot.driveTrain.tankDrive(1, 1);
         case("001"):
           // drive right;
+          Robot.driveTrain.tankDrive(1, 0.5);
         case("110"):
           // drive left slowly;
+          Robot.driveTrain.tankDrive(0.75, 1);
         case("011"):
           // drive right slowly;
+          Robot.driveTrain.tankDrive(1, 0.75);
         case("111"):
           // error, shouldnt be possible
+          
       }
         
 
 
      }
 
-     public String updateState() {
+     public String getState() {
       return isLine(lineLeft) + isLine(lineMiddle) + isLine(lineRight);
      }
 
@@ -67,7 +77,7 @@ public class LineFollower extends Subsystem {
      }
 
      public boolean isFinished() {
-       return infrared.getValue() <= RobotMap.DISTANCE_FROM_LINE;
+       return infrared.getValue() <= RobotMap.DISTANCE_FROM_LINE || noLine;
      }
 
     @Override
