@@ -35,6 +35,7 @@ public class Robot extends TimedRobot {
   public static OI oi;
   public static DriveTrain driveTrain;
   public static Pneumatics pneumatics;
+  public static LineFollower lineFollower;
   
   public static Command scoreAll;
 
@@ -51,6 +52,7 @@ public class Robot extends TimedRobot {
     oi = new OI();
     driveTrain = new DriveTrain();
     pneumatics = new Pneumatics();
+    lineFollower = new LineFollower();
 
 
 

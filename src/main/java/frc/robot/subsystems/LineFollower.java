@@ -16,6 +16,7 @@ public class LineFollower extends Subsystem {
      private AnalogInput lineRight;
      private AnalogInput lineLeft;
      private AnalogInput lineMiddle;
+     private AnalogInput infrared;
 
      
      
@@ -26,6 +27,7 @@ public class LineFollower extends Subsystem {
         lineLeft = new AnalogInput(RobotMap.PHO_LEFT_PORT);
         lineMiddle = new AnalogInput(RobotMap.PHO_MIDDLE_PORT);                        // Solenoid port
         lineRight = new AnalogInput(RobotMap.PHO_RIGHT_PORT);
+        infrared = new AnalogInput(RobotMap.INFRA_PORT);
 
      }
 
@@ -62,6 +64,10 @@ public class LineFollower extends Subsystem {
         } 
 
         return "0";
+     }
+
+     public boolean isFinished() {
+       return infrared.getValue() <= RobotMap.DISTANCE_FROM_LINE;
      }
 
     @Override

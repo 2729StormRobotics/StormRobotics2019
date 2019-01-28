@@ -19,14 +19,14 @@ public class FollowLine extends Command {
 
     
     protected void execute() {
-    	//LineFollower.FollowLine();
+    	Robot.lineFollower.followLine();
     }
 
     /*
      * isFinished - Our isFinished method always returns false meaning this command never completes on it's own. The reason we do this is that this command will be set as the default command for the subsystem. This means that whenever the subsystem is not running another command, it will run this command. If any other command is scheduled it will interrupt this command, then return to this command when the other command completes.
      */
     protected boolean isFinished() {
-        return false;
+        return Robot.lineFollower.isFinished();
     }
 
     protected void end() {

@@ -53,6 +53,9 @@ public class RobotMap {
   
   public final static double LIGHT_THRESHOLD = 3000;
 
+  public final static int INFRA_PORT = 0;
+  public final static double DISTANCE_FROM_LINE = 5;
+
 
   // If you are using multiple modules, make sure to define both the port
   // number and the module. For example you with a rangefinder:
