@@ -5,29 +5,31 @@ addons:
     token:
       secure: X6PhzIceUN3Wt0S04n2mO7uV0sXJCCElbaPCahwY8Wdwk6UD6pzUZiU8rqG3IF8/PYTWuE8Qv3ckNcRx8OCHq3GEjqaGPl1x0LsXPml+8mYFwrUssRtN1nVZREUQ57H/ZIW4+HdJb/Zo9zwBVjjIZ78cUMp36wH/djRMRiL42UK9CB98pH1ItuJg6THB/p3eHDs5buQ1D1MTFxOIV6dTMJJNYlCyherxqt2GtTJcvtRy5blUgo3DbH1AwDaZ7jcusR2+g5oT6+mhtBaUzAbkWAZyEwE30645PKhO3Z7lIJhBOO1CgLo7E7AKV5EB++pJqaXOyUH9+yZwiI67oBzZgVBupUYWnZTJjR4w6FndBvoRNc+exw2Bif508uFtPVl8DAkB38hOkl3VXZbFPlsaHzNjzhTpu3Tml5ZLN0rIj8DYY0UTlRvl/x5YJP6lhJm1Ex2PR9mqjxngoBy6rL2yFeH+y4q0xG/z6bkYIv2vvjme4ePNE3wkd1HBc1yXMy03F0Vj1lkA9bW2VjKd6KbjsfVbRarh8X2cIznLO1aTpHpKINmKJ7YL0D9ZuWpWpRycNJGDHDl4v8roWn65ObCwCKqpCDLWQopK227fpuaHS8zJUzC4Hbj3mr55RbjZawToufSukNBF+R07TWx9Mqr6lSdCXA6B37buHoDJ/mLE05Q=
     branches:
-    - master
-    - maintenance
-    - Dev
-    - dev
-    - develop
-    - development
+      - master
+      - maintenance
+      - Dev
+      - dev
+      - develop
+      - development
+      - stable
   sonar:
     token:
       secure: lofndyWRcpTowhi0I8vnFuBN1dwjiEdY2gCtKmXXE2t5HLKUShuuGLdheezotv6fDh7fYUCkFU1VRejjmWQBurTCk685brQPvmFI40VS25rDqqz8FdwgS3UNJd/fZkawOqKBvmW3HfDBGr5Sj+wlYa3wEWqVsvuqvCnbj945/js6tI1oIDDymya/WYmfk6/WD0Avizuz4ONWEDLotAqfFLS81GkFFj+ZVs0UOvkaBv8AwDPofvtd7vpbidZ1gLTvaIOrpylsKzfvtj9BH4+9mh/OY+Mc5UaaE8SnN4JBCCTfabUSaG8ttfb4Ex4UPjeu+aARjyJoDzB/DcBintk+nEwgP72vf7Tb7j+ixIoZNn8lVSkjubaGCHGDLzJjUhrtEl4JSgaCnF6Zu1+1nb3gJa5W1IqSt1qPsMiqmkzalOehkm9XOlZI5G1ONM10403VASLMzNf74MROnL2UvRBaL+LpwO06aQ57MrFvtroYODh1zDdZ+lRNusKk3q8GcTI9gKUiUUcYon9wsClcC8kiZ2E3FVGTZtLSxOwNHQZMcC1y4LR8VmEeeKReql7nMa9eprX63sEngiD48oPZqsrIHczpYgWfSEbDiSVbVEQhqWdPEnyog39m6ZRWxvJsFr0BHt71yx3/dgo6uSrmxpMfJ07zgAUCS+HQEjdPFCkt2Ls=
 jdk:
-- oraclejdk11
-- openjdk11
+  - oraclejdk11
+  - openjdk11
 script:
-- ./gradlew build
-- ./gradlew sonarqube
+  - git fetch --unshallow
+  - ./gradlew build
+  - ./gradlew sonarqube
 before_cache:
-- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
-  - "$HOME/.gradle/caches/"
-  - "$HOME/.gradle/wrapper/"
-  - "$HOME/.sonar/cache"
+    - "$HOME/.gradle/caches/"
+    - "$HOME/.gradle/wrapper/"
+    - "$HOME/.sonar/cache"
 env:
   global:
     secure: k3Zms4j93G6WmW7tiYij4v6mIcKnztvCV7P8wlN9+Afqp039gaJG8iqjJMZKpviBwll/MUSrNiOvMHGgfKZFNX7UKDqqNDsOjHxwficCeJAHdVKXtzdrTXLl/BCOB9erhX0g5DQsfrPdEaK8Q6/Ynhqgyye2GGE1Kd94wPjO+uqmvRcfwSnPW7J4YPgaQP5eR7T/zDznDrcNZ/AsN7eCt1eQFkw9v3RV51qFEFkl8GLw26lpS3kPJpAbZvK8GsqT1qkxEprkKvh+2prErVGp+0kpoas9FYQc2dn/aihWD4061YvqZ8DIr390TPokWT9oT++xHStAzFESSBb6K8EHAo5YWjbaEd0Om9qNx8XT6EeeUyDGz2nAeDE509nmwPmC24tuFTOz/hqFbm8Ve0SAnZ61UNDmeiPtOmqd7znMd+lJdoqXA0rlheTA4TCVO/WWOqtYe9rXX51gJJSU6iuombfhN+wx+e+IjO2fm2xkdB+7BjCzIgj++LhFHoRmwgPSNM+wabeJhhZW2yIN2g0NNBSAYVr3j9jk5TmYkd2PlQwck8BZVue2hjCF3CNZxVRMoakYaVrts4Z2oFf9p14VyhvrqaDb7bNUX/vDhKOtUGi3w+V4ivAkTyxb7+RIEDwKdtgxBGwySC0er0as/8O+jlDUdmWRiZmNmyQLwL/qflk=
