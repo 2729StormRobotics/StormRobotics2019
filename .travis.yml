@@ -4,14 +4,6 @@ addons:
     organization: storm-robotics-2729-github
     token:
       secure: X6PhzIceUN3Wt0S04n2mO7uV0sXJCCElbaPCahwY8Wdwk6UD6pzUZiU8rqG3IF8/PYTWuE8Qv3ckNcRx8OCHq3GEjqaGPl1x0LsXPml+8mYFwrUssRtN1nVZREUQ57H/ZIW4+HdJb/Zo9zwBVjjIZ78cUMp36wH/djRMRiL42UK9CB98pH1ItuJg6THB/p3eHDs5buQ1D1MTFxOIV6dTMJJNYlCyherxqt2GtTJcvtRy5blUgo3DbH1AwDaZ7jcusR2+g5oT6+mhtBaUzAbkWAZyEwE30645PKhO3Z7lIJhBOO1CgLo7E7AKV5EB++pJqaXOyUH9+yZwiI67oBzZgVBupUYWnZTJjR4w6FndBvoRNc+exw2Bif508uFtPVl8DAkB38hOkl3VXZbFPlsaHzNjzhTpu3Tml5ZLN0rIj8DYY0UTlRvl/x5YJP6lhJm1Ex2PR9mqjxngoBy6rL2yFeH+y4q0xG/z6bkYIv2vvjme4ePNE3wkd1HBc1yXMy03F0Vj1lkA9bW2VjKd6KbjsfVbRarh8X2cIznLO1aTpHpKINmKJ7YL0D9ZuWpWpRycNJGDHDl4v8roWn65ObCwCKqpCDLWQopK227fpuaHS8zJUzC4Hbj3mr55RbjZawToufSukNBF+R07TWx9Mqr6lSdCXA6B37buHoDJ/mLE05Q=
-    branches:
-      - master
-      - maintenance
-      - Dev
-      - dev
-      - develop
-      - development
-      - stable
   sonar:
     token:
       secure: lofndyWRcpTowhi0I8vnFuBN1dwjiEdY2gCtKmXXE2t5HLKUShuuGLdheezotv6fDh7fYUCkFU1VRejjmWQBurTCk685brQPvmFI40VS25rDqqz8FdwgS3UNJd/fZkawOqKBvmW3HfDBGr5Sj+wlYa3wEWqVsvuqvCnbj945/js6tI1oIDDymya/WYmfk6/WD0Avizuz4ONWEDLotAqfFLS81GkFFj+ZVs0UOvkaBv8AwDPofvtd7vpbidZ1gLTvaIOrpylsKzfvtj9BH4+9mh/OY+Mc5UaaE8SnN4JBCCTfabUSaG8ttfb4Ex4UPjeu+aARjyJoDzB/DcBintk+nEwgP72vf7Tb7j+ixIoZNn8lVSkjubaGCHGDLzJjUhrtEl4JSgaCnF6Zu1+1nb3gJa5W1IqSt1qPsMiqmkzalOehkm9XOlZI5G1ONM10403VASLMzNf74MROnL2UvRBaL+LpwO06aQ57MrFvtroYODh1zDdZ+lRNusKk3q8GcTI9gKUiUUcYon9wsClcC8kiZ2E3FVGTZtLSxOwNHQZMcC1y4LR8VmEeeKReql7nMa9eprX63sEngiD48oPZqsrIHczpYgWfSEbDiSVbVEQhqWdPEnyog39m6ZRWxvJsFr0BHt71yx3/dgo6uSrmxpMfJ07zgAUCS+HQEjdPFCkt2Ls=
