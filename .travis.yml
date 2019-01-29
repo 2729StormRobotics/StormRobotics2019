@@ -23,7 +23,6 @@ cache:
     - "$HOME/.gradle/caches/"
     - "$HOME/.gradle/wrapper/"
     - "$HOME/.sonar/cache"
-    - "$HOME/.sonarscanner/cache"
 env:
   global:
     secure: k3Zms4j93G6WmW7tiYij4v6mIcKnztvCV7P8wlN9+Afqp039gaJG8iqjJMZKpviBwll/MUSrNiOvMHGgfKZFNX7UKDqqNDsOjHxwficCeJAHdVKXtzdrTXLl/BCOB9erhX0g5DQsfrPdEaK8Q6/Ynhqgyye2GGE1Kd94wPjO+uqmvRcfwSnPW7J4YPgaQP5eR7T/zDznDrcNZ/AsN7eCt1eQFkw9v3RV51qFEFkl8GLw26lpS3kPJpAbZvK8GsqT1qkxEprkKvh+2prErVGp+0kpoas9FYQc2dn/aihWD4061YvqZ8DIr390TPokWT9oT++xHStAzFESSBb6K8EHAo5YWjbaEd0Om9qNx8XT6EeeUyDGz2nAeDE509nmwPmC24tuFTOz/hqFbm8Ve0SAnZ61UNDmeiPtOmqd7znMd+lJdoqXA0rlheTA4TCVO/WWOqtYe9rXX51gJJSU6iuombfhN+wx+e+IjO2fm2xkdB+7BjCzIgj++LhFHoRmwgPSNM+wabeJhhZW2yIN2g0NNBSAYVr3j9jk5TmYkd2PlQwck8BZVue2hjCF3CNZxVRMoakYaVrts4Z2oFf9p14VyhvrqaDb7bNUX/vDhKOtUGi3w+V4ivAkTyxb7+RIEDwKdtgxBGwySC0er0as/8O+jlDUdmWRiZmNmyQLwL/qflk=
