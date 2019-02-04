@@ -12,6 +12,8 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
+
+
 import com.revrobotics.CANPIDController;
 
 
@@ -25,7 +27,7 @@ public class DriveTrain extends Subsystem {
     private final CANSparkMax leftMotor;
     private final CANSparkMax rightMotor;
 
-    private final TalonSRX lefTalonSRX;
+    private final TalonSRX leftTalonSRX;
     private final TalonSRX rightTalonSRX;
 
     private final CANEncoder leftEncoder;
@@ -39,7 +41,7 @@ public class DriveTrain extends Subsystem {
         leftMotor = new CANSparkMax(RobotMap.LEFT_MOTOR_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
         rightMotor = new CANSparkMax(RobotMap.RIGHT_MOTOR_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
 
-        lefTalonSRX = new TalonSRX(RobotMap.LEFT_MOTOR_ID);
+        leftTalonSRX = new TalonSRX(RobotMap.LEFT_MOTOR_ID);
         rightTalonSRX = new TalonSRX(RobotMap.RIGHT_MOTOR_ID);
 
         leftEncoder = leftMotor.getEncoder();
@@ -95,6 +97,14 @@ public class DriveTrain extends Subsystem {
 
     public double getRightVelocity() {
         return rightEncoder.getVelocity();
+    }
+
+    public TalonSRX getLeftTalon() {
+        return leftTalonSRX;
+    }
+
+    public TalonSRX getRightTalon() {
+        return rightTalonSRX;
     }
 
 
