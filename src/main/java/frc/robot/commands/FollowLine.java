@@ -25,6 +25,7 @@ public class FollowLine extends Command {
         requires(Robot.lineFollower);
     }
 
+    @Override
     protected void initialize() {
         lineController = new PIDController(0.5, 0.0, 0.0, Robot.lineFollower, motorSpeedWrite);
 
@@ -36,6 +37,7 @@ public class FollowLine extends Command {
         lineController.enable();
     }
 
+    @Override
     protected void execute() {
         double leftSpeed = BASE_SPEED;
         double rightSpeed = BASE_SPEED;
@@ -54,15 +56,18 @@ public class FollowLine extends Command {
      * other command is scheduled it will interrupt this command, then return to
      * this command when the other command completes.
      */
+    @Override
     protected boolean isFinished() {
         return Robot.lineFollower.isFinished();
     }
 
+    @Override
     protected void end() {
         lineController.disable();
         super.end();
     }
 
+    @Override
     protected void interrupted() {
         end();
     }

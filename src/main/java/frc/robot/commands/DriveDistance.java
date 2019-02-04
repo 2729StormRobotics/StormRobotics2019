@@ -22,6 +22,7 @@ public class DriveDistance extends Command {
         this.power = power;
     }
 
+    @Override
     protected void initialize() {
         initialLeftPos = Robot.driveTrain.getLeftPos();
         initialRightPos = Robot.driveTrain.getRightPos();
@@ -32,6 +33,7 @@ public class DriveDistance extends Command {
      * These methods abstract the joystick objects so that if we want to change how we get the speed later we can do so without modifying our commands
      * (for example, if we want the joysticks to be less sensitive, we can multiply them by .5 in the getLeftSpeed method and leave our command the same).
      */
+    @Override
     protected void execute() {
         Robot.driveTrain.tankDrive(power, power);
         currentLeftPos = Robot.driveTrain.getLeftPos();
@@ -42,14 +44,17 @@ public class DriveDistance extends Command {
     /*
      * isFinished - Our isFinished method is called when both wheels reach the target distance.
      */
+    @Override
     protected boolean isFinished() {
         return ((currentLeftPos - initialLeftPos) > distance && (currentRightPos - initialRightPos) < distance);
     }
 
+    @Override
     protected void end() {
         Robot.driveTrain.stopDrive();
     }
 
+    @Override
     protected void interrupted() {
         end();
     }
