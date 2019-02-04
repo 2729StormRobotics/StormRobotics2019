@@ -12,8 +12,8 @@ public class FollowLine extends Command {
 
     private static final double BASE_SPEED = 0.2;
 
-    private PIDOutput motorSpeedWrite = new PIDOutput(){
-    
+    private PIDOutput motorSpeedWrite = new PIDOutput() {
+
         @Override
         public void pidWrite(double output) {
             turnSpeed = output;

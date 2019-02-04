@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ToggleArm extends Command {
 
     public ToggleArm() {
-    	requires(Robot.pneumatics); // airsystem is an instance of our Airsystem subsystem
+        requires(Robot.pneumatics); // airsystem is an instance of our Airsystem subsystem
     }
 
     @Override

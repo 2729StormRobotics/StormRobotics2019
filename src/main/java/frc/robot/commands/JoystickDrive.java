@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class JoystickDrive extends Command {
 
     public JoystickDrive() {
-    	requires(Robot.driveTrain); // driveTrain is an instance of our DriveTrain subsystem
+        requires(Robot.driveTrain); // driveTrain is an instance of our DriveTrain subsystem
     }
 
     @Override
@@ -24,7 +24,7 @@ public class JoystickDrive extends Command {
      */
     @Override
     protected void execute() {
-    	Robot.driveTrain.tankDrive(JoystickMath.getCubic(Robot.oi.getLeftSpeed()), JoystickMath.getCubic(Robot.oi.getRightSpeed()));
+        Robot.driveTrain.tankDrive(JoystickMath.getCubic(Robot.oi.getLeftSpeed()), JoystickMath.getCubic(Robot.oi.getRightSpeed()));
     }
 
     /*
@@ -37,7 +37,7 @@ public class JoystickDrive extends Command {
 
     @Override
     protected void end() {
-        
+
     }
 
     @Override

@@ -17,7 +17,7 @@ trim_trailing_whitespace = true
 # Always end files with a blank line.
 insert_final_newline = true
 
-[{*.json,*.yml}]
+[{*.json, *.yml}]
 # Indent by 2 characters for JSON and YAML files.
 indent_size = 2
 
@@ -25,6 +25,6 @@ indent_size = 2
 # Do not remove whitespace characters at the end of line for markdown.
 trim_trailing_whitespace = false
 
-[{*.bat,*.cmd}]
+[{*.bat, *.cmd}]
 # Enforce Windows style line endings (\r\n) for windows commands.
 end_of_line = crlf

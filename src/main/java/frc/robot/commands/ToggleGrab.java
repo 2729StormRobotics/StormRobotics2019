@@ -10,8 +10,8 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ToggleGrab extends Command {
 
     public ToggleGrab() {
-    	requires(Robot.pneumatics); // airsystem is an instance of our Airsystem subsystem
-    
+        requires(Robot.pneumatics); // airsystem is an instance of our Airsystem subsystem
+
     }
 
     @Override

@@ -10,9 +10,9 @@ import edu.wpi.first.wpilibj.command.Command;
 public class TogglePunch extends Command {
 
     public TogglePunch() {
-    	requires(Robot.pneumatics); // airsystem is an instance of our Airsystem subsystem
+        requires(Robot.pneumatics); // airsystem is an instance of our Airsystem subsystem
     }
-    
+
 
     @Override
     protected void initialize() {

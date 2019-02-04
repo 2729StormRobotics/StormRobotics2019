@@ -8,17 +8,15 @@ import frc.robot.subsystems.*;
 
 
 public abstract class JoystickMath {
-    
+
     private JoystickMath() {
-        
+
     }
 
 
     /**
-     * 
      * @param stickValue input value from controller
-     * @param power value between 0 and infnity, with 0<n<1 being positive acceleration and n>1 being negative acceleration
-     * 
+     * @param power      value between 0 and infnity, with 0<n<1 being positive acceleration and n>1 being negative acceleration
      * @return the corresponding stick value after precision curves are applied
      */
     public static double getPower(double stickValue, double power) {
@@ -29,13 +27,13 @@ public abstract class JoystickMath {
         if (stickValue >= 0) {
             return Math.pow(stickValue, power);
         }
-            return - Math.abs(Math.pow(stickValue, power));
+        return -Math.abs(Math.pow(stickValue, power));
     }
-    
+
     public static double getLinear(double stickValue) {
         return JoystickMath.getPower(stickValue, 1);
     }
-    
+
     public static double getQuadratic(double stickValue) {
         return JoystickMath.getPower(stickValue, 2);
     }

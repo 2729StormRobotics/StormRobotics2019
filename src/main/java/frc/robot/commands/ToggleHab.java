@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ToggleHab extends Command {
 
     public ToggleHab() {
-    	requires(Robot.pneumatics); // pneumatics is an instance of our Pneumatics subsystem
+        requires(Robot.pneumatics); // pneumatics is an instance of our Pneumatics subsystem
     }
 
     @Override

@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class TogglePickupCargo extends Command {
 
     public TogglePickupCargo() {
-    	requires(Robot.pneumatics); // airsystem is an instance of our Airsystem subsystem
+        requires(Robot.pneumatics); // airsystem is an instance of our Airsystem subsystem
     }
 
     @Override

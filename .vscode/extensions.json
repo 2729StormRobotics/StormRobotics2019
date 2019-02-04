@@ -1,34 +1,33 @@
 {
-    // See http://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
-    // Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+  // See http://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
+  // Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
 
-    // List of extensions which should be recommended for users of this workspace.
-    "recommendations": [
-        "davidanson.vscode-markdownlint",
-        "eamodio.gitlens",
-        "EditorConfig.EditorConfig",
-        "gruntfuggly.todo-tree",
-        "ibm.output-colorizer",
-        "ms-devskim.vscode-devskim",
-        "ms-vscode.cpptools",
-        "ms-vscode.github-issues-prs",
-        "ms-vsliveshare.vsliveshare",
-        "naco-siren.gradle-language",
-        "redhat.java",
-        "redhat.vscode-xml",
-        "redhat.vscode-yaml",
-        "sonarsource.sonarlint-vscode",
-        "tyriar.sort-lines",
-        "visualstudioexptteam.vscodeintellicode",
-        "vscjava.vscode-java-debug",
-        "vscjava.vscode-java-pack",
-        "vscjava.vscode-java-test",
-        "vscjava.vscode-maven",
-        "wpilibsuite.vscode-wpilib",
-        "ziyasal.vscode-open-in-github"
-    ],
-    // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
-    "unwantedRecommendations": [
-
-    ]
+  // List of extensions which should be recommended for users of this workspace.
+  "recommendations": [
+    "davidanson.vscode-markdownlint",
+    "eamodio.gitlens",
+    "EditorConfig.EditorConfig",
+    "gruntfuggly.todo-tree",
+    "ibm.output-colorizer",
+    "ms-devskim.vscode-devskim",
+    "ms-vscode.cpptools",
+    "ms-vscode.github-issues-prs",
+    "ms-vsliveshare.vsliveshare",
+    "naco-siren.gradle-language",
+    "redhat.java",
+    "redhat.vscode-xml",
+    "redhat.vscode-yaml",
+    "sonarsource.sonarlint-vscode",
+    "tyriar.sort-lines",
+    "visualstudioexptteam.vscodeintellicode",
+    "vscjava.vscode-java-debug",
+    "vscjava.vscode-java-pack",
+    "vscjava.vscode-java-test",
+    "vscjava.vscode-maven",
+    "wpilibsuite.vscode-wpilib",
+    "ziyasal.vscode-open-in-github"
+  ],
+  // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
+  "unwantedRecommendations": [
+  ]
 }

@@ -20,44 +20,44 @@ import frc.robot.*;
  * floating around.
  */
 public class RobotMap {
-  // For example to map the left and right motors, you could define the
-  // following variables to use with your drivetrain subsystem.
-  // public static int leftMotor = 1;
-  // public static int rightMotor = 2;
-  public final static int LEFT_MOTOR_ID = 0;
-  public final static int RIGHT_MOTOR_ID = 1;
-  public final static int RAMP_RATE = 0;
+    // For example to map the left and right motors, you could define the
+    // following variables to use with your drivetrain subsystem.
+    // public static int leftMotor = 1;
+    // public static int rightMotor = 2;
+    public final static int LEFT_MOTOR_ID = 0;
+    public final static int RIGHT_MOTOR_ID = 1;
+    public final static int RAMP_RATE = 0;
 
-  public final static double PROPORTION = 0;
-  public final static double INTEGRAL = 0;
-  public final static double DIFFERENTIAL = 0;
+    public final static double PROPORTION = 0;
+    public final static double INTEGRAL = 0;
+    public final static double DIFFERENTIAL = 0;
 
-  public final static int STALL_LIMIT = 255;
-  public final static int FREE_LIMIT = 255;
-  public final static int RPM_LIMIT = 5700;
+    public final static int STALL_LIMIT = 255;
+    public final static int FREE_LIMIT = 255;
+    public final static int RPM_LIMIT = 5700;
 
-  public final static int SOL_PICKUP_PORT = 0;
-  public final static int SOL_PUNCH_PORT = 1;
-  public final static int SOL_HAB_PORT = 2;
-  public final static int SOL_ARM_PORT = 3;
+    public final static int SOL_PICKUP_PORT = 0;
+    public final static int SOL_PUNCH_PORT = 1;
+    public final static int SOL_HAB_PORT = 2;
+    public final static int SOL_ARM_PORT = 3;
 
-  public final static int SOL_CARGOPICK_PORT = 0;
-  public final static int SOL_SHOOT_PORT = 1;
+    public final static int SOL_CARGOPICK_PORT = 0;
+    public final static int SOL_SHOOT_PORT = 1;
 
-  public final static int PHO_RIGHT_PORT = 0;
-  public final static int PHO_MIDDLE_PORT = 0;
-  public final static int PHO_LEFT_PORT = 0;
+    public final static int PHO_RIGHT_PORT = 0;
+    public final static int PHO_MIDDLE_PORT = 0;
+    public final static int PHO_LEFT_PORT = 0;
 
-  public final static double CONTROLLER_DEADZONE = 0.05;
-  
-  public final static double LIGHT_THRESHOLD = 3000;
+    public final static double CONTROLLER_DEADZONE = 0.05;
 
-  public final static int INFRA_PORT = 0;
-  public final static double DISTANCE_FROM_LINE = 5;
+    public final static double LIGHT_THRESHOLD = 3000;
+
+    public final static int INFRA_PORT = 0;
+    public final static double DISTANCE_FROM_LINE = 5;
 
 
-  // If you are using multiple modules, make sure to define both the port
-  // number and the module. For example you with a rangefinder:
-  // public static int rangefinderPort = 1;
-  // public static int rangefinderModule = 1;
+    // If you are using multiple modules, make sure to define both the port
+    // number and the module. For example you with a rangefinder:
+    // public static int rangefinderPort = 1;
+    // public static int rangefinderModule = 1;
 }
