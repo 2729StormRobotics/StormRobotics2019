@@ -45,7 +45,7 @@ repositories {
 }
 
 // Defining my dependencies. In this case, WPILib (+ friends), and vendor libraries.
-// Also defines JUnit 4.
+// Also defines JUnit 4 and Google's ErrorProne.
 dependencies {
     compile wpi.deps.wpilib()
     compile wpi.deps.vendor.java()
@@ -53,6 +53,10 @@ dependencies {
     nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
     testCompile 'junit:junit:4.12'
     errorprone("com.google.errorprone:error_prone_core:2.3.2")
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs << "-Xlint:all"
 }
 
 // Setting up my Jar File. In this case, adding all libraries into the main jar ('fat jar')
