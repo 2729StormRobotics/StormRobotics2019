@@ -54,9 +54,18 @@ public class PointTurn extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-      if (angle < 0) {
+    try{
+        initAngle = NavX.getNavx().getYaw();
+    } catch (NullPointerException npe){
+        initAngle = 0;
+        npe.printStackTrace();
+    }
+    try {
+        gyroAngle = NavX.getNavx().getYaw();
+    } catch(NullPointerException npe) {
+        gyroAngle = 0;
+    }
 
-      }
   }
 
   // Called repeatedly when this Command is scheduled to run
