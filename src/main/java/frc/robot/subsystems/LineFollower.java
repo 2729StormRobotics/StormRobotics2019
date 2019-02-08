@@ -18,7 +18,7 @@ public class LineFollower extends Subsystem implements PIDSource {
     public LineFollower() {
 
         lineLeft = new AnalogInput(RobotMap.PHO_LEFT_PORT);
-        lineMiddle = new AnalogInput(RobotMap.PHO_MIDDLE_PORT); // Solenoid port
+        lineMiddle = new AnalogInput(RobotMap.PHO_MIDDLE_PORT); // Photoelectric sensor port
         lineRight = new AnalogInput(RobotMap.PHO_RIGHT_PORT);
         infrared = new AnalogInput(RobotMap.INFRA_PORT);
         noLine = false;

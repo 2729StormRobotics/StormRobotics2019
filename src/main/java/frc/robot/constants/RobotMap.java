@@ -45,8 +45,8 @@ public class RobotMap {
     public final static int SOL_SHOOT_PORT = 1;
 
     public final static int PHO_RIGHT_PORT = 0;
-    public final static int PHO_MIDDLE_PORT = 0;
-    public final static int PHO_LEFT_PORT = 0;
+    public final static int PHO_MIDDLE_PORT = 1;
+    public final static int PHO_LEFT_PORT = 2;
 
     public final static double CONTROLLER_DEADZONE = 0.05;
 
