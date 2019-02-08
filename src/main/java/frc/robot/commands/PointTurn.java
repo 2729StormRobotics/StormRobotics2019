@@ -13,6 +13,10 @@ import frc.robot.subsystems.*;
 import frc.robot.util.*;
 import frc.robot.*;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.PIDController;
+import edu.wpi.first.wpilibj.PIDSource;
+import edu.wpi.first.wpilibj.PIDSourceType;
+import edu.wpi.first.wpilibj.PIDOutput;
 
 public class PointTurn extends Command {
 
@@ -25,6 +29,27 @@ public class PointTurn extends Command {
     requires(Robot.driveTrain);
     this.angle = angle;
   }
+
+    private final PIDSource angleSource = new PIDSource() {
+
+        @Override
+        public void setPIDSourceType(PIDSourceType pidSource) {
+
+        }
+
+        @Override
+        public PIDSourceType getPIDSourceType() {
+            return PIDSourceType.kDisplacement;
+        }
+
+        @Override
+        public double pidGet() {
+            return 0;
+	}
+
+
+
+  };
 
   // Called just before this Command runs the first time
   @Override
@@ -47,7 +72,7 @@ public class PointTurn extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return angleChanged() >= angle;
   }
 
   // Called once after isFinished returns true
@@ -60,4 +85,10 @@ public class PointTurn extends Command {
   @Override
   protected void interrupted() {
   }
+
+  private double angleChanged() {
+    int direction = (angle >= 0 ? 1 : -1);
+    return (direction * (gyroAngle - initAngle) > 0 ? 360 : 0) + direction * (initAngle - gyroAngle);
+  }
+
 }
