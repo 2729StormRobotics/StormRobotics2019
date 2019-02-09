@@ -25,7 +25,7 @@ public class RobotMap {
     // public static int leftMotor = 1;
     // public static int rightMotor = 2;
     public final static int LEFT_MOTOR_ID = 0;
-    public final static int RIGHT_MOTOR_ID = 1;
+    public final static int RIGHT_MOTOR_ID = 15;
     public final static int RAMP_RATE = 0;
 
     public final static double PROPORTION = 0;
@@ -44,15 +44,15 @@ public class RobotMap {
     public final static int SOL_CARGOPICK_PORT = 6;
     public final static int SOL_SHOOT_PORT = 7;
 
-    public final static int PHO_RIGHT_PORT = 8;
-    public final static int PHO_MIDDLE_PORT = 9;
-    public final static int PHO_LEFT_PORT = 10;
+    public final static int PHO_RIGHT_PORT = 1;
+    public final static int PHO_MIDDLE_PORT = 2;
+    public final static int PHO_LEFT_PORT = 3;
 
     public final static double CONTROLLER_DEADZONE = 0.05;
 
     public final static double LIGHT_THRESHOLD = 3000;
 
-    public final static int INFRA_PORT = 11;
+    public final static int INFRA_PORT = 4;
     public final static double DISTANCE_FROM_LINE = 5;
 
     public final static int TICKS_PER_REVOLUTION = 4096;

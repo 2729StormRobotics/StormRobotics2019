@@ -31,7 +31,7 @@ public class Dashboard {
     }
 
 
-    private void updateCANSparkMax(CANSparkMax sparkMax) {
+    public static void updateCANSparkMax(CANSparkMax sparkMax) {
 
         final String addressString = "StormDashboard/CANSparkMax/";
 
@@ -52,32 +52,30 @@ public class Dashboard {
     }
 
 
-    /** When navX implemenation is complete
-
-     private void updateNavX(NavX navX) {
+     public static void updateNavX() {
      if (NavX.getNavx() != null) {
 
      final String addressString = "StormDashboard/NavX/";
 
-     SmartDashboard.putBoolean(addressString + "Connected", navX.getNavx().isConnected());
-     SmartDashboard.putNumber(addressString + "Gyro/Pitch", navX.getNavx().getPitch());
-     SmartDashboard.putNumber(addressString + "Gyro/Roll", navX.getNavx().getRoll());
-     SmartDashboard.putNumber(addressString + "Gyro/Yaw", navX.getNavx().getYaw());
-     SmartDashboard.putNumber(addressString + "Altitude", navX.getNavx().getAltitude());
-     SmartDashboard.putNumber(addressString + "Displacement/X", navX.getNavx().getDisplacementX());
-     SmartDashboard.putNumber(addressString + "Displacement/Y", navX.getNavx().getDisplacementY());
-     SmartDashboard.putNumber(addressString + "Displacement/Z", navX.getNavx().getDisplacementZ());
-     SmartDashboard.putNumber(addressString + "CompassHeading", navX.getNavx().getCompassHeading());
-     SmartDashboard.putNumber(addressString + "Velocity/X", navX.getNavx().getVelocityX());
-     SmartDashboard.putNumber(addressString + "Velocity/Y", navX.getNavx().getVelocityY());
-     SmartDashboard.putNumber(addressString + "Velocity/Z", navX.getNavx().getVelocityZ());
-     SmartDashboard.putNumber(addressString + "BarometricPressure", navX.getNavx().getBarometricPressure());
-     SmartDashboard.putNumber(addressString + "Quaternion/W", navX.getNavx().getQuaternionW());
-     SmartDashboard.putNumber(addressString + "Quaternion/X", navX.getNavx().getQuaternionX());
-     SmartDashboard.putNumber(addressString + "Quaternion/Y", navX.getNavx().getQuaternionY());
-     SmartDashboard.putNumber(addressString + "Quaternion/Z", navX.getNavx().getQuaternionZ());
+     SmartDashboard.putBoolean(addressString + "Connected", NavX.getNavx().isConnected());
+     SmartDashboard.putNumber(addressString + "Gyro/Pitch", NavX.getNavx().getPitch());
+     SmartDashboard.putNumber(addressString + "Gyro/Roll", NavX.getNavx().getRoll());
+     SmartDashboard.putNumber(addressString + "Gyro/Yaw", NavX.getNavx().getYaw());
+     SmartDashboard.putNumber(addressString + "Altitude", NavX.getNavx().getAltitude());
+     SmartDashboard.putNumber(addressString + "Displacement/X", NavX.getNavx().getDisplacementX());
+     SmartDashboard.putNumber(addressString + "Displacement/Y", NavX.getNavx().getDisplacementY());
+     SmartDashboard.putNumber(addressString + "Displacement/Z", NavX.getNavx().getDisplacementZ());
+     SmartDashboard.putNumber(addressString + "CompassHeading", NavX.getNavx().getCompassHeading());
+     SmartDashboard.putNumber(addressString + "Velocity/X", NavX.getNavx().getVelocityX());
+     SmartDashboard.putNumber(addressString + "Velocity/Y", NavX.getNavx().getVelocityY());
+     SmartDashboard.putNumber(addressString + "Velocity/Z", NavX.getNavx().getVelocityZ());
+     SmartDashboard.putNumber(addressString + "BarometricPressure", NavX.getNavx().getBarometricPressure());
+     SmartDashboard.putNumber(addressString + "Quaternion/W", NavX.getNavx().getQuaternionW());
+     SmartDashboard.putNumber(addressString + "Quaternion/X", NavX.getNavx().getQuaternionX());
+     SmartDashboard.putNumber(addressString + "Quaternion/Y", NavX.getNavx().getQuaternionY());
+     SmartDashboard.putNumber(addressString + "Quaternion/Z", NavX.getNavx().getQuaternionZ());
      }
      }
-     */
+
 
 }

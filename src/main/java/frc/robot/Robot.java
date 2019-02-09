@@ -56,7 +56,6 @@ public class Robot extends TimedRobot {
         lineFollower = new LineFollower();
         navX = new NavX();
         oi = new OI();
-        System.out.println("robotInit() has finished!!");
 
     }
 
@@ -70,6 +69,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotPeriodic() {
+        Dashboard.updateNavX();
     }
 
     /**
