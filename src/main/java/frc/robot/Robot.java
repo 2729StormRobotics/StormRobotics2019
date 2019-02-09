@@ -38,8 +38,6 @@ public class Robot extends TimedRobot {
     public static LineFollower lineFollower;
     public static NavX navX;
 
-    public static Command scoreAll;
-
 
     /**
      * This function is run when the robot is first started up and should be
@@ -56,7 +54,6 @@ public class Robot extends TimedRobot {
         lineFollower = new LineFollower();
         navX = new NavX();
         oi = new OI();
-
     }
 
     /**
@@ -70,6 +67,7 @@ public class Robot extends TimedRobot {
     @Override
     public void robotPeriodic() {
         Dashboard.updateNavX();
+        Dashboard.updateLineFollower();
     }
 
     /**
@@ -112,7 +110,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopInit() {
-
+        lineFollower.enable();
     }
 
     /**
@@ -120,7 +118,8 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
-        Scheduler.getInstance().run();
+        //Scheduler.getInstance().run();
+        //log();
     }
 
     /**

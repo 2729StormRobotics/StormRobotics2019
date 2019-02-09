@@ -30,6 +30,13 @@ public class Dashboard {
 
     }
 
+    public static void updateLineFollower() {
+
+        final String addressString = "StormDashboard/LineFollowers/";
+        SmartDashboard.putString(addressString, Robot.lineFollower.getState());
+
+    }
+
 
     public static void updateCANSparkMax(CANSparkMax sparkMax) {
 

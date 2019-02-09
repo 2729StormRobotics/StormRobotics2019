@@ -13,7 +13,7 @@ public class CheckLine extends CommandGroup {
 
     public CheckLine() {
         if (!Robot.lineFollower.getState().equals("000")) {
-            addSequential(new FollowLine());
+            // addSequential(new FollowLine());
         }
     }
 

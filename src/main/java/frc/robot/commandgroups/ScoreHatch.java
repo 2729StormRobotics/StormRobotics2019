@@ -13,7 +13,7 @@ public class ScoreHatch extends CommandGroup {
     public ScoreHatch() {
         addSequential(new DriveDistance(100.0, 1.0));
         addParallel(new ToggleArm());
-        addSequential(new FollowLine());
+        // addSequential(new LineFollower());
         addSequential(new TogglePunch());
         addSequential(new DriveDistance(-100.0, 1.0));
         addSequential(new TogglePunch());
