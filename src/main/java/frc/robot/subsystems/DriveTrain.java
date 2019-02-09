@@ -107,19 +107,19 @@ public class DriveTrain extends Subsystem {
     }
 
     public double getLeftPos() {
-        return leftEncoder.getPosition();
+        return leftTalonSRX.getSelectedSensorPosition();
     }
 
     public double getRightPos() {
-        return rightEncoder.getPosition();
+        return  leftTalonSRX.getSelectedSensorPosition();
     }
 
     public double getLeftVelocity() {
-        return leftEncoder.getVelocity();
+        return  leftTalonSRX.getSelectedSensorVelocity();
     }
 
     public double getRightVelocity() {
-        return rightEncoder.getVelocity();
+        return  leftTalonSRX.getSelectedSensorVelocity();
     }
 
     public TalonSRX getLeftTalon() {
