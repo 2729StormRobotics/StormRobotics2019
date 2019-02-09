@@ -26,6 +26,12 @@ public class RobotMap {
     // public static int rightMotor = 2;
     public final static int LEFT_MOTOR_ID = 0;
     public final static int RIGHT_MOTOR_ID = 1;
+    public final static int LEFT_MOTOR2_ID = 0;
+    public final static int RIGHT_MOTOR2_ID = 3;
+
+    public final static int LEFT_TALON_ID = 1;
+    public final static int RIGHT_TALON_ID = 0;
+
     public final static int RAMP_RATE = 0;
 
     public final static double PROPORTION = 0;
