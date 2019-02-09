@@ -50,12 +50,13 @@ public class Robot extends TimedRobot {
 
         //m_chooser.setDefaultOption("DriveTrain", new DriveTrain());
         // chooser.addOption("My Auto", new MyAutoCommand());
-        oi = new OI();
+        System.out.println("robotInit() has been called!");
         driveTrain = new DriveTrain();
         pneumatics = new Pneumatics();
         lineFollower = new LineFollower();
         navX = new NavX();
-
+        oi = new OI();
+        System.out.println("robotInit() has finished!!");
 
     }
 
