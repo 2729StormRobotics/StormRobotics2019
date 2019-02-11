@@ -23,7 +23,7 @@ public class PointTurn extends Command {
     private double angle; //delta angle
     private double initAngle;
     private double gyroAngle;
-
+    private double turnSpeed;
 
   public PointTurn(double angle) {
     requires(Robot.driveTrain);
@@ -44,8 +44,18 @@ public class PointTurn extends Command {
 
         @Override
         public double pidGet() {
-            return 0;
-	}
+            try {
+                return NavX.getNavx().getYaw();
+            } catch (NullPointerException npe) {
+                return angle + initAngle;
+            }
+    }
+
+    private final PIDOutput setTurnSpeed = new PIDOutput() {
+        public void pidWrite(double speed) {
+            turnSpeed = speed;
+        }
+    };
 
 
 
@@ -81,7 +91,7 @@ public class PointTurn extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return angleChanged() >= angle;
+    return angleChanged() >= Math.abs(angle);
   }
 
   // Called once after isFinished returns true
@@ -97,7 +107,7 @@ public class PointTurn extends Command {
 
   private double angleChanged() {
     int direction = (angle >= 0 ? 1 : -1);
-    return (direction * (gyroAngle - initAngle) > 0 ? 360 : 0) + direction * (initAngle - gyroAngle);
+    return (direction * (gyroAngle - initAngle) < 0 ? 360 : 0) + direction * (gyroAngle - initAngle);
   }
 
 }
