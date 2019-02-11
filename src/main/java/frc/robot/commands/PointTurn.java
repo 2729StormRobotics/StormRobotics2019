@@ -22,8 +22,9 @@ public class PointTurn extends Command {
 
     private double angle; //delta angle
     private double initAngle;
-    private double gyroAngle;
     private double turnSpeed;
+    private double setpoint;
+    private PIDController turnController;
 
   public PointTurn(double angle) {
     requires(Robot.driveTrain);
@@ -47,51 +48,63 @@ public class PointTurn extends Command {
             try {
                 return NavX.getNavx().getYaw();
             } catch (NullPointerException npe) {
-                return angle + initAngle;
+                return restrictAngleRange(angle + initAngle);
             }
-    }
+        }
+    };
 
-    private final PIDOutput setTurnSpeed = new PIDOutput() {
+
+    private final PIDOutput turnSpeedSetter = new PIDOutput() {
         public void pidWrite(double speed) {
             turnSpeed = speed;
         }
     };
 
 
-
-  };
-
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+
+        turnController = new PIDController(
+            PIDMap.POINT_TURN_P,
+            PIDMap.POINT_TURN_I,
+            PIDMap.POINT_TURN_D,
+            angleSource,
+            turnSpeedSetter,
+            PIDMap.POINT_TURN_PERIOD
+        );
+        turnController.setInputRange(0, 360);
+        turnController.setOutputRange(-.80, .80);
+        turnController.setAbsoluteTolerance(PIDMap.POINT_TURN_TOLERANCE);
+        turnController.setContinuous(true);
+
     try{
         initAngle = NavX.getNavx().getYaw();
     } catch (NullPointerException npe){
         initAngle = 0;
         npe.printStackTrace();
     }
-    try {
-        gyroAngle = NavX.getNavx().getYaw();
-    } catch(NullPointerException npe) {
-        gyroAngle = 0;
-    }
+
+    setpoint = restrictAngleRange(initAngle + angle);
+    turnController.setSetpoint(setpoint);
+
+    turnController.enable();
 
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    try {
-        gyroAngle = NavX.getNavx().getYaw();
-    } catch(NullPointerException npe) {
-        gyroAngle = 0;
-    }
+
+    Robot.driveTrain.tankDrive(-turnSpeed, turnSpeed);
+
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return angleChanged() >= Math.abs(angle);
+    //return angleChanged() >= Math.abs(angle);
+    return false;
   }
 
   // Called once after isFinished returns true
@@ -105,9 +118,16 @@ public class PointTurn extends Command {
   protected void interrupted() {
   }
 
+/*
   private double angleChanged() {
     int direction = (angle >= 0 ? 1 : -1);
     return (direction * (gyroAngle - initAngle) < 0 ? 360 : 0) + direction * (gyroAngle - initAngle);
   }
+*/
+
+  private double restrictAngleRange(double theta) {
+    return (theta < 0 ? 360 + (theta % 360) : theta % 360);
+  }
+
 
 }
