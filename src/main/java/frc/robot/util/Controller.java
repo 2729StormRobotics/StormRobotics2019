@@ -18,8 +18,6 @@ public class Controller extends XboxController {
     private Button yBtn;
     private Button lbBtn;
     private Button rbBtn;
-    private Button ltBtn;
-    private Button rtBtn;
 
     public Controller(int port) {
         super(port);
@@ -30,8 +28,6 @@ public class Controller extends XboxController {
         yBtn = new JoystickButton(this, ControllerMap.Y_BUTTON_PORT);
         lbBtn = new JoystickButton(this, ControllerMap.LB_PORT);
         rbBtn = new JoystickButton(this, ControllerMap.RB_PORT);
-        ltBtn = new JoystickButton(this, ControllerMap.LT_PORT);
-        rtBtn = new JoystickButton(this, ControllerMap.RT_PORT);
     }
 
     public Button getABtn() {
@@ -57,14 +53,5 @@ public class Controller extends XboxController {
     public Button getRB() {
         return rbBtn;
     }
-
-    public Button getLT() {
-        return ltBtn;
-    }
-
-    public Button getRT() {
-        return rtBtn;
-    }
-
 
 }
