@@ -80,30 +80,26 @@ public class DriveTrain extends Subsystem {
         leftMotor2.setSmartCurrentLimit(RobotMap.STALL_LIMIT, RobotMap.FREE_LIMIT, RobotMap.RPM_LIMIT);
         rightMotor2.setSmartCurrentLimit(RobotMap.STALL_LIMIT, RobotMap.FREE_LIMIT, RobotMap.RPM_LIMIT);
 
+        leftMotor2.follow(leftMotor);
+        rightMotor2.follow(rightMotor);
+
 
     }
 
     public void tankDrive(double leftSpeed, double rightSpeed) {
         //may need to adjust speed values
         leftMotor.set(-leftSpeed);
-        leftMotor2.set(-leftSpeed);
-        rightMotor.set(rightSpeed);
         rightMotor.set(rightSpeed);
     }
 
     public void stopDrive() {
         leftMotor.set(0);
-        leftMotor2.set(0);
         rightMotor.set(0);
-        rightMotor2.set(0);
-
     }
 
     public void disableDrive() {
         leftMotor.disable();
         rightMotor.disable();
-        leftMotor2.disable();
-        rightMotor2.disable();
     }
 
     public double getLeftPos() {
