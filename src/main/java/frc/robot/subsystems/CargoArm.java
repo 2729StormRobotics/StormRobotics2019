@@ -39,10 +39,12 @@ public class CargoArm extends PIDSubsystem {
         // setDefaultCommand();
     }
 
+    @Override
     protected double returnPIDInput() {
         return _talon.get(); // returns the sensor value that is providing the feedback for the system
     }
 
+    @Override
     protected void usePIDOutput(double output) {
         leftMotor.pidWrite(-output); // this is where the computed output value fromthe PIDController is applied to the motor
         rightMotor.pidWrite(output);
