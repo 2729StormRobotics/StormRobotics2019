@@ -64,6 +64,9 @@ public class RobotMap {
     public final static int TICKS_PER_REVOLUTION = 4096;
     public final static double WHEEL_DIAMETER = 0.15 * 3.279;   //meters
     public final static double MAX_VELOCITY = 20;   //meters/sec
+
+    public static final double BASE_SPEED = 0.2;
+
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
     // public static int rangefinderPort = 1;

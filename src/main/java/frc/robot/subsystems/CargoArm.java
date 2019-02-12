@@ -19,7 +19,7 @@ public class CargoArm extends PIDSubsystem {
 
     public CargoArm() {
 
-        super("CargoArm", 2.0, 0.0, 0.0);// The constructor passes a name for the subsystem and the P, I and D constants that are useed when computing the motor output
+        super("CargoArm", 1.0, 0.0, 0.0);// The constructor passes a name for the subsystem and the P, I and D constants that are useed when computing the motor output
         getPIDController().setContinuous(false); //manipulating the raw internal PID Controller
         setInputRange(0, 4096);
         setOutputRange(-1, 1);

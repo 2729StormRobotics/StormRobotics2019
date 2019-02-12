@@ -4,21 +4,9 @@ import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.subsystems.LineFollower;
 
 public class FollowLine extends Command {
-
-    private PIDController lineController;
-    private double turnSpeed;
-
-    private static final double BASE_SPEED = 0.2;
-
-    private PIDOutput motorSpeedWrite = new PIDOutput() {
-
-        @Override
-        public void pidWrite(double output) {
-            turnSpeed = output;
-        }
-    };
 
     public FollowLine() {
         requires(Robot.driveTrain);
@@ -27,25 +15,18 @@ public class FollowLine extends Command {
 
     @Override
     protected void initialize() {
-        lineController = new PIDController(0.5, 0.0, 0.0, Robot.lineFollower, motorSpeedWrite);
 
-        lineController.setInputRange(-1.0, 1.0);
-        lineController.setOutputRange(-0.2, 0.2);
-        lineController.setAbsoluteTolerance(0.25);
-        lineController.setContinuous(false);
+        Robot.lineFollower.setSetpoint(0);
+        Robot.lineFollower.setInputRange(-1.0, 1.0);
+        Robot.lineFollower.setOutputRange(-0.2, 0.2);
+        Robot.lineFollower.setAbsoluteTolerance(0.25);
+        Robot.lineFollower.getPIDController().setContinuous(false);
 
-        lineController.enable();
+        Robot.lineFollower.enable();
     }
 
     @Override
     protected void execute() {
-        double leftSpeed = BASE_SPEED;
-        double rightSpeed = BASE_SPEED;
-
-        leftSpeed += turnSpeed;
-        rightSpeed -= turnSpeed;
-
-        Robot.driveTrain.tankDrive(leftSpeed, rightSpeed);
     }
 
     /*
@@ -63,7 +44,7 @@ public class FollowLine extends Command {
 
     @Override
     protected void end() {
-        lineController.disable();
+        Robot.lineFollower.disable();
         super.end();
     }
 

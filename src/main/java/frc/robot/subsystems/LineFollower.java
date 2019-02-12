@@ -3,11 +3,11 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.PIDSourceType;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import frc.robot.Robot;
 import frc.robot.constants.RobotMap;
 
-public class LineFollower extends Subsystem implements PIDSource {
+public class LineFollower extends PIDSubsystem{
     // private AxisCamera camera; //defines Axis Camera
     private AnalogInput lineRight;
     private AnalogInput lineLeft;
@@ -16,6 +16,8 @@ public class LineFollower extends Subsystem implements PIDSource {
     private boolean noLine;
 
     public LineFollower() {
+
+        super("CargoArm", 1.0, 0.0, 0.0);// The constructor passes a name for the subsystem and the P, I and D constants that are useed when computing the motor output
 
         lineLeft = new AnalogInput(RobotMap.PHO_LEFT_PORT);
         lineMiddle = new AnalogInput(RobotMap.PHO_MIDDLE_PORT); // Photoelectric sensor port
@@ -76,23 +78,18 @@ public class LineFollower extends Subsystem implements PIDSource {
     }
 
     @Override
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        // setDefaultCommand();
+    protected void usePIDOutput(double output) {
+        double leftSpeed = RobotMap.BASE_SPEED;
+        double rightSpeed = RobotMap.BASE_SPEED;
+
+        leftSpeed += output;
+        rightSpeed -= output;
+
+        Robot.driveTrain.tankDrive(leftSpeed, rightSpeed);
     }
 
     @Override
-    public void setPIDSourceType(PIDSourceType pidSource) {
-
-    }
-
-    @Override
-    public PIDSourceType getPIDSourceType() {
-        return PIDSourceType.kDisplacement;
-    }
-
-    @Override
-    public double pidGet() {
+    protected double returnPIDInput() {
         noLine = false;
         switch (getState()) {
             case ("000"):
@@ -118,5 +115,11 @@ public class LineFollower extends Subsystem implements PIDSource {
                 return 0.0;
         }
         return 0.0;
+    }
+
+    @Override
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        // setDefaultCommand();
     }
 }

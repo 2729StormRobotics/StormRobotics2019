@@ -36,6 +36,7 @@ public class Robot extends TimedRobot {
     public static DriveTrain driveTrain;
     public static Pneumatics pneumatics;
     public static LineFollower lineFollower;
+    public static CargoArm cargoArm;
     public static NavX navX;
 
     public static Command scoreAll;
@@ -56,6 +57,7 @@ public class Robot extends TimedRobot {
         lineFollower = new LineFollower();
         navX = new NavX();
         oi = new OI();
+        cargoArm = new CargoArm();
         System.out.println("robotInit() has finished!!");
 
     }
