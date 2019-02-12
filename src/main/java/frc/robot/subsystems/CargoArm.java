@@ -11,12 +11,15 @@ import frc.robot.Robot;
 import frc.robot.constants.PIDMap;
 import frc.robot.constants.RobotMap;
 import frc.robot.util.TalonAbsolute;
+import frc.robot.util.TalonRelative;
 
 public class CargoArm extends PIDSubsystem {
     // private AxisCamera camera; //defines Axis Camera
     private CANSparkMax leftMotor;
     private CANSparkMax rightMotor;
     private TalonAbsolute _talon;
+
+    private TalonRelative intakeMotor;
 
     public CargoArm() {
 
@@ -26,8 +29,8 @@ public class CargoArm extends PIDSubsystem {
         setOutputRange(-1, 1);
         setPercentTolerance(0.05);
 
-        leftMotor = new CANSparkMax(1, MotorType.kBrushless);
-        rightMotor = new CANSparkMax(1, MotorType.kBrushless);
+        leftMotor = new CANSparkMax(RobotMap.FRONT_ARM_ID, MotorType.kBrushless);
+        rightMotor = new CANSparkMax(RobotMap.BACK_ARM_ID, MotorType.kBrushless);
 
         _talon = new TalonAbsolute(1);
 
