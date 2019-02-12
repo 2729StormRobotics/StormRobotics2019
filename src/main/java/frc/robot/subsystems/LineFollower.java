@@ -31,21 +31,27 @@ public class LineFollower extends Subsystem implements PIDSource {
             case ("000"):
                 // finish command;
                 Robot.driveTrain.stopDrive();
+                break;
             case ("100"):
                 // drive left;
                 Robot.driveTrain.tankDrive(0.5, 1);
+                break;
             case ("010"):
                 // drive forward;
                 Robot.driveTrain.tankDrive(1, 1);
+                break;
             case ("001"):
                 // drive right;
                 Robot.driveTrain.tankDrive(1, 0.5);
+                break;
             case ("110"):
                 // drive left slowly;
                 Robot.driveTrain.tankDrive(0.75, 1);
+                break;
             case ("011"):
                 // drive right slowly;
                 Robot.driveTrain.tankDrive(1, 0.75);
+                break;
             case ("111"):
                 // error, shouldnt be possible
 

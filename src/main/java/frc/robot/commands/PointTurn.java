@@ -55,6 +55,7 @@ public class PointTurn extends Command {
 
 
     private final PIDOutput turnSpeedSetter = new PIDOutput() {
+        @Override
         public void pidWrite(double speed) {
             turnSpeed = speed;
         }

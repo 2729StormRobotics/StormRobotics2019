@@ -55,7 +55,9 @@ public class OI {
         weapons.getABtn().whenPressed(new ToggleGrab());
         weapons.getBBtn().whenPressed(new TogglePunch());
         weapons.getXBtn().whenPressed(new ToggleArm());
-        weapons.getYBtn().whenPressed(new ToggleHab());
+
+        if (driver.getStartButton() && driver.getBackButton())
+            driver.getStart().whenPressed(new ToggleHab());
 
         //weapons.getLB().whenPressed(new TogglePickupCargo());
         //weapons.getRB().whenPressed(new ToggleShoot());
