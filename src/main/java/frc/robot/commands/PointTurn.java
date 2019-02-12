@@ -104,18 +104,22 @@ public class PointTurn extends Command {
   @Override
   protected boolean isFinished() {
     //return angleChanged() >= Math.abs(angle);
-    return false;
+    return turnController.onTarget();
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
+      turnController.disable();
+      Robot.driveTrain.tankDrive(0, 0);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+      turnController.disable();
+      Robot.driveTrain.tankDrive(0, 0);
   }
 
 /*
