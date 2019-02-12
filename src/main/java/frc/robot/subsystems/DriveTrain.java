@@ -30,12 +30,15 @@ public class DriveTrain extends Subsystem {
     private final CANSparkMax rightMotor;
     private final CANSparkMax rightMotor2;
 
+    private final TalonRelative leftTalon;
+    private final TalonRelative rightTalon;
+
 
 
     public DriveTrain() {
 
-        // super("DriveTrain", 2.0, 0.0, 0.0);// The constructor passes a name for the subsystem and the P, I and D constants that are useed when computing the motor output
-        // getPIDController().setContinuous(false); //manipulating the raw internal PID Controller
+        // super("DriveTrain", 2.0, 0.0, 0.0) The constructor passes a name for the subsystem and the P, I and D constants that are useed when computing the motor output
+        // getPIDController().setContinuous(false); manipulating the raw internal PID Controller
         // setInputRange(0, 4096);
         // setOutputRange(-1, 1);
         // setPercentTolerance(0.05);
@@ -44,6 +47,9 @@ public class DriveTrain extends Subsystem {
         leftMotor2 = new CANSparkMax(RobotMap.LEFT_MOTOR2_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
         rightMotor = new CANSparkMax(RobotMap.RIGHT_MOTOR_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
         rightMotor2 = new CANSparkMax(RobotMap.RIGHT_MOTOR2_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
+
+        leftTalon = new TalonRelative(RobotMap.LEFT_TALON_ID);
+        rightTalon = new TalonRelative(RobotMap.RIGHT_TALON_ID);
 
         leftMotor.setRampRate(RobotMap.RAMP_RATE);
         rightMotor.setRampRate(RobotMap.RAMP_RATE);
@@ -76,6 +82,14 @@ public class DriveTrain extends Subsystem {
     public void disableDrive() {
         leftMotor.disable();
         rightMotor.disable();
+    }
+
+    public TalonRelative getLeftTalon() {
+        return leftTalon;
+    }
+
+    public TalonRelative getRightTalon() {
+        return rightTalon;
     }
 
     @Override

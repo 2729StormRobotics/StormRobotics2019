@@ -1,6 +1,8 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.*;
+import frc.robot.util.TalonRelative;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -17,8 +19,8 @@ import frc.robot.constants.RobotMap;
 import java.io.File;
 
 public class FollowPath extends Command {
-    private final TalonSRX leftTalon;
-    private final TalonSRX rightTalon;
+    private TalonRelative leftTalon;
+    private TalonRelative rightTalon;
     private EncoderFollower left;
     private EncoderFollower right;
     private final Trajectory leftTrajectory;
@@ -33,9 +35,6 @@ public class FollowPath extends Command {
         File leftMotionProfile = new File(leftCSV);
         File rightMotionProfile = new File(rightCSV);
         this.kd = kd;
-
-        leftTalon = Robot.driveTrain.getLeftTalon();
-        rightTalon = Robot.driveTrain.getRightTalon();
 
         leftTrajectory = Pathfinder.readFromCSV(leftMotionProfile);
         rightTrajectory = Pathfinder.readFromCSV(rightMotionProfile);

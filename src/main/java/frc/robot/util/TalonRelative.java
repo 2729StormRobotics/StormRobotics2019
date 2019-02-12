@@ -99,23 +99,23 @@ package frc.robot.util;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-import org.hamcrest.internal.SelfDescribingValueIterator;
 
-public class TalonRelative {
-	/** Hardware */
-	private TalonSRX _talon = new TalonSRX(3);
+public class TalonRelative extends TalonSRX {
 
 	/**
 	 * This function is called once on roboRIO bootup
 	 * Select the quadrature/mag encoder relative sensor
 	 */
-	public TalonRelative() {
+	public TalonRelative(int deviceID) {
+
+        super(deviceID);
+
 		/* Factory Default Hardware to prevent unexpected behaviour */
-		_talon.configFactoryDefault();
+		super.configFactoryDefault();
 
 
 		/* Configure Selected Sensor for Talon */
-		_talon.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);								// Timeout
+		super.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);								// Timeout
 	}
 
 	/**
@@ -127,7 +127,7 @@ public class TalonRelative {
 		 * Quadrature is selected for soft-lim/closed-loop/etc. initQuadrature()
 		 * will initialize quad to become absolute by using PWD
 		 */
-		int selSenPos = _talon.getSelectedSensorPosition(0);
+		int selSenPos = super.getSelectedSensorPosition(0);
 
 		/**
 		 * Display how we've adjusted PWM to produce a QUAD signal that is
@@ -139,6 +139,6 @@ public class TalonRelative {
 	}
 
     public int get() {
-        return _talon.getSelectedSensorPosition(0);
+        return super.getSelectedSensorPosition(0);
     }
 }

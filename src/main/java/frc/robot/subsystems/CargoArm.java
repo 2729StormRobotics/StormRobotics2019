@@ -27,7 +27,7 @@ public class CargoArm extends PIDSubsystem {
 
         leftMotor = new CANSparkMax(1, MotorType.kBrushless);
         rightMotor = new CANSparkMax(1, MotorType.kBrushless);
-        _talon = new TalonAbsolute();
+        _talon = new TalonAbsolute(1);
 
 
 

@@ -99,11 +99,9 @@ package frc.robot.util;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-import org.hamcrest.internal.SelfDescribingValueIterator;
 
-public class TalonAbsolute {
-	/** Hardware */
-	private TalonSRX _talon = new TalonSRX(3);
+
+public class TalonAbsolute extends TalonSRX {
 
 
     /* Nonzero to block the config until success, zero to skip checking */
@@ -121,15 +119,17 @@ public class TalonAbsolute {
 	 * This function is called once on roboRIO bootup
 	 * Select the quadrature/mag encoder relative sensor
 	 */
-	public TalonAbsolute() {
+	public TalonAbsolute(int deviceID) {
+        super(deviceID);
+
 		/* Factory Default Hardware to prevent unexpected behaviour */
-		_talon.configFactoryDefault();
+		super.configFactoryDefault();
 
 		/* Seed quadrature to be absolute and continuous */
 		initQuadrature();
 
 		/* Configure Selected Sensor for Talon */
-		_talon.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative,	// Feedback
+		super.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative,	// Feedback
 											0, 											// PID ID
 											kTimeoutMs);								// Timeout
 	}
@@ -143,9 +143,9 @@ public class TalonAbsolute {
 		 * Quadrature is selected for soft-lim/closed-loop/etc. initQuadrature()
 		 * will initialize quad to become absolute by using PWD
 		 */
-		int selSenPos = _talon.getSelectedSensorPosition(0);
+		int selSenPos = super.getSelectedSensorPosition(0);
 		int pulseWidthWithoutOverflows =
-				_talon.getSensorCollection().getPulseWidthPosition() & 0xFFF;
+				super.getSensorCollection().getPulseWidthPosition() & 0xFFF;
 
 		/**
 		 * Display how we've adjusted PWM to produce a QUAD signal that is
@@ -166,7 +166,7 @@ public class TalonAbsolute {
 	 */
 	public void initQuadrature() {
 		/* get the absolute pulse width position */
-		int pulseWidth = _talon.getSensorCollection().getPulseWidthPosition();
+		int pulseWidth = super.getSensorCollection().getPulseWidthPosition();
 
 		/**
 		 * If there is a discontinuity in our measured range, subtract one half
@@ -193,7 +193,7 @@ public class TalonAbsolute {
 		pulseWidth = pulseWidth & 0xFFF;
 
 		/* Update Quadrature position */
-		_talon.getSensorCollection().setQuadraturePosition(pulseWidth, kTimeoutMs);
+		super.getSensorCollection().setQuadraturePosition(pulseWidth, kTimeoutMs);
 	}
 
 	/**
@@ -212,7 +212,7 @@ public class TalonAbsolute {
     }
 
     public int get() {
-        return _talon.getSelectedSensorPosition(0);
+        return super.getSelectedSensorPosition(0);
     }
 
     public double getAngle() {
