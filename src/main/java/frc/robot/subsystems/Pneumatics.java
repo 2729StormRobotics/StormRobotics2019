@@ -27,9 +27,9 @@ public class Pneumatics extends Subsystem {
         airCompressor.start();                        // Start the air compressor
 
         solPickUp = new DoubleSolenoid(0,1);                        // Solenoid port
-        solPunch = new DoubleSolenoid(0,1);
-        solHab = new DoubleSolenoid(0,1);
-        solArm = new DoubleSolenoid(0,1);
+        solPunch = new DoubleSolenoid(2,3);
+        solHab = new DoubleSolenoid(4,5);
+        solArm = new DoubleSolenoid(6,7);
 
     }
 

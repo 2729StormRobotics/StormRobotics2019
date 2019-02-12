@@ -56,8 +56,8 @@ public class Robot extends TimedRobot {
         pneumatics = new Pneumatics();
         lineFollower = new LineFollower();
         navX = new NavX();
-        oi = new OI();
         cargoArm = new CargoArm();
+        oi = new OI();
         System.out.println("robotInit() has finished!!");
 
     }

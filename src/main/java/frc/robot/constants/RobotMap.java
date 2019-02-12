@@ -51,17 +51,17 @@ public class RobotMap {
     public final static int SOL_ARM_PORT = 5;
 
     public final static int SOL_CARGOPICK_PORT = 6;
-    public final static int SOL_SHOOT_PORT = 7;
+    public final static int SOL_SHOOT_PORT = 10;
 
-    public final static int PHO_RIGHT_PORT = 8;
-    public final static int PHO_MIDDLE_PORT = 9;
-    public final static int PHO_LEFT_PORT = 10;
+    public final static int PHO_RIGHT_PORT = 0;
+    public final static int PHO_MIDDLE_PORT = 1;
+    public final static int PHO_LEFT_PORT = 2;
 
     public final static double CONTROLLER_DEADZONE = 0.05;
 
     public final static double LIGHT_THRESHOLD = 3000;
 
-    public final static int INFRA_PORT = 11;
+    public final static int INFRA_PORT = 3;
     public final static double DISTANCE_FROM_LINE = 5;
 
     public final static int TICKS_PER_REVOLUTION = 4096;
