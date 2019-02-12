@@ -30,50 +30,26 @@ public class DriveTrain extends Subsystem {
     private final CANSparkMax rightMotor;
     private final CANSparkMax rightMotor2;
 
-    private final TalonSRX leftTalonSRX;
-    private final TalonSRX rightTalonSRX;
-
-    private final CANPIDController leftPID;
-    private final CANPIDController rightPID;
-    private final CANPIDController left2PID;
-    private final CANPIDController right2PID;
 
 
     public DriveTrain() {
+
+        // super("DriveTrain", 2.0, 0.0, 0.0);// The constructor passes a name for the subsystem and the P, I and D constants that are useed when computing the motor output
+        // getPIDController().setContinuous(false); //manipulating the raw internal PID Controller
+        // setInputRange(0, 4096);
+        // setOutputRange(-1, 1);
+        // setPercentTolerance(0.05);
+
         leftMotor = new CANSparkMax(RobotMap.LEFT_MOTOR_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
         leftMotor2 = new CANSparkMax(RobotMap.LEFT_MOTOR2_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
         rightMotor = new CANSparkMax(RobotMap.RIGHT_MOTOR_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
         rightMotor2 = new CANSparkMax(RobotMap.RIGHT_MOTOR2_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
-
-        leftTalonSRX = new TalonSRX(RobotMap.LEFT_TALON_ID);
-        rightTalonSRX = new TalonSRX(RobotMap.RIGHT_TALON_ID);
 
         leftMotor.setRampRate(RobotMap.RAMP_RATE);
         rightMotor.setRampRate(RobotMap.RAMP_RATE);
         leftMotor2.setRampRate(RobotMap.RAMP_RATE);
         rightMotor2.setRampRate(RobotMap.RAMP_RATE);
 
-        leftPID = new CANPIDController(leftMotor);
-        rightPID = new CANPIDController(rightMotor);
-
-        left2PID = new CANPIDController(leftMotor2);
-        right2PID = new CANPIDController(rightMotor2);
-
-        leftPID.setP(RobotMap.PROPORTION);
-        leftPID.setI(RobotMap.INTEGRAL);
-        leftPID.setD(RobotMap.DIFFERENTIAL);
-
-        left2PID.setP(RobotMap.PROPORTION);
-        left2PID.setI(RobotMap.INTEGRAL);
-        left2PID.setD(RobotMap.DIFFERENTIAL);
-
-        rightPID.setP(RobotMap.PROPORTION);
-        rightPID.setI(RobotMap.INTEGRAL);
-        rightPID.setD(RobotMap.DIFFERENTIAL);
-
-        right2PID.setP(RobotMap.PROPORTION);
-        right2PID.setI(RobotMap.INTEGRAL);
-        right2PID.setD(RobotMap.DIFFERENTIAL);
 
         leftMotor.setSmartCurrentLimit(RobotMap.STALL_LIMIT, RobotMap.FREE_LIMIT, RobotMap.RPM_LIMIT);
         rightMotor.setSmartCurrentLimit(RobotMap.STALL_LIMIT, RobotMap.FREE_LIMIT, RobotMap.RPM_LIMIT);
@@ -102,34 +78,10 @@ public class DriveTrain extends Subsystem {
         rightMotor.disable();
     }
 
-    public double getLeftPos() {
-        return leftTalonSRX.getSelectedSensorPosition();
-    }
-
-    public double getRightPos() {
-        return  leftTalonSRX.getSelectedSensorPosition();
-    }
-
-    public double getLeftVelocity() {
-        return  leftTalonSRX.getSelectedSensorVelocity();
-    }
-
-    public double getRightVelocity() {
-        return  leftTalonSRX.getSelectedSensorVelocity();
-    }
-
-    public TalonSRX getLeftTalon() {
-        return leftTalonSRX;
-    }
-
-    public TalonSRX getRightTalon() {
-        return rightTalonSRX;
-    }
-
-
     @Override
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         setDefaultCommand(new JoystickDrive());
     }
+
 }

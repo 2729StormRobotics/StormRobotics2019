@@ -1,47 +1,53 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
 package frc.robot.subsystems;
 
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
+import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.PIDSourceType;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import frc.robot.Robot;
+import frc.robot.constants.RobotMap;
+import frc.robot.util.TalonAbsolute;
 
-/**
- * Add your docs here.
- */
 public class CargoArm extends PIDSubsystem {
-  /**
-   * Add your docs here.
-   */
-  public CargoArm() {
-    // Intert a subsystem name and PID values here
-    super("SubsystemName", 1, 2, 3);
-    // Use these to get going:
-    // setSetpoint() - Sets where the PID controller should move the system
-    // to
-    // enable() - Enables the PID controller.
-  }
+    // private AxisCamera camera; //defines Axis Camera
+    private CANSparkMax leftMotor;
+    private CANSparkMax rightMotor;
+    private TalonAbsolute _talon;
 
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-  }
+    public CargoArm() {
 
-  @Override
-  protected double returnPIDInput() {
-    // Return your input value for the PID loop
-    // e.g. a sensor, like a potentiometer:
-    // yourPot.getAverageVoltage() / kYourMaxVoltage;
-    return 0.0;
-  }
+        super("CargoArm", 2.0, 0.0, 0.0);// The constructor passes a name for the subsystem and the P, I and D constants that are useed when computing the motor output
+        getPIDController().setContinuous(false); //manipulating the raw internal PID Controller
+        setInputRange(0, 4096);
+        setOutputRange(-1, 1);
+        setPercentTolerance(0.05);
 
-  @Override
-  protected void usePIDOutput(double output) {
-    // Use output to drive your system, like a motor
-    // e.g. yourMotor.set(output);
-  }
+        leftMotor = new CANSparkMax(1, MotorType.kBrushless);
+        rightMotor = new CANSparkMax(1, MotorType.kBrushless);
+        _talon = new TalonAbsolute();
+
+
+
+    }
+
+    @Override
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        // setDefaultCommand();
+    }
+
+    protected double returnPIDInput() {
+        return _talon.get(); // returns the sensor value that is providing the feedback for the system
+    }
+
+    protected void usePIDOutput(double output) {
+        leftMotor.pidWrite(-output); // this is where the computed output value fromthe PIDController is applied to the motor
+        rightMotor.pidWrite(output);
+    }
+
+
 }
+
