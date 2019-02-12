@@ -66,4 +66,15 @@ public class Controller extends XboxController {
         return backBtn;
     }
 
+    public Button getStartBack() {
+        return new Button() {
+
+            public boolean get() {
+                return getStartButton() && getBackButton();
+            }
+
+        };
+
+    }
+
 }
