@@ -1,11 +1,10 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.PIDSource;
-import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import frc.robot.Robot;
 import frc.robot.constants.RobotMap;
+import frc.robot.constants.PIDMap;
 
 public class LineFollower extends PIDSubsystem{
     // private AxisCamera camera; //defines Axis Camera
@@ -17,7 +16,7 @@ public class LineFollower extends PIDSubsystem{
 
     public LineFollower() {
 
-        super("CargoArm", 1.0, 0.0, 0.0);// The constructor passes a name for the subsystem and the P, I and D constants that are useed when computing the motor output
+        super("LineFollower", PIDMap.LINE_FOLLOWER_P, PIDMap.LINE_FOLLOWER_I, PIDMap.LINE_FOLLOWER_D);// The constructor passes a name for the subsystem and the P, I and D constants that are useed when computing the motor output
 
         lineLeft = new AnalogInput(RobotMap.PHO_LEFT_PORT);
         lineMiddle = new AnalogInput(RobotMap.PHO_MIDDLE_PORT); // Photoelectric sensor port
