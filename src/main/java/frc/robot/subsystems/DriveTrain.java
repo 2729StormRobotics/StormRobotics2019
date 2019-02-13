@@ -1,13 +1,15 @@
 package frc.robot.subsystems;
 
+import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.command.Subsystem;
-
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.*;
 import frc.robot.constants.*;
 import frc.robot.driver.*;
 import frc.robot.util.*;
 import frc.robot.*;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
@@ -33,6 +35,8 @@ public class DriveTrain extends Subsystem {
     private final TalonRelative leftTalon;
     private final TalonRelative rightTalon;
 
+    private final TalonRelative cargoArm;
+
 
 
     public DriveTrain() {
@@ -47,6 +51,8 @@ public class DriveTrain extends Subsystem {
         leftMotor2 = new CANSparkMax(RobotMap.LEFT_MOTOR2_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
         rightMotor = new CANSparkMax(RobotMap.RIGHT_MOTOR_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
         rightMotor2 = new CANSparkMax(RobotMap.RIGHT_MOTOR2_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
+
+        cargoArm = new TalonRelative(RobotMap.CARGO_PORT);
 
         leftTalon = new TalonRelative(RobotMap.LEFT_TALON_ID);
         rightTalon = new TalonRelative(RobotMap.RIGHT_TALON_ID);
@@ -66,12 +72,25 @@ public class DriveTrain extends Subsystem {
         rightMotor2.follow(rightMotor);
 
 
+
+
+
+
     }
 
     public void tankDrive(double leftSpeed, double rightSpeed) {
-        //may need to adjust speed values
+
         leftMotor.set(-leftSpeed);
         rightMotor.set(rightSpeed);
+
+
+        //may need to adjust speed values
+        //leftMotor.set(SmartDashboard.getNumber("leftSpeed", 0.0));
+        //leftMotor2.set(SmartDashboard.getNumber("leftSpeed2", 0.0));
+        //rightMotor.set(SmartDashboard.getNumber("rightSpeed", 0.0));
+        //rightMotor2.set(SmartDashboard.getNumber("rightSpeed2", 0.0));
+        cargoArm.set(ControlMode.PercentOutput, SmartDashboard.getNumber("leftSpeed", 0.0));
+
     }
 
     public void stopDrive() {

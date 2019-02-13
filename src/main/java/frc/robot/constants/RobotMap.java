@@ -46,11 +46,12 @@ public class RobotMap {
     public final static int RPM_LIMIT = 5700;
 
     public final static int SOL_PICKUP_PORT = 2;
-    public final static int SOL_PUNCH_PORT = 3;
-    public final static int SOL_HAB_PORT = 4;
-    public final static int SOL_ARM_PORT = 5;
+    public final static int SOL_PUNCH_PORT = 0;
+    public final static int SOL_HAB_PORT = 6;
+    public final static int SOL_ARM_PORT = 4;
 
-    public final static int SOL_CARGOPICK_PORT = 6;
+
+    public final static int CARGO_PORT = 11;
     public final static int SOL_SHOOT_PORT = 10;
 
     public final static int PHO_RIGHT_PORT = 0;
@@ -69,6 +70,7 @@ public class RobotMap {
     public final static double MAX_VELOCITY = 20;   //meters/sec
 
     public static final double BASE_SPEED = 0.2;
+
 
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:

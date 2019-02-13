@@ -60,6 +60,11 @@ public class Robot extends TimedRobot {
         oi = new OI();
         System.out.println("robotInit() has finished!!");
 
+        SmartDashboard.putNumber("leftSpeed", 0.0);
+        SmartDashboard.putNumber("rightSpeed", 0.0);
+        SmartDashboard.putNumber("leftSpeed2", 0.0);
+        SmartDashboard.putNumber("rightSpeed2", 0.0);
+
     }
 
     /**

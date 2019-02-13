@@ -26,18 +26,20 @@ public class Pneumatics extends Subsystem {
         airCompressor = new Compressor();  //Digtial I/O,Relay
         airCompressor.start();                        // Start the air compressor
 
-        solPickUp = new DoubleSolenoid(0,1);                        // Solenoid port
-        solPunch = new DoubleSolenoid(2,3);
-        solHab = new DoubleSolenoid(4,5);
-        solArm = new DoubleSolenoid(6,7);
+        solPickUp = new DoubleSolenoid(RobotMap.SOL_PICKUP_PORT, RobotMap.SOL_PICKUP_PORT + 1);                        // Solenoid port
+        solPunch = new DoubleSolenoid(RobotMap.SOL_PUNCH_PORT, RobotMap.SOL_PUNCH_PORT + 1);
+        solHab = new DoubleSolenoid(RobotMap.SOL_HAB_PORT, RobotMap.SOL_HAB_PORT + 1);
+        solArm = new DoubleSolenoid(RobotMap.SOL_ARM_PORT, RobotMap.SOL_ARM_PORT + 1);
 
     }
 
     public void pickupHatch() {
-        if (solPickUp.get().equals(Value.kForward))
+        if (solPickUp.get().equals(Value.kForward)) {
             solPickUp.set(Value.kReverse);
-        solPickUp.set(Value.kForward);
+            return;
+        }
 
+        solPickUp.set(Value.kForward);
     }
 
     public Value getPickupHatch() {
@@ -45,8 +47,10 @@ public class Pneumatics extends Subsystem {
     }
 
     public void punchHatch() {
-        if (solPunch.get().equals(Value.kForward))
+        if (solPunch.get().equals(Value.kForward)) {
             solPunch.set(Value.kReverse);
+            return;
+        }
         solPunch.set(Value.kForward);
 
     }
@@ -56,8 +60,10 @@ public class Pneumatics extends Subsystem {
     }
 
     public void toggleArm() {
-        if (solArm.get().equals(Value.kForward))
+        if (solArm.get().equals(Value.kForward)) {
             solArm.set(Value.kReverse);
+            return;
+        }
         solArm.set(Value.kForward);
 
     }
@@ -67,8 +73,10 @@ public class Pneumatics extends Subsystem {
     }
 
     public void toggleHab() {
-        if (solHab.get().equals(Value.kForward))
+        if (solHab.get().equals(Value.kForward)) {
             solHab.set(Value.kReverse);
+            return;
+        }
         solHab.set(Value.kForward);
     }
 
