@@ -51,10 +51,10 @@ public class Robot extends TimedRobot {
         // chooser.addOption("My Auto", new MyAutoCommand());
         System.out.println("robotInit() has been called!");
         driveTrain = new DriveTrain();
-        pneumatics = new Pneumatics();
+    /*     pneumatics = new Pneumatics();
         lineFollower = new LineFollower();
         navX = new NavX();
-        cargoArm = new CargoArm();
+        cargoArm = new CargoArm(); */
         oi = new OI();
         System.out.println("robotInit() has finished!!");
 
