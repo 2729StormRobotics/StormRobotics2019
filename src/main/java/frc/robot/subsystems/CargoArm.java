@@ -1,11 +1,13 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.PIDSourceType;
-import edu.wpi.first.wpilibj.Talon;
+
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import frc.robot.Robot;
 import frc.robot.constants.PIDMap;
@@ -17,7 +19,7 @@ public class CargoArm extends PIDSubsystem {
     // private AxisCamera camera; //defines Axis Camera
     private CANSparkMax leftMotor;
     private CANSparkMax rightMotor;
-    private TalonAbsolute _talon;
+    //private TalonAbsolute _talon;
 
     private TalonRelative intakeMotor;
 
@@ -32,9 +34,19 @@ public class CargoArm extends PIDSubsystem {
         leftMotor = new CANSparkMax(RobotMap.FRONT_ARM_ID, MotorType.kBrushless);
         rightMotor = new CANSparkMax(RobotMap.BACK_ARM_ID, MotorType.kBrushless);
 
-        _talon = new TalonAbsolute(1);
+        intakeMotor = new TalonRelative(RobotMap.CARGO_INTAKE_PORT);
+
+        //_talon = new TalonAbsolute(1);
 
 
+
+    }
+
+    public void armDrive(double speed, double intakeSpeed) {
+
+        leftMotor.set(-speed);
+        rightMotor.set(-speed);
+        intakeMotor.set(ControlMode.PercentOutput, intakeSpeed);
 
     }
 
@@ -46,7 +58,8 @@ public class CargoArm extends PIDSubsystem {
 
     @Override
     protected double returnPIDInput() {
-        return _talon.get(); // returns the sensor value that is providing the feedback for the system
+        //return _talon.get(); // returns the sensor value that is providing the feedback for the system
+        return 0.0;
     }
 
     @Override

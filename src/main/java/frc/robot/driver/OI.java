@@ -52,8 +52,8 @@ public class OI {
 
     public OI() {
 
-        weapons.getABtn().whenPressed(new ToggleGrab());
-        weapons.getBBtn().whenPressed(new TogglePunch());
+        weapons.getBBtn().whenPressed(new ToggleGrab());
+        weapons.getABtn().whenPressed(new TogglePunch());
         weapons.getXBtn().whenPressed(new ToggleArm());
 
         driver.getStartBack().whenPressed(new ToggleHab());
@@ -66,13 +66,22 @@ public class OI {
 
     }
 
-    public double getLeftSpeed() {
+    public double getLeftSpeedDriver() {
         return driver.getY(GenericHID.Hand.kLeft);
     }
 
-    public double getRightSpeed() {
+    public double getRightSpeedDriver() {
         return driver.getY(GenericHID.Hand.kRight);
     }
+
+    public double getLeftSpeedWeapons() {
+        return weapons.getY(GenericHID.Hand.kLeft);
+    }
+
+    public double getRightSpeedWeapons() {
+        return weapons.getY(GenericHID.Hand.kRight);
+    }
+
 
     // Run the command while the button is being held down and interrupt it once
     // the button is released.

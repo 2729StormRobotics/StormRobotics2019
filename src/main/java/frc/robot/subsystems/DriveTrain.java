@@ -35,7 +35,6 @@ public class DriveTrain extends Subsystem {
     private final TalonRelative leftTalon;
     private final TalonRelative rightTalon;
 
-    private final TalonRelative cargoArm;
 
 
 
@@ -51,8 +50,6 @@ public class DriveTrain extends Subsystem {
         leftMotor2 = new CANSparkMax(RobotMap.LEFT_MOTOR2_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
         rightMotor = new CANSparkMax(RobotMap.RIGHT_MOTOR_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
         rightMotor2 = new CANSparkMax(RobotMap.RIGHT_MOTOR2_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
-
-        cargoArm = new TalonRelative(RobotMap.CARGO_PORT);
 
         leftTalon = new TalonRelative(RobotMap.LEFT_TALON_ID);
         rightTalon = new TalonRelative(RobotMap.RIGHT_TALON_ID);
@@ -89,8 +86,6 @@ public class DriveTrain extends Subsystem {
         //leftMotor2.set(SmartDashboard.getNumber("leftSpeed2", 0.0));
         //rightMotor.set(SmartDashboard.getNumber("rightSpeed", 0.0));
         //rightMotor2.set(SmartDashboard.getNumber("rightSpeed2", 0.0));
-        cargoArm.set(ControlMode.PercentOutput, SmartDashboard.getNumber("leftSpeed", 0.0));
-
     }
 
     public void stopDrive() {

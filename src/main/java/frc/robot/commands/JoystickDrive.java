@@ -11,6 +11,7 @@ public class JoystickDrive extends Command {
 
     public JoystickDrive() {
         requires(Robot.driveTrain); // driveTrain is an instance of our DriveTrain subsystem
+        requires(Robot.cargoArm);
     }
 
     @Override
@@ -24,7 +25,8 @@ public class JoystickDrive extends Command {
      */
     @Override
     protected void execute() {
-        Robot.driveTrain.tankDrive(JoystickMath.getCubic(Robot.oi.getLeftSpeed()), JoystickMath.getCubic(Robot.oi.getRightSpeed()));
+        Robot.driveTrain.tankDrive(JoystickMath.getCubic(Robot.oi.getLeftSpeedDriver()), JoystickMath.getCubic(Robot.oi.getRightSpeedDriver()));
+        Robot.cargoArm.armDrive(JoystickMath.getCubic(Robot.oi.getLeftSpeedWeapons()), JoystickMath.getCubic(Robot.oi.getRightSpeedWeapons()));
     }
 
     /*

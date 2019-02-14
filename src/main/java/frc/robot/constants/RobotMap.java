@@ -49,7 +49,7 @@ public class RobotMap {
     public static final int SOL_HAB_PORT = 6;
     public static final int SOL_ARM_PORT = 4;
 
-    public static final int CARGO_PORT = 11;
+    public static final int CARGO_INTAKE_PORT = 11;
 
     public static final int PHO_RIGHT_PORT = 0;
     public static final int PHO_MIDDLE_PORT = 1;
