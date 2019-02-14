@@ -52,9 +52,12 @@ public class OI {
 
     public OI() {
 
-        weapons.getBBtn().whenPressed(new ToggleGrab());
-        weapons.getABtn().whenPressed(new TogglePunch());
+        weapons.getABtn().whenPressed(new GrabIn());
+        weapons.getBBtn().whenPressed(new PunchIn());
         weapons.getXBtn().whenPressed(new ToggleArm());
+
+        weapons.getABtn().whenReleased(new GrabOut());
+        weapons.getBBtn().whenReleased(new PunchOut());
 
         driver.getStartBack().whenPressed(new ToggleHab());
 

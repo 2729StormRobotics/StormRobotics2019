@@ -33,25 +33,16 @@ public class Pneumatics extends Subsystem {
 
     }
 
-    public void pickupHatch() {
-        if (solPickUp.get().equals(Value.kForward)) {
-            solPickUp.set(Value.kReverse);
-            return;
-        }
-
-        solPickUp.set(Value.kForward);
+    public void pickupHatch(boolean out) {
+        solPickUp.set(out ? Value.kForward : Value.kReverse);
     }
 
     public Value getPickupHatch() {
         return solPickUp.get();
     }
 
-    public void punchHatch() {
-        if (solPunch.get().equals(Value.kForward)) {
-            solPunch.set(Value.kReverse);
-            return;
-        }
-        solPunch.set(Value.kForward);
+    public void punchHatch(boolean out) {
+        solPunch.set(out ? Value.kForward : Value.kReverse);
 
     }
 

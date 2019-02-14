@@ -38,7 +38,7 @@ public class Robot extends TimedRobot {
     public static LineFollower lineFollower;
     public static CargoArm cargoArm;
     public static NavX navX;
-
+    CommandGroup retractPistons;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -55,6 +55,7 @@ public class Robot extends TimedRobot {
         lineFollower = new LineFollower();
         navX = new NavX();
         cargoArm = new CargoArm();
+        retractPistons = new RetractPistons();
         oi = new OI();
         System.out.println("robotInit() has finished!!");
 
@@ -112,6 +113,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopInit() {
+        retractPistons.start();
     }
 
     /**
