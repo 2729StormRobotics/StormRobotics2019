@@ -22,58 +22,54 @@ import frc.robot.*;
 public class RobotMap {
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
-    // public static int leftMotor = 1;
-    // public static int rightMotor = 2;
-    public final static int LEFT_MOTOR_ID = 14;
-    public final static int RIGHT_MOTOR_ID = 1;
-    public final static int LEFT_MOTOR2_ID = 15;
-    public final static int RIGHT_MOTOR2_ID = 0;
 
-    public final static int LEFT_TALON_ID = 5;
-    public final static int RIGHT_TALON_ID = 4;
+    public static final int LEFT_MOTOR_ID = 14;
+    public static final int RIGHT_MOTOR_ID = 1;
+    public static final int LEFT_MOTOR2_ID = 15;
+    public static final int RIGHT_MOTOR2_ID = 0;
 
-    public final static int FRONT_ARM_ID = 13;
-    public final static int BACK_ARM_ID = 2;
+    public static final int LEFT_TALON_ID = 5;
+    public static final int RIGHT_TALON_ID = 4;
 
-    public final static int RAMP_RATE = 0;
+    public static final int FRONT_ARM_ID = 13;
+    public static final int BACK_ARM_ID = 2;
 
-    public final static double PROPORTION = 0;
-    public final static double INTEGRAL = 0;
-    public final static double DIFFERENTIAL = 0;
+    public static final int RAMP_RATE = 0;
 
-    public final static int STALL_LIMIT = 255;
-    public final static int FREE_LIMIT = 255;
-    public final static int RPM_LIMIT = 5700;
+    public static final double PROPORTION = 0;
+    public static final double INTEGRAL = 0;
+    public static final double DIFFERENTIAL = 0;
 
-    public final static int SOL_PICKUP_PORT = 2;
-    public final static int SOL_PUNCH_PORT = 0;
-    public final static int SOL_HAB_PORT = 6;
-    public final static int SOL_ARM_PORT = 4;
+    public static final int STALL_LIMIT = 255;
+    public static final int FREE_LIMIT = 255;
+    public static final int RPM_LIMIT = 5700;
 
+    public static final int SOL_PICKUP_PORT = 2;
+    public static final int SOL_PUNCH_PORT = 0;
+    public static final int SOL_HAB_PORT = 6;
+    public static final int SOL_ARM_PORT = 4;
 
-    public final static int CARGO_PORT = 11;
-    public final static int SOL_SHOOT_PORT = 10;
+    public static final int CARGO_PORT = 11;
 
-    public final static int PHO_RIGHT_PORT = 0;
-    public final static int PHO_MIDDLE_PORT = 1;
-    public final static int PHO_LEFT_PORT = 2;
+    public static final int PHO_RIGHT_PORT = 0;
+    public static final int PHO_MIDDLE_PORT = 1;
+    public static final int PHO_LEFT_PORT = 2;
 
-    public final static double CONTROLLER_DEADZONE = 0.05;
+    public static final int PHO_RIGHT2_PORT = 0;
+    public static final int PHO_MIDDLE2_PORT = 1;
+    public static final int PHO_LEFT2_PORT = 2;
 
-    public final static double LIGHT_THRESHOLD = 3000;
+    public static final double CONTROLLER_DEADZONE = 0.05;
 
-    public final static int INFRA_PORT = 3;
-    public final static double DISTANCE_FROM_LINE = 5;
+    public static final double LIGHT_THRESHOLD = 3000;
 
-    public final static int TICKS_PER_REVOLUTION = 4096;
-    public final static double WHEEL_DIAMETER = 0.15 * 3.279;   //meters
-    public final static double MAX_VELOCITY = 20;   //meters/sec
+    public static final int INFRA_PORT = 3;
+    public static final double DISTANCE_FROM_LINE = 5;
+
+    public static final int TICKS_PER_REVOLUTION = 4096;
+    public static final double WHEEL_DIAMETER = 0.15 * 3.279;   //meters
+    public static final double MAX_VELOCITY = 20;   //meters/sec
 
     public static final double BASE_SPEED = 0.2;
 
-
-    // If you are using multiple modules, make sure to define both the port
-    // number and the module. For example you with a rangefinder:
-    // public static int rangefinderPort = 1;
-    // public static int rangefinderModule = 1;
 }

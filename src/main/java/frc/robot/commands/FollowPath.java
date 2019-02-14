@@ -111,8 +111,8 @@ public class FollowPath extends Command {
         double desired_heading = Pathfinder.r2d(left.getHeading());
         double angleDifference = Pathfinder.boundHalfDegrees(desired_heading - gyro_heading);
         double turn = 0.8 * (-1.0/80.0) * angleDifference;
-        System.out.println("Left: " + (l));// + turn));
-        System.out.println("Right: " + (r));// - turn));
+        System.out.println("Left: " + l);// + turn));
+        System.out.println("Right: " + r);// - turn));
         Robot.driveTrain.tankDrive(l, r);
         //leftMotor.set(ControlMode.PercentOutput, l + turn);// + turn);
         //rightMotor.set(ControlMode.PercentOutput, (r - turn));// - turn));
