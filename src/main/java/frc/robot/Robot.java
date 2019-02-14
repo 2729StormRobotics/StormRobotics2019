@@ -110,7 +110,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopInit() {
-        lineFollower.enable();
+        //lineFollower.enable();
     }
 
     /**
@@ -118,7 +118,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
-        //Scheduler.getInstance().run();
+        Scheduler.getInstance().run();
         //log();
     }
 

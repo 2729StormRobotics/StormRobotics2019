@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import frc.robot.commands.*;
@@ -13,8 +14,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
-
-
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.CANPIDController;
 
 
@@ -28,8 +28,8 @@ public class DriveTrain extends Subsystem {
     //private final CANSparkMax leftMotor;
     //private final CANSparkMax rightMotor;
 
-    private final TalonSRX leftMotor;
-    private final TalonSRX rightMotor;
+    private final CANSparkMax leftMotor;
+    private final CANSparkMax rightMotor;
 
     //private final CANEncoder leftEncoder;
     //private final CANEncoder rightEncoder;
@@ -37,13 +37,12 @@ public class DriveTrain extends Subsystem {
     //private final CANPIDController leftPID;
     //private final CANPIDController rightPID;
 
-
     public DriveTrain() {
         //leftMotor = new CANSparkMax(RobotMap.LEFT_MOTOR_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
         //rightMotor = new CANSparkMax(RobotMap.RIGHT_MOTOR_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
 
-        leftMotor = new TalonSRX(RobotMap.LEFT_MOTOR_ID);
-        rightMotor = new TalonSRX(RobotMap.RIGHT_MOTOR_ID);
+        leftMotor = new CANSparkMax(RobotMap.LEFT_MOTOR_ID, MotorType.kBrushless);
+        rightMotor = new CANSparkMax(RobotMap.RIGHT_MOTOR_ID, MotorType.kBrushless);
 
         //leftEncoder = leftMotor.getEncoder();
         //rightEncoder = rightMotor.getEncoder();
@@ -71,8 +70,8 @@ public class DriveTrain extends Subsystem {
     public void tankDrive(double leftSpeed, double rightSpeed) {
         //may need to adjust speed values
 
-        leftMotor.set(ControlMode.PercentOutput, -leftSpeed);
-        rightMotor.set(ControlMode.PercentOutput, rightSpeed);
+        leftMotor.set(-leftSpeed);
+        rightMotor.set(rightSpeed);
     }
 
     public void stopDrive() {
@@ -106,12 +105,14 @@ public class DriveTrain extends Subsystem {
     }
 
     public TalonSRX getLeftTalon() {
-        return leftMotor;
+        return new TalonSRX(1);
     }
 
     public TalonSRX getRightTalon() {
-        return rightMotor;
+        return new TalonSRX(3);
     }
+
+
 
 
     @Override
