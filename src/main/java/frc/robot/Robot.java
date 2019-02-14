@@ -39,8 +39,6 @@ public class Robot extends TimedRobot {
     public static CargoArm cargoArm;
     public static NavX navX;
 
-    public static Command scoreAll;
-
 
     /**
      * This function is run when the robot is first started up and should be
@@ -59,11 +57,6 @@ public class Robot extends TimedRobot {
         cargoArm = new CargoArm();
         oi = new OI();
         System.out.println("robotInit() has finished!!");
-
-        SmartDashboard.putNumber("leftSpeed", 0.0);
-        SmartDashboard.putNumber("rightSpeed", 0.0);
-        SmartDashboard.putNumber("leftSpeed2", 0.0);
-        SmartDashboard.putNumber("rightSpeed2", 0.0);
 
     }
 
@@ -119,7 +112,6 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopInit() {
-
     }
 
     /**
