@@ -64,12 +64,12 @@ public class RobotMap {
     public static final double LIGHT_THRESHOLD = 3000;
 
     public static final int INFRA_PORT = 3;
-    public static final double DISTANCE_FROM_LINE = 5;
+    public static final double DISTANCE_FROM_LINE = 5; //cm
 
     public static final int TICKS_PER_REVOLUTION = 4096;
     public static final double WHEEL_DIAMETER = 0.15 * 3.279;   //meters
     public static final double MAX_VELOCITY = 20;   //meters/sec
 
-    public static final double BASE_SPEED = 0.2;
+    public static final double BASE_SPEED = 0.2; //for line following
 
 }

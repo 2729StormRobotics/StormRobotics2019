@@ -26,7 +26,7 @@ public class LineFollower extends PIDSubsystem{
 
     }
 
-    public void followLine() {
+    public void followLine() { //not used
         noLine = false;
         switch (getState()) {
             case ("000"):
@@ -93,6 +93,7 @@ public class LineFollower extends PIDSubsystem{
         switch (getState()) {
             case ("000"):
                 // finish command;
+                //noLine = true;
                 return 0.0;
             case ("100"):
                 // drive left;
