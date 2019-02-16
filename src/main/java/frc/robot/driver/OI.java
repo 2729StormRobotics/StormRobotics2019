@@ -59,12 +59,21 @@ public class OI {
         weapons.getABtn().whenReleased(new GrabOut());
         weapons.getBBtn().whenReleased(new PunchOut());
 
+
+
         driver.getStartBack().whenPressed(new ToggleHab());
 
         //weapons.getLB().whenPressed(new TogglePickupCargo());
         //weapons.getRB().whenPressed(new ToggleShoot());
 
-        driver.getRB().whileHeld(new CheckLine());
+        if (!Robot.lineFollower.getPIDController().isEnabled()) {
+            driver.getRB().whileHeld(new FollowLine());
+        }
+
+        weapons.getDPadRight().whenPressed(new MoveArm(RobotMap.LVL1_ARM_ANGlE));
+        weapons.getDPadUp().whenPressed(new MoveArm(RobotMap.LVL2_ARM_ANGlE));
+        weapons.getDPadLeft().whenPressed(new MoveArm(RobotMap.MAX_ARM_ANGLE));
+        weapons.getDPadDown().whenPressed(new MoveArm(RobotMap.HORIZONTAL_ARM_ANGlE));
 
 
 
