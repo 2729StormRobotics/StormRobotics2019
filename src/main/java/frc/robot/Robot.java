@@ -54,7 +54,7 @@ public class Robot extends TimedRobot {
         pneumatics = new Pneumatics();
         lineFollower = new LineFollower();
         cargoArm = new CargoArm();
-        retractPistons = new RetractPistons();
+        retractPistons = new RetractPistons(); //retracts grab and punch pistons
         navX = new NavX();
         oi = new OI();
         System.out.println("robotInit() has finished!!");

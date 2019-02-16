@@ -44,7 +44,7 @@ public class CargoArm extends PIDSubsystem {
     }
 
     public void armDrive(double speed, double intakeSpeed) {
-        if (-speed > 0 && armTalon.getAngleNeg() < RobotMap.MAX_ARM_ANGLE || -speed < 0 && armTalon.getAngleNeg() > RobotMap.MIN_ARM_ANGLE) {
+        if ((-speed > 0 && armTalon.getAngleNeg() < RobotMap.MAX_ARM_ANGLE) || (-speed < 0 && armTalon.getAngleNeg() > RobotMap.MIN_ARM_ANGLE)) {
             leftMotor.set(-speed);
             rightMotor.set(-speed);
         }
