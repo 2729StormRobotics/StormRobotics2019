@@ -37,7 +37,7 @@ public class CargoArm extends PIDSubsystem {
 
         intakeMotor = new TalonRelative(RobotMap.CARGO_INTAKE_PORT);
 
-        //_talon = new TalonAbsolute(1);
+        armTalon = new TalonAbsolute(RobotMap.ARM_TALON_ID);
 
 
 

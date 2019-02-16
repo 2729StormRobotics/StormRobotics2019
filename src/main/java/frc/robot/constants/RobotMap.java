@@ -33,6 +33,7 @@ public class RobotMap {
 
     public static final int FRONT_ARM_ID = 13;
     public static final int BACK_ARM_ID = 2;
+    public static final int ARM_TALON_ID = 10;
     public static final double MAX_ARM_ANGLE = 110;
     public static final double MIN_ARM_ANGLE = 340;
 
@@ -51,9 +52,9 @@ public class RobotMap {
     public static final int FREE_LIMIT = 255;
     public static final int RPM_LIMIT = 5700;
 
-    public static final int SOL_PICKUP_PORT = 2;
-    public static final int SOL_PUNCH_PORT = 0;
-    public static final int SOL_HAB_PORT = 6;
+    public static final int SOL_PICKUP_PORT = 6;
+    public static final int SOL_PUNCH_PORT = 2;
+    public static final int SOL_HAB_PORT = 0;
     public static final int SOL_ARM_PORT = 4;
 
     public static final int CARGO_INTAKE_PORT = 11;
