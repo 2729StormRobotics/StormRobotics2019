@@ -95,6 +95,13 @@ public class OI {
         return weapons.getY(GenericHID.Hand.kRight);
     }
 
+    public double getLeftTriggerDriver() {
+        return driver.getTriggerAxis(GenericHID.Hand.kLeft);
+    }
+    public double getRightTriggerDriver() {
+        return driver.getTriggerAxis(GenericHID.Hand.kRight);
+    }
+
     public double getLeftTriggerWeapons() {
         return weapons.getTriggerAxis(GenericHID.Hand.kLeft);
     }

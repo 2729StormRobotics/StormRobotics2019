@@ -24,7 +24,13 @@ public class JoystickDrive extends Command {
      */
     @Override
     protected void execute() {
-        Robot.driveTrain.tankDrive(JoystickMath.getCubic(Robot.oi.getLeftSpeedDriver()), JoystickMath.getCubic(Robot.oi.getRightSpeedDriver()));
+        if (JoystickMath.getCubic(Robot.oi.getLeftTriggerDriver()) != 0) {
+            Robot.driveTrain.tankDrive(JoystickMath.getCubic(-Robot.oi.getLeftTriggerDriver()), JoystickMath.getCubic(-Robot.oi.getLeftTriggerDriver()));
+        } else if (JoystickMath.getCubic(Robot.oi.getRightTriggerDriver()) != 0) {
+            Robot.driveTrain.tankDrive(JoystickMath.getCubic(Robot.oi.getRightTriggerDriver()), JoystickMath.getCubic(Robot.oi.getRightTriggerDriver()));
+        } else {
+            Robot.driveTrain.tankDrive(JoystickMath.getCubic(Robot.oi.getLeftSpeedDriver()), JoystickMath.getCubic(Robot.oi.getRightSpeedDriver()));
+        }
 
     }
 
