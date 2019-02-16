@@ -218,4 +218,10 @@ public class TalonAbsolute extends TalonSRX {
     public double getAngle() {
         return ToDeg(get());
     }
+
+    public double getAngleNeg() {
+        if (getAngle() > 180)
+        return (360 - getAngle());
+        return getAngle();
+    }
 }

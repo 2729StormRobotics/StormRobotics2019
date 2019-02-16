@@ -67,6 +67,7 @@ public class OI {
         driver.getRB().whileHeld(new CheckLine());
 
 
+
     }
 
     public double getLeftSpeedDriver() {
@@ -83,6 +84,13 @@ public class OI {
 
     public double getRightSpeedWeapons() {
         return weapons.getY(GenericHID.Hand.kRight);
+    }
+
+    public double getLeftTriggerWeapons() {
+        return weapons.getTriggerAxis(GenericHID.Hand.kLeft);
+    }
+    public double getRightTriggerWeapons() {
+        return weapons.getTriggerAxis(GenericHID.Hand.kRight);
     }
 
 

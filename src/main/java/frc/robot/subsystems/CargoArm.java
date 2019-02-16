@@ -14,6 +14,7 @@ import frc.robot.constants.PIDMap;
 import frc.robot.constants.RobotMap;
 import frc.robot.util.TalonAbsolute;
 import frc.robot.util.TalonRelative;
+import frc.robot.commands.*;
 
 public class CargoArm extends PIDSubsystem {
     // private AxisCamera camera; //defines Axis Camera
@@ -27,8 +28,8 @@ public class CargoArm extends PIDSubsystem {
 
         super("CargoArm", PIDMap.CARGO_ARM_P, PIDMap.CARGO_ARM_I, PIDMap.CARGO_ARM_D);// The constructor passes a name for the subsystem and the P, I and D constants that are useed when computing the motor output
         getPIDController().setContinuous(false); //manipulating the raw internal PID Controller
-        setInputRange(0, 4096);
-        setOutputRange(0, 4096);
+        setInputRange(0, 360);
+        setOutputRange(0, 360);
         setPercentTolerance(0.05);
 
         leftMotor = new CANSparkMax(RobotMap.FRONT_ARM_ID, MotorType.kBrushless);
@@ -43,9 +44,11 @@ public class CargoArm extends PIDSubsystem {
     }
 
     public void armDrive(double speed, double intakeSpeed) {
+        if (-speed > 0 && armTalon.getAngleNeg() < RobotMap.MAX_ARM_ANGLE || -speed < 0 && armTalon.getAngleNeg() > RobotMap.MIN_ARM_ANGLE) {
+            leftMotor.set(-speed);
+            rightMotor.set(-speed);
+        }
 
-        leftMotor.set(-speed);
-        rightMotor.set(-speed);
         intakeMotor.set(ControlMode.PercentOutput, intakeSpeed);
 
     }
@@ -53,7 +56,7 @@ public class CargoArm extends PIDSubsystem {
     @Override
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        // setDefaultCommand();
+        setDefaultCommand(new ArmDrive());
     }
 
     @Override

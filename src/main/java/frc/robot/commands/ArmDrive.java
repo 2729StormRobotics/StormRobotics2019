@@ -7,10 +7,11 @@ import frc.robot.util.*;
 import frc.robot.*;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class JoystickDrive extends Command {
+public class ArmDrive extends Command {
 
-    public JoystickDrive() {
-        requires(Robot.driveTrain); // driveTrain is an instance of our DriveTrain subsystem
+    public ArmDrive() {
+        requires(Robot.cargoArm); // driveTrain is an instance of our DriveTrain subsystem
+
     }
 
     @Override
@@ -24,8 +25,10 @@ public class JoystickDrive extends Command {
      */
     @Override
     protected void execute() {
-        Robot.driveTrain.tankDrive(JoystickMath.getCubic(Robot.oi.getLeftSpeedDriver()), JoystickMath.getCubic(Robot.oi.getRightSpeedDriver()));
-
+        Robot.cargoArm.armDrive(
+            JoystickMath.getCubic(Robot.oi.getLeftSpeedWeapons()),
+            JoystickMath.getCubic(Robot.oi.getLeftTriggerWeapons()) - JoystickMath.getCubic(Robot.oi.getRightTriggerWeapons())
+        );
     }
 
     /*
