@@ -52,12 +52,12 @@ public class OI {
 
     public OI() {
 
-        weapons.getABtn().whenPressed(new GrabIn());
-        weapons.getBBtn().whenPressed(new PunchIn());
+        weapons.getABtn().whenPressed(new GrabOut());
+        weapons.getBBtn().whenPressed(new PunchOut());
         weapons.getXBtn().whenPressed(new ToggleArm());
 
-        weapons.getABtn().whenReleased(new GrabOut());
-        weapons.getBBtn().whenReleased(new PunchOut());
+        weapons.getABtn().whenReleased(new GrabIn());
+        weapons.getBBtn().whenReleased(new PunchIn());
 
 
 

@@ -26,7 +26,7 @@ public class GrabOut extends InstantCommand {
   // Called once when the command executes
   @Override
   protected void initialize() {
-      Robot.pneumatics.punchHatch(true);
+      Robot.pneumatics.pickupHatch(false);
   }
 
 }

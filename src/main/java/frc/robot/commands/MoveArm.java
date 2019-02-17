@@ -27,8 +27,8 @@ public class MoveArm extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.cargoArm.setSetpoint(setpoint);
-    Robot.cargoArm.enable();
+    //Robot.cargoArm.setSetpoint(setpoint);
+    //Robot.cargoArm.enable();
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -40,13 +40,14 @@ public class MoveArm extends Command {
   @Override
   protected boolean isFinished() {
     //return false; if the arm should stay on it's target position (don't backdrive)
-    return Robot.cargoArm.onTarget();
+    //return Robot.cargoArm.onTarget();
+    return true;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-      Robot.cargoArm.disable();
+      //Robot.cargoArm.disable();
   }
 
   // Called when another command which requires one or more of the same

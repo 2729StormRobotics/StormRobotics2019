@@ -26,7 +26,7 @@ public class GrabIn extends InstantCommand {
   // Called once when the command executes
   @Override
   protected void initialize() {
-      Robot.pneumatics.pickupHatch(false);
+      Robot.pneumatics.pickupHatch(true);
   }
 
 }
