@@ -35,7 +35,8 @@ public class Robot extends TimedRobot {
     public static OI oi;
     public static DriveTrain driveTrain;
     public static Pneumatics pneumatics;
-    public static LineFollower lineFollower;
+    public static LineFollowerH lineFollowerH;
+    public static LineFollowerC lineFollowerC;
     public static CargoArm cargoArm;
     public static NavX navX;
     CommandGroup retractPistons;
@@ -52,7 +53,8 @@ public class Robot extends TimedRobot {
         System.out.println("robotInit() has been called!");
         driveTrain = new DriveTrain();
         pneumatics = new Pneumatics();
-        lineFollower = new LineFollower();
+        lineFollowerC = new LineFollowerC();
+        lineFollowerH = new LineFollowerH();
         cargoArm = new CargoArm();
         retractPistons = new RetractPistons(); //retracts grab and punch pistons
         navX = new NavX();
@@ -82,7 +84,8 @@ public class Robot extends TimedRobot {
         //Dashboard.updateCANSparkMax(cargoArm.rightMotor, "CargoArm/Right");
         Dashboard.updateTalon(cargoArm.armTalon, "CargoArm/Talon");
 
-        Dashboard.updateLineSensors(lineFollower);
+        Dashboard.updateLineSensorsC(lineFollowerC);
+        Dashboard.updateLineSensorsH(lineFollowerH);
 
         cargoArm.armTalon.debugEncoder();
 

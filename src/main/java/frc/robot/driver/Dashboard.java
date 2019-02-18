@@ -25,16 +25,21 @@ public class Dashboard {
 
     }
 
-    public static void updateLineSensors(LineFollower lineFollower) {
+    public static void updateLineSensorsH(LineFollowerH lineFollower) {
         final String addressString = "StormDashboard/LineFollower/";
         SmartDashboard.putBoolean(addressString + "Hatch Left", lineFollower.lineLeftH.get());
         SmartDashboard.putBoolean(addressString + "Hatch Center", lineFollower.lineMiddleH.get());
         SmartDashboard.putBoolean(addressString + "Hatch Right", lineFollower.lineRightH.get());
+
+        SmartDashboard.putNumber(addressString + "Hatch Distance", lineFollower.infraredH.getVoltage());
+    }
+
+    public static void updateLineSensorsC(LineFollowerC lineFollower) {
+        final String addressString = "StormDashboard/LineFollower/";
         SmartDashboard.putBoolean(addressString + "Cargo Left", lineFollower.lineLeftC.get());
         SmartDashboard.putBoolean(addressString + "Cargo Center", lineFollower.lineMiddleC.get());
         SmartDashboard.putBoolean(addressString + "Cargo Right", lineFollower.lineRightC.get());
 
-        SmartDashboard.putNumber(addressString + "Hatch Distance", lineFollower.infraredH.getVoltage());
         SmartDashboard.putNumber(addressString + "Cargo Distance", lineFollower.infraredC.getVoltage());
     }
 

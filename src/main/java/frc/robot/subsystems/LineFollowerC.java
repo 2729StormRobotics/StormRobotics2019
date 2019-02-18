@@ -7,27 +7,17 @@ import frc.robot.Robot;
 import frc.robot.constants.RobotMap;
 import frc.robot.constants.PIDMap;
 
-public class LineFollower extends PIDSubsystem {
+public class LineFollowerC extends PIDSubsystem {
     // private AxisCamera camera; //defines Axis Camera
-    public DigitalInput lineRightH; //hatch side
-    public DigitalInput lineLeftH;
-    public DigitalInput lineMiddleH;
-    public AnalogInput infraredH;
-
     public DigitalInput lineRightC; //cargo side
     public DigitalInput lineLeftC;
     public DigitalInput lineMiddleC;
     public AnalogInput infraredC;
     public boolean noLine;
 
-    public LineFollower() {
+    public LineFollowerC() {
 
         super("LineFollower", PIDMap.LINE_FOLLOWER_P, PIDMap.LINE_FOLLOWER_I, PIDMap.LINE_FOLLOWER_D);// The constructor passes a name for the subsystem and the P, I and D constants that are useed when computing the motor output
-
-        lineLeftH = new DigitalInput(RobotMap.PHO_LEFT_PORT_H);
-        lineMiddleH = new DigitalInput(RobotMap.PHO_MIDDLE_PORT_H); // Photoelectric sensor ports
-        lineRightH = new DigitalInput(RobotMap.PHO_RIGHT_PORT_H);
-        infraredH = new AnalogInput(RobotMap.INFRA_PORT_H);
 
         lineLeftC = new DigitalInput(RobotMap.PHO_LEFT_PORT_C);
         lineMiddleC = new DigitalInput(RobotMap.PHO_MIDDLE_PORT_C);
@@ -73,7 +63,7 @@ public class LineFollower extends PIDSubsystem {
     }
 
     public String getState() {
-        return isLine(lineLeftH) + isLine(lineMiddleH) + isLine(lineRightH);
+        return isLine(lineLeftC) + isLine(lineMiddleC) + isLine(lineRightC);
     }
 
     public String isLine(DigitalInput lineFollow) {
@@ -85,7 +75,7 @@ public class LineFollower extends PIDSubsystem {
     }
 
     public boolean isFinished() {
-        return infraredH.getValue() <= RobotMap.DISTANCE_FROM_LINE || noLine;
+        return infraredC.getValue() <= RobotMap.DISTANCE_FROM_LINE || noLine;
     }
 
     @Override
@@ -96,7 +86,7 @@ public class LineFollower extends PIDSubsystem {
         leftSpeed += output;
         rightSpeed -= output;
 
-        Robot.driveTrain.tankDrive(leftSpeed, rightSpeed);
+        Robot.driveTrain.tankDrive(-leftSpeed, -rightSpeed);
     }
 
     @Override

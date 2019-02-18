@@ -70,8 +70,10 @@ public class OI {
         //weapons.getLB().whenPressed(new TogglePickupCargo());
         //weapons.getRB().whenPressed(new ToggleShoot());
 
-        if (!Robot.lineFollower.getPIDController().isEnabled()) {
-            driver.getRB().whileHeld(new FollowLine());
+        if (!Robot.lineFollowerH.getPIDController().isEnabled()) {
+            driver.getRB().whileHeld(new FollowLineH());
+        } else if (!Robot.lineFollowerC.getPIDController().isEnabled()) {
+            driver.getRB().whileHeld(new FollowLineC());
         }
 
         weapons.getDPadRight().whenPressed(new MoveArm(RobotMap.LVL1_ARM_ANGlE));
