@@ -111,7 +111,7 @@ public class TalonAbsolute extends TalonSRX {
 	 * If the measured travel has a discontinuity, Note the extremities or
 	 * "book ends" of the travel.
 	 */
-	private final boolean kDiscontinuityPresent = true;
+	private final boolean kDiscontinuityPresent = false;
 	private final int kBookEnd_0 = 910;		/* 80 deg */
 	private final int kBookEnd_1 = 1137;	/* 100 deg */
 

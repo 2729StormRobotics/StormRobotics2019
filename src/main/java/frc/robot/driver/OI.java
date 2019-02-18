@@ -59,6 +59,10 @@ public class OI {
         weapons.getABtn().whenReleased(new GrabIn());
         weapons.getBBtn().whenReleased(new PunchIn());
 
+        weapons.getLB().whenPressed(new Intake());
+        weapons.getRB().whenPressed(new Outtake());
+        weapons.getLB().whenReleased(new StopIntake());
+        weapons.getRB().whenReleased(new StopIntake());
 
 
         driver.getStartBack().whenPressed(new ToggleHab());

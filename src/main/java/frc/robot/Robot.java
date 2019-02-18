@@ -71,6 +71,22 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotPeriodic() {
+        //Dashboard.updateCANSparkMax(driveTrain.leftMotor, "Drive/Left/1");
+        //Dashboard.updateCANSparkMax(driveTrain.leftMotor2, "Drive/Left/2");
+        //Dashboard.updateCANSparkMax(driveTrain.rightMotor, "Drive/Right/1");
+        //Dashboard.updateCANSparkMax(driveTrain.rightMotor2, "Drive/Right/2");
+        //Dashboard.updateTalon(driveTrain.getLeftTalon(), "Drive/TalonLeft");
+        //Dashboard.updateTalon(driveTrain.getRightTalon(), "Drive/TalonRight");
+
+        //Dashboard.updateCANSparkMax(cargoArm.leftMotor, "CargoArm/Left");
+        //Dashboard.updateCANSparkMax(cargoArm.rightMotor, "CargoArm/Right");
+        Dashboard.updateTalon(cargoArm.armTalon, "CargoArm/Talon");
+
+        Dashboard.updateLineSensors(lineFollower);
+
+        cargoArm.armTalon.debugEncoder();
+
+        //Dashboard.updateNavX(navX);
     }
 
     /**
@@ -113,7 +129,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopInit() {
-        retractPistons.start();
+        //retractPistons.start();
     }
 
     /**

@@ -26,11 +26,11 @@ public class DriveTrain extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-    private final CANSparkMax leftMotor;
-    private final CANSparkMax leftMotor2;
+    public final CANSparkMax leftMotor;
+    public final CANSparkMax leftMotor2;
 
-    private final CANSparkMax rightMotor;
-    private final CANSparkMax rightMotor2;
+    public final CANSparkMax rightMotor;
+    public final CANSparkMax rightMotor2;
 
     private final TalonRelative leftTalon;
     private final TalonRelative rightTalon;
@@ -54,11 +54,12 @@ public class DriveTrain extends Subsystem {
         leftTalon = new TalonRelative(RobotMap.LEFT_TALON_ID);
         rightTalon = new TalonRelative(RobotMap.RIGHT_TALON_ID);
 
+/*
         leftMotor.setRampRate(RobotMap.RAMP_RATE);
         rightMotor.setRampRate(RobotMap.RAMP_RATE);
         leftMotor2.setRampRate(RobotMap.RAMP_RATE);
         rightMotor2.setRampRate(RobotMap.RAMP_RATE);
-
+*/
 
         leftMotor.setSmartCurrentLimit(RobotMap.STALL_LIMIT, RobotMap.FREE_LIMIT, RobotMap.RPM_LIMIT);
         rightMotor.setSmartCurrentLimit(RobotMap.STALL_LIMIT, RobotMap.FREE_LIMIT, RobotMap.RPM_LIMIT);

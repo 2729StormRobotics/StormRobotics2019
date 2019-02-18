@@ -19,9 +19,9 @@ import frc.robot.commands.*;
 
 public class CargoArm extends Subsystem {
     // private AxisCamera camera; //defines Axis Camera
-    private CANSparkMax leftMotor;
-    private CANSparkMax rightMotor;
-    private TalonAbsolute armTalon;
+    public CANSparkMax leftMotor;
+    public CANSparkMax rightMotor;
+    public TalonAbsolute armTalon;
 
     private TalonRelative intakeMotor;
 
@@ -53,8 +53,10 @@ public class CargoArm extends Subsystem {
             rightMotor.set(-speed * 0.15);
         //}
 
-        intakeMotor.set(ControlMode.PercentOutput, intakeSpeed);
+    }
 
+    public void intake(double speed) {
+        intakeMotor.set(ControlMode.PercentOutput, speed);
     }
 
     @Override
