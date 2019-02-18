@@ -76,7 +76,7 @@ public class LineFollowerH extends PIDSubsystem {
     }
 
     public boolean isFinished() {
-        return infraredH.getValue() <= RobotMap.DISTANCE_FROM_LINE || noLine;
+        return infraredH.getValue() <= RobotMap.DISTANCE_FROM_LINE || noLine /**|| !Robot.oi.isdriverRBHeld()*/;
     }
 
     @Override

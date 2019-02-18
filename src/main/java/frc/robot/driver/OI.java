@@ -117,6 +117,10 @@ public class OI {
         return weapons.getTriggerAxis(GenericHID.Hand.kRight);
     }
 
+    public boolean isdriverRBHeld() {
+        return driver.getBumper(GenericHID.Hand.kRight);
+    }
+
 
     // Run the command while the button is being held down and interrupt it once
     // the button is released.
