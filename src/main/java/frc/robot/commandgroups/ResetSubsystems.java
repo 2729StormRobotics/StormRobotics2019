@@ -10,11 +10,11 @@ package frc.robot.commandgroups;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.commands.*;
 
-public class RetractPistons extends CommandGroup {
+public class ResetSubsystems extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public RetractPistons() {
+  public ResetSubsystems() {
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
@@ -34,6 +34,7 @@ public class RetractPistons extends CommandGroup {
 
     addParallel(new GrabIn());
     addParallel(new PunchIn());
+    addParallel(new ResetMotors());
 
   }
 }

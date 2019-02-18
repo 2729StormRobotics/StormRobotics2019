@@ -76,6 +76,8 @@ public class OI {
             driver.getRB().whileHeld(new FollowLineC());
         }
 
+        driver.getLB().whenPressed(new ResetSubsystems());
+
         weapons.getDPadRight().whenPressed(new MoveArm(RobotMap.LVL1_ARM_ANGlE));
         weapons.getDPadUp().whenPressed(new MoveArm(RobotMap.LVL2_ARM_ANGlE));
         weapons.getDPadLeft().whenPressed(new MoveArm(RobotMap.MAX_ARM_ANGLE));

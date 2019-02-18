@@ -39,7 +39,7 @@ public class Robot extends TimedRobot {
     public static LineFollowerC lineFollowerC;
     public static CargoArm cargoArm;
     public static NavX navX;
-    CommandGroup retractPistons;
+    CommandGroup resetSubsystems;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -56,7 +56,7 @@ public class Robot extends TimedRobot {
         lineFollowerC = new LineFollowerC();
         lineFollowerH = new LineFollowerH();
         cargoArm = new CargoArm();
-        retractPistons = new RetractPistons(); //retracts grab and punch pistons
+        resetSubsystems = new ResetSubsystems(); //retracts grab and punch pistons
         navX = new NavX();
         oi = new OI();
         System.out.println("robotInit() has finished!!");
