@@ -64,8 +64,10 @@ public class OI {
         weapons.getLB().whenReleased(new StopIntake());
         weapons.getRB().whenReleased(new StopIntake());
 
+        weapons.getYBtn().whenPressed(new MoveArm(45));
 
-        driver.getStartBack().whenPressed(new ToggleHab());
+
+        driver.getStartBack().whileHeld(new ToggleHab());
 
         //weapons.getLB().whenPressed(new TogglePickupCargo());
         //weapons.getRB().whenPressed(new ToggleShoot());
@@ -78,10 +80,11 @@ public class OI {
 
         driver.getLB().whenPressed(new ResetSubsystems());
 
-        weapons.getDPadRight().whenPressed(new MoveArm(RobotMap.LVL1_ARM_ANGlE));
+        /** weapons.getDPadRight().whenPressed(new MoveArm(RobotMap.LVL1_ARM_ANGlE));
         weapons.getDPadUp().whenPressed(new MoveArm(RobotMap.LVL2_ARM_ANGlE));
         weapons.getDPadLeft().whenPressed(new MoveArm(RobotMap.MAX_ARM_ANGLE));
         weapons.getDPadDown().whenPressed(new MoveArm(RobotMap.HORIZONTAL_ARM_ANGlE));
+        */
 
 
 

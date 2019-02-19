@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.cameraserver.*;
 
 import frc.robot.commands.*;
 import frc.robot.commandgroups.*;
@@ -59,6 +60,12 @@ public class Robot extends TimedRobot {
         resetSubsystems = new ResetSubsystems(); //retracts grab and punch pistons
         navX = new NavX();
         oi = new OI();
+
+        CameraServer.getInstance().startAutomaticCapture();
+        CameraServer.getInstance().startAutomaticCapture();
+
+
+
         System.out.println("robotInit() has finished!!");
 
     }

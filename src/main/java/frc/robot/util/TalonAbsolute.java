@@ -201,7 +201,7 @@ public class TalonAbsolute extends TalonSRX {
 	 * @return degrees rounded to tenths.
 	 */
 	private double ToDeg(int units) {
-		double deg = units * 360.0 / 4096.0;
+		double deg = -((units - 1533) * 360.0 / 4096.0);
 
 		/* truncate to 0.1 res */
 		deg *= 10;

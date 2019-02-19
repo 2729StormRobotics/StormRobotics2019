@@ -34,20 +34,26 @@ public class MoveArm extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    if (Robot.cargoArm.armTalon.getAngle() < setpoint) {
+        Robot.cargoArm.armDrive(-0.5, 0);
+    } else {
+        Robot.cargoArm.armDrive(0.5, 0);
+    }
+
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    //return false; if the arm should stay on it's target position (don't backdrive)
+    return false;
     //return Robot.cargoArm.onTarget();
-    return true;
+    //return (Math.abs(Robot.cargoArm.armTalon.getAngle() - setpoint) < 1.0);
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-      //Robot.cargoArm.disable();
+    Robot.cargoArm.armDrive(0, 0);
   }
 
   // Called when another command which requires one or more of the same

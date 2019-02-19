@@ -59,6 +59,10 @@ public class CargoArm extends Subsystem {
         intakeMotor.set(ControlMode.PercentOutput, speed);
     }
 
+    public double getAngle() {
+        return armTalon.getAngle();
+    }
+
     @Override
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
