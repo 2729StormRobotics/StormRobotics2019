@@ -14,11 +14,11 @@ import frc.robot.util.*;
 import frc.robot.*;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class MoveArm extends Command {
+public class MoveArmPID extends Command {
 
     private double setpoint;
 
-  public MoveArm(double setpoint) {
+  public MoveArmPID(double setpoint) {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.cargoArm);
     this.setpoint = setpoint;
@@ -27,32 +27,26 @@ public class MoveArm extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    //Robot.cargoArm.setSetpoint(setpoint);
-    //Robot.cargoArm.enable();
+    Robot.cargoArm.setSetpoint(setpoint);
+    Robot.cargoArm.enable();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.cargoArm.armTalon.getAngle() < setpoint) {
-        Robot.cargoArm.armDrive(0.5, 0);
-    } else {
-        Robot.cargoArm.armDrive(-0.5, 0);
-    }
-
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return Robot.cargoArm.stopPID;
     //return Robot.cargoArm.onTarget();
-    //return (Math.abs(Robot.cargoArm.armTalon.getAngle() - setpoint) < 1.0);
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.cargoArm.disable();
     Robot.cargoArm.armDrive(0, 0);
   }
 

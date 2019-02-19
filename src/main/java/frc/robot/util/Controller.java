@@ -81,7 +81,7 @@ public class Controller extends XboxController {
         return new Button() {
             @Override
             public boolean get() {
-                return getPOV(0) == 0;
+                return getPOV(0) == 90;
             }
         };
     }
@@ -90,7 +90,7 @@ public class Controller extends XboxController {
         return new Button() {
             @Override
             public boolean get() {
-                return getPOV(0) == 90;
+                return getPOV(0) == 0;
             }
         };
     }
@@ -99,7 +99,7 @@ public class Controller extends XboxController {
         return new Button() {
             @Override
             public boolean get() {
-                return getPOV(0) == 180;
+                return getPOV(0) == 270;
             }
         };
     }
@@ -108,7 +108,7 @@ public class Controller extends XboxController {
         return new Button() {
             @Override
             public boolean get() {
-                return getPOV(0) == 270;
+                return getPOV(0) == 180;
             }
         };
     }

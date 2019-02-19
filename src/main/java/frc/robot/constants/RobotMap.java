@@ -34,12 +34,12 @@ public class RobotMap {
     public static final int FRONT_ARM_ID = 13;
     public static final int BACK_ARM_ID = 2;
     public static final int ARM_TALON_ID = 10;
-    public static final double MAX_ARM_ANGLE = 110;
-    public static final double MIN_ARM_ANGLE = 340;
+    public static final double MAX_ARM_ANGLE = 100;
+    public static final double MIN_ARM_ANGLE = 0;
 
     public static final double HORIZONTAL_ARM_ANGlE = 0;
-    public static final double LVL1_ARM_ANGlE = 45;
-    public static final double LVL2_ARM_ANGlE = 60;
+    public static final double LVL1_ARM_ANGlE = 48;
+    public static final double SHIP_ARM_ANGlE = 90;
 
 
     public static final int RAMP_RATE = 0;

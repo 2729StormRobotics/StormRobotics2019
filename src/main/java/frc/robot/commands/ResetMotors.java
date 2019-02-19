@@ -20,7 +20,7 @@ public class ResetMotors extends InstantCommand {
   public ResetMotors() {
     super();
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.driveTrain);
+    //requires(Robot.driveTrain);
     requires(Robot.cargoArm);
     requires(Robot.lineFollowerC);
     requires(Robot.lineFollowerH);
@@ -31,7 +31,7 @@ public class ResetMotors extends InstantCommand {
   // Called once when the command executes
   @Override
   protected void initialize() {
-      Robot.driveTrain.stopDrive();
+      //Robot.driveTrain.stopDrive();
       Robot.cargoArm.armDrive(0.0, 0.0);
   }
 

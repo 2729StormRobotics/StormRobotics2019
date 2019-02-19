@@ -26,7 +26,7 @@ public class ArmDrive extends Command {
     @Override
     protected void execute() {
         Robot.cargoArm.armDrive(
-            JoystickMath.getCubic(Robot.oi.getLeftSpeedWeapons()),
+            JoystickMath.getCubic(-Robot.oi.getLeftSpeedWeapons()),
             JoystickMath.getCubic(Robot.oi.getLeftTriggerWeapons()) - JoystickMath.getCubic(Robot.oi.getRightTriggerWeapons())
         );
     }

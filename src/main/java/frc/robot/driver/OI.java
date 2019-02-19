@@ -39,6 +39,7 @@ public class OI {
     private Controller weapons = new Controller(ControllerMap.WEAPONS_PORT);
 
 
+
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
     // commands the same as any other Button.
@@ -64,7 +65,13 @@ public class OI {
         weapons.getLB().whenReleased(new StopIntake());
         weapons.getRB().whenReleased(new StopIntake());
 
-        weapons.getYBtn().whenPressed(new MoveArm(45));
+        weapons.getYBtn().whenPressed(new MoveArmPID(45));
+
+        if (JoystickMath.getCubic(getLeftSpeedWeapons()) == 0) {
+            Robot.cargoArm.stopPID = false;
+        } else {
+            Robot.cargoArm.stopPID = true;
+        }
 
 
         driver.getStartBack().whileHeld(new ToggleHab());
@@ -80,11 +87,11 @@ public class OI {
 
         driver.getLB().whenPressed(new ResetSubsystems());
 
-        /** weapons.getDPadRight().whenPressed(new MoveArm(RobotMap.LVL1_ARM_ANGlE));
-        weapons.getDPadUp().whenPressed(new MoveArm(RobotMap.LVL2_ARM_ANGlE));
-        weapons.getDPadLeft().whenPressed(new MoveArm(RobotMap.MAX_ARM_ANGLE));
-        weapons.getDPadDown().whenPressed(new MoveArm(RobotMap.HORIZONTAL_ARM_ANGlE));
-        */
+        weapons.getDPadRight().whenPressed(new MoveArmPID(RobotMap.LVL1_ARM_ANGlE));
+        //weapons.getDPadLeft().whenPressed(new MoveArm(RobotMap.MAX_ARM_ANGLE));
+        weapons.getDPadDown().whenPressed(new MoveArmPID(RobotMap.HORIZONTAL_ARM_ANGlE));
+        weapons.getDPadUp().whenPressed(new MoveArmPID(90));
+
 
 
 
