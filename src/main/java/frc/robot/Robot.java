@@ -48,7 +48,6 @@ public class Robot extends TimedRobot {
         // chooser.addOption("My Auto", new MyAutoCommand());
         System.out.println("robotInit() has been called!");
         driveTrain = new DriveTrain();
-        resetSubsystems = new ResetSubsystems(); //retracts grab and punch pistons
         oi = new OI();
 
 
