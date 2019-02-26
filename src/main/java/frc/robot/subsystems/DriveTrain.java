@@ -26,14 +26,11 @@ public class DriveTrain extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-    public final CANSparkMax leftMotor;
-    public final CANSparkMax leftMotor2;
+    public final TalonSRX leftMotor;
+    public final TalonSRX leftMotor2;
 
-    public final CANSparkMax rightMotor;
-    public final CANSparkMax rightMotor2;
-
-    private final TalonRelative leftTalon;
-    private final TalonRelative rightTalon;
+    public final TalonSRX rightMotor;
+    public final TalonSRX rightMotor2;
 
 
 
@@ -46,13 +43,10 @@ public class DriveTrain extends Subsystem {
         // setOutputRange(-1, 1);
         // setPercentTolerance(0.05);
 
-        leftMotor = new CANSparkMax(RobotMap.LEFT_MOTOR_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
-        leftMotor2 = new CANSparkMax(RobotMap.LEFT_MOTOR2_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
-        rightMotor = new CANSparkMax(RobotMap.RIGHT_MOTOR_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
-        rightMotor2 = new CANSparkMax(RobotMap.RIGHT_MOTOR2_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
-
-        leftTalon = new TalonRelative(RobotMap.LEFT_TALON_ID);
-        rightTalon = new TalonRelative(RobotMap.RIGHT_TALON_ID);
+        leftMotor = new TalonSRX(RobotMap.LEFT_MOTOR_ID);
+        leftMotor2 = new TalonSRX(RobotMap.LEFT_MOTOR2_ID);
+        rightMotor = new TalonSRX(RobotMap.RIGHT_MOTOR_ID);
+        rightMotor2 = new TalonSRX(RobotMap.RIGHT_MOTOR2_ID);
 
 /*
         leftMotor.setRampRate(RobotMap.RAMP_RATE);
@@ -61,10 +55,6 @@ public class DriveTrain extends Subsystem {
         rightMotor2.setRampRate(RobotMap.RAMP_RATE);
 */
 
-        leftMotor.setSmartCurrentLimit(RobotMap.STALL_LIMIT, RobotMap.FREE_LIMIT, RobotMap.RPM_LIMIT);
-        rightMotor.setSmartCurrentLimit(RobotMap.STALL_LIMIT, RobotMap.FREE_LIMIT, RobotMap.RPM_LIMIT);
-        leftMotor2.setSmartCurrentLimit(RobotMap.STALL_LIMIT, RobotMap.FREE_LIMIT, RobotMap.RPM_LIMIT);
-        rightMotor2.setSmartCurrentLimit(RobotMap.STALL_LIMIT, RobotMap.FREE_LIMIT, RobotMap.RPM_LIMIT);
 
         leftMotor2.follow(leftMotor);
         rightMotor2.follow(rightMotor);
@@ -78,8 +68,8 @@ public class DriveTrain extends Subsystem {
 
     public void tankDrive(double leftSpeed, double rightSpeed) {
 
-        leftMotor.set(-leftSpeed);
-        rightMotor.set(rightSpeed);
+        leftMotor.set(ControlMode.PercentOutput, -leftSpeed);
+        rightMotor.set(ControlMode.PercentOutput, rightSpeed);
 
 
         //may need to adjust speed values
@@ -90,21 +80,13 @@ public class DriveTrain extends Subsystem {
     }
 
     public void stopDrive() {
-        leftMotor.set(0);
-        rightMotor.set(0);
+        leftMotor.set(ControlMode.PercentOutput, 0);
+        rightMotor.set(ControlMode.PercentOutput, 0);
     }
 
     public void disableDrive() {
-        leftMotor.disable();
-        rightMotor.disable();
-    }
-
-    public TalonRelative getLeftTalon() {
-        return leftTalon;
-    }
-
-    public TalonRelative getRightTalon() {
-        return rightTalon;
+        leftMotor.set(ControlMode.PercentOutput, 0);
+        rightMotor.set(ControlMode.PercentOutput, 0);
     }
 
     @Override
