@@ -58,7 +58,6 @@ public class OI {
 
 
 
-        driver.getLB().whenPressed(new ResetSubsystems());
 
         /*weapons.getDPadRight().whenPressed(new MoveArmPID(RobotMap.LVL1_ARM_ANGlE));
         //weapons.getDPadLeft().whenPressed(new MoveArm(RobotMap.MAX_ARM_ANGLE));
