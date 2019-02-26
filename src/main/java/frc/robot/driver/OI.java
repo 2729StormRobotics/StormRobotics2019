@@ -53,44 +53,17 @@ public class OI {
 
     public OI() {
 
-        weapons.getABtn().whenPressed(new GrabOut());
-        weapons.getBBtn().whenPressed(new PunchOut());
-        weapons.getXBtn().whenPressed(new ToggleArm());
-
-        weapons.getABtn().whenReleased(new GrabIn());
-        weapons.getBBtn().whenReleased(new PunchIn());
-
-        weapons.getLB().whenPressed(new Intake());
-        weapons.getRB().whenPressed(new Outtake());
-        weapons.getLB().whenReleased(new StopIntake());
-        weapons.getRB().whenReleased(new StopIntake());
-
-        weapons.getYBtn().whenPressed(new MoveArmPID(45));
-
-        if (JoystickMath.getCubic(getLeftSpeedWeapons()) == 0) {
-            Robot.cargoArm.stopPID = false;
-        } else {
-            Robot.cargoArm.stopPID = true;
-        }
 
 
-        driver.getStartBack().whileHeld(new ToggleHab());
 
-        //weapons.getLB().whenPressed(new TogglePickupCargo());
-        //weapons.getRB().whenPressed(new ToggleShoot());
 
-        if (!Robot.lineFollowerH.getPIDController().isEnabled()) {
-            driver.getRB().whileHeld(new FollowLineH());
-        } else if (!Robot.lineFollowerC.getPIDController().isEnabled()) {
-            driver.getRB().whileHeld(new FollowLineC());
-        }
 
         driver.getLB().whenPressed(new ResetSubsystems());
 
-        weapons.getDPadRight().whenPressed(new MoveArmPID(RobotMap.LVL1_ARM_ANGlE));
+        /*weapons.getDPadRight().whenPressed(new MoveArmPID(RobotMap.LVL1_ARM_ANGlE));
         //weapons.getDPadLeft().whenPressed(new MoveArm(RobotMap.MAX_ARM_ANGLE));
         weapons.getDPadDown().whenPressed(new MoveArmPID(RobotMap.HORIZONTAL_ARM_ANGlE));
-        weapons.getDPadUp().whenPressed(new MoveArmPID(90));
+        weapons.getDPadUp().whenPressed(new MoveArmPID(90));*/
 
 
 

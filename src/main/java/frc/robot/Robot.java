@@ -35,11 +35,6 @@ public class Robot extends TimedRobot {
 
     public static OI oi;
     public static DriveTrain driveTrain;
-    public static Pneumatics pneumatics;
-    public static LineFollowerH lineFollowerH;
-    public static LineFollowerC lineFollowerC;
-    public static CargoArm cargoArm;
-    public static NavX navX;
     CommandGroup resetSubsystems;
 
     /**
@@ -53,16 +48,9 @@ public class Robot extends TimedRobot {
         // chooser.addOption("My Auto", new MyAutoCommand());
         System.out.println("robotInit() has been called!");
         driveTrain = new DriveTrain();
-        pneumatics = new Pneumatics();
-        lineFollowerC = new LineFollowerC();
-        lineFollowerH = new LineFollowerH();
-        cargoArm = new CargoArm();
         resetSubsystems = new ResetSubsystems(); //retracts grab and punch pistons
-        navX = new NavX();
         oi = new OI();
 
-        CameraServer.getInstance().startAutomaticCapture();
-        CameraServer.getInstance().startAutomaticCapture();
 
 
 
@@ -89,12 +77,6 @@ public class Robot extends TimedRobot {
 
         //Dashboard.updateCANSparkMax(cargoArm.leftMotor, "CargoArm/Left");
         //Dashboard.updateCANSparkMax(cargoArm.rightMotor, "CargoArm/Right");
-        Dashboard.updateTalon(cargoArm.armTalon, "CargoArm/Talon");
-
-        Dashboard.updateLineSensorsC(lineFollowerC);
-        Dashboard.updateLineSensorsH(lineFollowerH);
-
-        cargoArm.armTalon.debugEncoder();
 
         //Dashboard.updateNavX(navX);
     }
