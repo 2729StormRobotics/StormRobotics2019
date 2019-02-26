@@ -77,6 +77,42 @@ public class Controller extends XboxController {
         };
     }
 
+    public Button getDPadRight() {
+        return new Button() {
+            @Override
+            public boolean get() {
+                return getPOV(0) == 90;
+            }
+        };
+    }
+
+    public Button getDPadUp() {
+        return new Button() {
+            @Override
+            public boolean get() {
+                return getPOV(0) == 0;
+            }
+        };
+    }
+
+    public Button getDPadLeft() {
+        return new Button() {
+            @Override
+            public boolean get() {
+                return getPOV(0) == 270;
+            }
+        };
+    }
+
+    public Button getDPadDown() {
+        return new Button() {
+            @Override
+            public boolean get() {
+                return getPOV(0) == 180;
+            }
+        };
+    }
+
 
 
 }

@@ -39,6 +39,7 @@ public class OI {
     private Controller weapons = new Controller(ControllerMap.WEAPONS_PORT);
 
 
+
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
     // commands the same as any other Button.
@@ -52,19 +53,46 @@ public class OI {
 
     public OI() {
 
-        weapons.getABtn().whenPressed(new GrabIn());
-        weapons.getBBtn().whenPressed(new PunchIn());
+        weapons.getABtn().whenPressed(new GrabOut());
+        weapons.getBBtn().whenPressed(new PunchOut());
         weapons.getXBtn().whenPressed(new ToggleArm());
 
-        weapons.getABtn().whenReleased(new GrabOut());
-        weapons.getBBtn().whenReleased(new PunchOut());
+        weapons.getABtn().whenReleased(new GrabIn());
+        weapons.getBBtn().whenReleased(new PunchIn());
 
-        driver.getStartBack().whenPressed(new ToggleHab());
+        weapons.getLB().whenPressed(new Intake());
+        weapons.getRB().whenPressed(new Outtake());
+        weapons.getLB().whenReleased(new StopIntake());
+        weapons.getRB().whenReleased(new StopIntake());
+
+        weapons.getYBtn().whenPressed(new MoveArmPID(45));
+
+        if (JoystickMath.getCubic(getLeftSpeedWeapons()) == 0) {
+            Robot.cargoArm.stopPID = false;
+        } else {
+            Robot.cargoArm.stopPID = true;
+        }
+
+
+        driver.getStartBack().whileHeld(new ToggleHab());
 
         //weapons.getLB().whenPressed(new TogglePickupCargo());
         //weapons.getRB().whenPressed(new ToggleShoot());
 
-        driver.getRB().whileHeld(new CheckLine());
+        if (!Robot.lineFollowerH.getPIDController().isEnabled()) {
+            driver.getRB().whileHeld(new FollowLineH());
+        } else if (!Robot.lineFollowerC.getPIDController().isEnabled()) {
+            driver.getRB().whileHeld(new FollowLineC());
+        }
+
+        driver.getLB().whenPressed(new ResetSubsystems());
+
+        weapons.getDPadRight().whenPressed(new MoveArmPID(RobotMap.LVL1_ARM_ANGlE));
+        //weapons.getDPadLeft().whenPressed(new MoveArm(RobotMap.MAX_ARM_ANGLE));
+        weapons.getDPadDown().whenPressed(new MoveArmPID(RobotMap.HORIZONTAL_ARM_ANGlE));
+        weapons.getDPadUp().whenPressed(new MoveArmPID(90));
+
+
 
 
     }
@@ -83,6 +111,24 @@ public class OI {
 
     public double getRightSpeedWeapons() {
         return weapons.getY(GenericHID.Hand.kRight);
+    }
+
+    public double getLeftTriggerDriver() {
+        return driver.getTriggerAxis(GenericHID.Hand.kLeft);
+    }
+    public double getRightTriggerDriver() {
+        return driver.getTriggerAxis(GenericHID.Hand.kRight);
+    }
+
+    public double getLeftTriggerWeapons() {
+        return weapons.getTriggerAxis(GenericHID.Hand.kLeft);
+    }
+    public double getRightTriggerWeapons() {
+        return weapons.getTriggerAxis(GenericHID.Hand.kRight);
+    }
+
+    public boolean isdriverRBHeld() {
+        return driver.getBumper(GenericHID.Hand.kRight);
     }
 
 

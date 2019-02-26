@@ -26,13 +26,21 @@ public class RobotMap {
     public static final int LEFT_MOTOR_ID = 14;
     public static final int RIGHT_MOTOR_ID = 1;
     public static final int LEFT_MOTOR2_ID = 15;
-    public static final int RIGHT_MOTOR2_ID = 0;
+    public static final int RIGHT_MOTOR2_ID = 36;
 
     public static final int LEFT_TALON_ID = 5;
     public static final int RIGHT_TALON_ID = 4;
 
     public static final int FRONT_ARM_ID = 13;
     public static final int BACK_ARM_ID = 2;
+    public static final int ARM_TALON_ID = 10;
+    public static final double MAX_ARM_ANGLE = 100;
+    public static final double MIN_ARM_ANGLE = 0;
+
+    public static final double HORIZONTAL_ARM_ANGlE = 0;
+    public static final double LVL1_ARM_ANGlE = 48;
+    public static final double SHIP_ARM_ANGlE = 90;
+
 
     public static final int RAMP_RATE = 0;
 
@@ -44,26 +52,28 @@ public class RobotMap {
     public static final int FREE_LIMIT = 255;
     public static final int RPM_LIMIT = 5700;
 
-    public static final int SOL_PICKUP_PORT = 2;
-    public static final int SOL_PUNCH_PORT = 0;
-    public static final int SOL_HAB_PORT = 6;
+    public static final int SOL_PICKUP_PORT = 6;
+    public static final int SOL_PUNCH_PORT = 2;
+    public static final int SOL_HAB_PORT = 0;
     public static final int SOL_ARM_PORT = 4;
 
     public static final int CARGO_INTAKE_PORT = 11;
 
-    public static final int PHO_RIGHT_PORT = 0;
-    public static final int PHO_MIDDLE_PORT = 1;
-    public static final int PHO_LEFT_PORT = 2;
+    public static final int PHO_RIGHT_PORT_H = 0; //hatch side
+    public static final int PHO_MIDDLE_PORT_H = 1;
+    public static final int PHO_LEFT_PORT_H = 2;
 
-    public static final int PHO_RIGHT2_PORT = 0;
-    public static final int PHO_MIDDLE2_PORT = 1;
-    public static final int PHO_LEFT2_PORT = 2;
+    public static final int PHO_RIGHT_PORT_C = 7; //cargo side
+    public static final int PHO_MIDDLE_PORT_C = 8;
+    public static final int PHO_LEFT_PORT_C = 9;
 
     public static final double CONTROLLER_DEADZONE = 0.05;
 
     public static final double LIGHT_THRESHOLD = 3000;
 
-    public static final int INFRA_PORT = 3;
+    public static final int INFRA_PORT_H = 3;
+    public static final int INFRA_PORT_C = 0;
+
     public static final double DISTANCE_FROM_LINE = 5; //cm
 
     public static final int TICKS_PER_REVOLUTION = 4096;

@@ -111,7 +111,7 @@ public class TalonAbsolute extends TalonSRX {
 	 * If the measured travel has a discontinuity, Note the extremities or
 	 * "book ends" of the travel.
 	 */
-	private final boolean kDiscontinuityPresent = true;
+	private final boolean kDiscontinuityPresent = false;
 	private final int kBookEnd_0 = 910;		/* 80 deg */
 	private final int kBookEnd_1 = 1137;	/* 100 deg */
 
@@ -201,7 +201,7 @@ public class TalonAbsolute extends TalonSRX {
 	 * @return degrees rounded to tenths.
 	 */
 	private double ToDeg(int units) {
-		double deg = units * 360.0 / 4096.0;
+		double deg = -((units - 1533) * 360.0 / 4096.0);
 
 		/* truncate to 0.1 res */
 		deg *= 10;
@@ -217,5 +217,11 @@ public class TalonAbsolute extends TalonSRX {
 
     public double getAngle() {
         return ToDeg(get());
+    }
+
+    public double getAngleNeg() {
+        if (getAngle() > 180)
+        return (360 - getAngle());
+        return getAngle();
     }
 }

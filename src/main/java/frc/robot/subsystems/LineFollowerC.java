@@ -1,27 +1,29 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import frc.robot.Robot;
 import frc.robot.constants.RobotMap;
 import frc.robot.constants.PIDMap;
 
-public class LineFollower extends PIDSubsystem{
+public class LineFollowerC extends PIDSubsystem {
     // private AxisCamera camera; //defines Axis Camera
-    private AnalogInput lineRight;
-    private AnalogInput lineLeft;
-    private AnalogInput lineMiddle;
-    private AnalogInput infrared;
-    private boolean noLine;
+    public DigitalInput lineRightC; //cargo side
+    public DigitalInput lineLeftC;
+    public DigitalInput lineMiddleC;
+    public AnalogInput infraredC;
+    public boolean noLine;
 
-    public LineFollower() {
+    public LineFollowerC() {
 
         super("LineFollower", PIDMap.LINE_FOLLOWER_P, PIDMap.LINE_FOLLOWER_I, PIDMap.LINE_FOLLOWER_D);// The constructor passes a name for the subsystem and the P, I and D constants that are useed when computing the motor output
 
-        lineLeft = new AnalogInput(RobotMap.PHO_LEFT_PORT);
-        lineMiddle = new AnalogInput(RobotMap.PHO_MIDDLE_PORT); // Photoelectric sensor port
-        lineRight = new AnalogInput(RobotMap.PHO_RIGHT_PORT);
-        infrared = new AnalogInput(RobotMap.INFRA_PORT);
+        lineLeftC = new DigitalInput(RobotMap.PHO_LEFT_PORT_C);
+        lineMiddleC = new DigitalInput(RobotMap.PHO_MIDDLE_PORT_C);
+        lineRightC = new DigitalInput(RobotMap.PHO_RIGHT_PORT_C);
+        infraredC = new AnalogInput(RobotMap.INFRA_PORT_C);
+
         noLine = false;
 
     }
@@ -61,19 +63,19 @@ public class LineFollower extends PIDSubsystem{
     }
 
     public String getState() {
-        return isLine(lineLeft) + isLine(lineMiddle) + isLine(lineRight);
+        return isLine(lineLeftC) + isLine(lineMiddleC) + isLine(lineRightC);
     }
 
-    public String isLine(AnalogInput lineFollow) {
-        if (lineFollow.getValue() >= RobotMap.LIGHT_THRESHOLD) {
+    public String isLine(DigitalInput lineFollow) {
+        /*if (lineFollow.getValue() >= RobotMap.LIGHT_THRESHOLD) {
             return "1";
-        }
+        } */
 
-        return "0";
+        return lineFollow.get() ? "1" : "0";
     }
 
     public boolean isFinished() {
-        return infrared.getValue() <= RobotMap.DISTANCE_FROM_LINE || noLine;
+        return infraredC.getValue() <= RobotMap.DISTANCE_FROM_LINE || noLine /**|| !Robot.oi.isdriverRBHeld()*/;
     }
 
     @Override
@@ -84,7 +86,7 @@ public class LineFollower extends PIDSubsystem{
         leftSpeed += output;
         rightSpeed -= output;
 
-        Robot.driveTrain.tankDrive(leftSpeed, rightSpeed);
+        Robot.driveTrain.tankDrive(-leftSpeed, -rightSpeed);
     }
 
     @Override

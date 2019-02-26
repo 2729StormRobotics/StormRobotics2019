@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.cameraserver.*;
 
 import frc.robot.commands.*;
 import frc.robot.commandgroups.*;
@@ -35,10 +36,11 @@ public class Robot extends TimedRobot {
     public static OI oi;
     public static DriveTrain driveTrain;
     public static Pneumatics pneumatics;
-    public static LineFollower lineFollower;
+    public static LineFollowerH lineFollowerH;
+    public static LineFollowerC lineFollowerC;
     public static CargoArm cargoArm;
     public static NavX navX;
-    CommandGroup retractPistons;
+    CommandGroup resetSubsystems;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -52,11 +54,18 @@ public class Robot extends TimedRobot {
         System.out.println("robotInit() has been called!");
         driveTrain = new DriveTrain();
         pneumatics = new Pneumatics();
-        lineFollower = new LineFollower();
+        lineFollowerC = new LineFollowerC();
+        lineFollowerH = new LineFollowerH();
         cargoArm = new CargoArm();
-        retractPistons = new RetractPistons();
+        resetSubsystems = new ResetSubsystems(); //retracts grab and punch pistons
         navX = new NavX();
         oi = new OI();
+
+        CameraServer.getInstance().startAutomaticCapture();
+        CameraServer.getInstance().startAutomaticCapture();
+
+
+
         System.out.println("robotInit() has finished!!");
 
     }
@@ -71,6 +80,23 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotPeriodic() {
+        //Dashboard.updateCANSparkMax(driveTrain.leftMotor, "Drive/Left/1");
+        //Dashboard.updateCANSparkMax(driveTrain.leftMotor2, "Drive/Left/2");
+        //Dashboard.updateCANSparkMax(driveTrain.rightMotor, "Drive/Right/1");
+        //Dashboard.updateCANSparkMax(driveTrain.rightMotor2, "Drive/Right/2");
+        //Dashboard.updateTalon(driveTrain.getLeftTalon(), "Drive/TalonLeft");
+        //Dashboard.updateTalon(driveTrain.getRightTalon(), "Drive/TalonRight");
+
+        //Dashboard.updateCANSparkMax(cargoArm.leftMotor, "CargoArm/Left");
+        //Dashboard.updateCANSparkMax(cargoArm.rightMotor, "CargoArm/Right");
+        Dashboard.updateTalon(cargoArm.armTalon, "CargoArm/Talon");
+
+        Dashboard.updateLineSensorsC(lineFollowerC);
+        Dashboard.updateLineSensorsH(lineFollowerH);
+
+        cargoArm.armTalon.debugEncoder();
+
+        //Dashboard.updateNavX(navX);
     }
 
     /**
@@ -113,7 +139,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopInit() {
-        retractPistons.start();
+        //retractPistons.start();
     }
 
     /**

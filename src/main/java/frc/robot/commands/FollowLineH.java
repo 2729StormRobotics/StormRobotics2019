@@ -4,25 +4,25 @@ import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.subsystems.LineFollower;
+import frc.robot.subsystems.LineFollowerC;
 
-public class FollowLine extends Command {
+public class FollowLineH extends Command {
 
-    public FollowLine() {
+    public FollowLineH() {
         requires(Robot.driveTrain);
-        requires(Robot.lineFollower);
+        requires(Robot.lineFollowerH);
     }
 
     @Override
     protected void initialize() {
 
-        Robot.lineFollower.setSetpoint(0);
-        Robot.lineFollower.setInputRange(-1.0, 1.0);
-        Robot.lineFollower.setOutputRange(-0.2, 0.2);
-        Robot.lineFollower.setAbsoluteTolerance(0.25);
-        Robot.lineFollower.getPIDController().setContinuous(false);
+        Robot.lineFollowerH.setSetpoint(0);
+        Robot.lineFollowerH.setInputRange(-1.0, 1.0);
+        Robot.lineFollowerH.setOutputRange(-0.2, 0.2);
+        Robot.lineFollowerH.setAbsoluteTolerance(0.25);
+        Robot.lineFollowerH.getPIDController().setContinuous(false);
 
-        Robot.lineFollower.enable();
+        Robot.lineFollowerH.enable();
     }
 
     @Override
@@ -39,12 +39,12 @@ public class FollowLine extends Command {
      */
     @Override
     protected boolean isFinished() {
-        return Robot.lineFollower.isFinished();
+        return Robot.lineFollowerH.isFinished();
     }
 
     @Override
     protected void end() {
-        Robot.lineFollower.disable();
+        Robot.lineFollowerH.disable();
         super.end();
     }
 

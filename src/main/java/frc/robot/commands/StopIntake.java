@@ -13,20 +13,20 @@ import frc.robot.Robot;
 /**
  * Add your docs here.
  */
-public class GrabOut extends InstantCommand {
+public class StopIntake extends InstantCommand {
   /**
    * Add your docs here.
    */
-  public GrabOut() {
+  public StopIntake() {
     super();
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.pneumatics);
+    requires(Robot.cargoArm);
   }
 
   // Called once when the command executes
   @Override
   protected void initialize() {
-      Robot.pneumatics.pickupHatch(false);
+      Robot.cargoArm.intake(0.0);
   }
 
 }

@@ -10,23 +10,17 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
 
-/**
- * Add your docs here.
- */
-public class GrabOut extends InstantCommand {
-  /**
-   * Add your docs here.
-   */
-  public GrabOut() {
-    super();
+public class Outtake extends InstantCommand {
+  public Outtake() {
+      super();
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.pneumatics);
+    requires(Robot.cargoArm);
   }
 
-  // Called once when the command executes
+  // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-      Robot.pneumatics.pickupHatch(false);
+    Robot.cargoArm.intake(-0.5);
   }
 
 }

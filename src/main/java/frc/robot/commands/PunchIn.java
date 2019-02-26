@@ -26,7 +26,7 @@ public class PunchIn extends InstantCommand {
   // Called once when the command executes
   @Override
   protected void initialize() {
-      Robot.pneumatics.punchHatch(false);
+      Robot.pneumatics.punchHatch(true);
   }
 
 }
