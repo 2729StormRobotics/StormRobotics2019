@@ -32,6 +32,8 @@ public class DriveTrain extends Subsystem {
     public final TalonSRX rightMotor;
     public final TalonSRX rightMotor2;
 
+    public boolean sticksMoved;
+
 
 
 
@@ -42,6 +44,8 @@ public class DriveTrain extends Subsystem {
         // setInputRange(0, 4096);
         // setOutputRange(-1, 1);
         // setPercentTolerance(0.05);
+
+        sticksMoved = false;
 
         leftMotor = new TalonSRX(RobotMap.LEFT_MOTOR_ID);
         leftMotor2 = new TalonSRX(RobotMap.LEFT_MOTOR2_ID);
@@ -71,12 +75,6 @@ public class DriveTrain extends Subsystem {
         leftMotor.set(ControlMode.PercentOutput, -leftSpeed);
         rightMotor.set(ControlMode.PercentOutput, rightSpeed);
 
-
-        //may need to adjust speed values
-        //leftMotor.set(SmartDashboard.getNumber("leftSpeed", 0.0));
-        //leftMotor2.set(SmartDashboard.getNumber("leftSpeed2", 0.0));
-        //rightMotor.set(SmartDashboard.getNumber("rightSpeed", 0.0));
-        //rightMotor2.set(SmartDashboard.getNumber("rightSpeed2", 0.0));
     }
 
     public void stopDrive() {
