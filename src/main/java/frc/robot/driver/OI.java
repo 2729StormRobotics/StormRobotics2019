@@ -55,8 +55,8 @@ public class OI {
 
         driver.getYBtn().whenPressed(new SetSpeed(0.1, 0.1));
 
-        boolean leftStickMoved = JoystickMath.getCubic(getLeftSpeedDriver()) > 0;
-        boolean rightStickMoved = JoystickMath.getCubic(getRightSpeedDriver()) > 0;
+        boolean leftStickMoved = JoystickMath.getCubic(getLeftSpeedDriver()) != 0;
+        boolean rightStickMoved = JoystickMath.getCubic(getRightSpeedDriver()) != 0;
         if (leftStickMoved || rightStickMoved) {
             Robot.driveTrain.sticksMoved = true;
         } else {
