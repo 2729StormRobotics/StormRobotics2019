@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.PIDOutput;
 
 public class DriveDistance extends Command {
 
-    private double distance, driveSpeed;
+    private double driveSpeed, distance, initDistance;
     private PIDController driveController;
 
   public DriveDistance(double distance) {
@@ -42,11 +42,7 @@ public class DriveDistance extends Command {
 
     @Override
     public double pidGet() {
-        try {
-            return Robot.driveTrain.getLeftTalon().get();
-        } catch (NullPointerException npe) {
-            return distance;
-        }
+        return Robot.driveTrain.getLeftTalon().get();
     }
 };
     private final PIDOutput driveSpeedSetter = new PIDOutput() {
@@ -69,31 +65,41 @@ public class DriveDistance extends Command {
         driveSpeedSetter,
         PIDMap.POINT_TURN_PERIOD
     );
-    driveController.setInputRange(0, 360);
-    driveController.setOutputRange(-.80, .80);
-    driveController.setAbsoluteTolerance(PIDMap.POINT_TURN_TOLERANCE);
-    driveController.setContinuous(true);
+    driveController.setInputRange(Integer.MIN_VALUE, Integer.MAX_VALUE);
+    driveController.setOutputRange(-.10, .10);
+    driveController.setAbsoluteTolerance(PIDMap.DRIVE_DISTANCE_TOLERANCE);
+    driveController.setContinuous(false);
+
+    initDistance = Robot.driveTrain.getLeftTalon().get();
+
+    driveController.setSetpoint(initDistance + distance);
+
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+      Robot.driveTrain.tankDrive(driveSpeed, driveSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return driveController.onTarget();
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
+      driveController.disable();
+      Robot.driveTrain.tankDrive(0, 0);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    driveController.disable();
+    Robot.driveTrain.tankDrive(0, 0);
   }
 }
