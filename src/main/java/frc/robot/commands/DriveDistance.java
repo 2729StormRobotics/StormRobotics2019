@@ -63,7 +63,7 @@ public class DriveDistance extends Command {
         PIDMap.DRIVE_DISTANCE_D,
         distanceSource,
         driveSpeedSetter,
-        PIDMap.POINT_TURN_PERIOD
+        PIDMap.DRIVE_DISTANCE_PERIOD
     );
     driveController.setInputRange(Integer.MIN_VALUE, Integer.MAX_VALUE);
     driveController.setOutputRange(-.10, .10);
