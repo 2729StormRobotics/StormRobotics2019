@@ -14,8 +14,6 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
-
-
 import com.revrobotics.CANPIDController;
 
 
@@ -32,8 +30,6 @@ public class DriveTrain extends Subsystem {
     public final TalonSRX rightMotor;
     public final TalonSRX rightMotor2;
 
-    public boolean sticksMoved;
-
 
 
 
@@ -45,7 +41,6 @@ public class DriveTrain extends Subsystem {
         // setOutputRange(-1, 1);
         // setPercentTolerance(0.05);
 
-        sticksMoved = false;
 
         leftMotor = new TalonSRX(RobotMap.LEFT_MOTOR_ID);
         leftMotor2 = new TalonSRX(RobotMap.LEFT_MOTOR2_ID);
@@ -85,6 +80,18 @@ public class DriveTrain extends Subsystem {
     public void disableDrive() {
         leftMotor.set(ControlMode.PercentOutput, 0);
         rightMotor.set(ControlMode.PercentOutput, 0);
+    }
+
+    public boolean checkSticksMoved() {
+        boolean leftStickMoved = JoystickMath.getCubic(Robot.oi.getLeftSpeedDriver()) != 0;
+        boolean rightStickMoved = JoystickMath.getCubic(Robot.oi.getRightSpeedDriver()) != 0;
+        if (leftStickMoved || rightStickMoved) {
+            System.out.println("sticks were moved!!!");
+            return true;
+        } else {
+            System.out.println("sticks were not moved!!!");
+            return false;
+        }
     }
 
     @Override
