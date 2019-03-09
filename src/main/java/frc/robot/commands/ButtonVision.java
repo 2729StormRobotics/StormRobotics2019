@@ -8,6 +8,7 @@ import frc.robot.*;
 import frc.robot.commandgroups.VisionMove;
 import edu.wpi.first.wpilibj.command.Command;
 
+
 public class ButtonVision extends Command {
 
     private PointTurn pt;
@@ -26,10 +27,14 @@ public class ButtonVision extends Command {
     @Override
     protected void initialize() {
 
-        double X = VisionMove.getX();
-        //DriveDistance(X);
-        VisionMove.getY();
+        double x = VisionMove.getX();
+        double y = VisionMove.getY();
+        double angle = 0.0;
 
+        angle = Math.atan(x/y);
+
+        PointTurn pointTurn = new PointTurn(angle);
+        pointTurn.start();
 
 
         /*
