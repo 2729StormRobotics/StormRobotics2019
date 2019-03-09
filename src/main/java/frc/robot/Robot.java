@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.cameraserver.*;
-
+import edu.wpi.first.networktables.NetworkTable;
 import frc.robot.commands.*;
 import frc.robot.commandgroups.*;
 import frc.robot.constants.*;
@@ -24,6 +24,8 @@ import frc.robot.driver.*;
 import frc.robot.subsystems.*;
 import frc.robot.util.*;
 
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -40,6 +42,7 @@ public class Robot extends TimedRobot {
     public static LineFollowerC lineFollowerC;
     public static CargoArm cargoArm;
     public static NavX navX;
+    public static NetworkTable vision;
     CommandGroup resetSubsystems;
 
     /**
@@ -61,6 +64,7 @@ public class Robot extends TimedRobot {
         navX = new NavX();
         oi = new OI();
 
+        vision = NetworkTableInstance.getDefault().getTable("/Vision");
         CameraServer.getInstance().startAutomaticCapture();
         CameraServer.getInstance().startAutomaticCapture();
 
