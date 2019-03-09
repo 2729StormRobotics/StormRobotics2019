@@ -97,7 +97,7 @@ public class PointTurn extends Command {
   @Override
   protected void execute() {
 
-    Robot.driveTrain.tankDrive(-turnSpeed, turnSpeed);
+    Robot.driveTrain.tankDrive(turnSpeed, -turnSpeed);
 
   }
 
