@@ -80,8 +80,8 @@ public class DriveTrain extends Subsystem {
             leftMotor.set(-leftSpeed);
             rightMotor.set(rightSpeed);
         } else if (reverse){
-            leftMotor.set(-rightSpeed);
-            rightMotor.set(leftSpeed);
+            leftMotor.set(rightSpeed);
+            rightMotor.set(-leftSpeed);
         }
         
 
