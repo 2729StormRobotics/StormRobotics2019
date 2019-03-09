@@ -152,12 +152,12 @@ public class TalonAbsolute extends TalonSRX {
 		 * absolute and continuous. Show in sensor units and in rotation
 		 * degrees.
 		 */
-		System.out.print("pulseWidPos:" + pulseWidthWithoutOverflows +
-						 "   =>    " + "selSenPos:" + selSenPos);
-		System.out.print("      ");
-		System.out.print("pulseWidDeg:" + ToDeg(pulseWidthWithoutOverflows) +
-						 "   =>    " + "selSenDeg:" + ToDeg(selSenPos));
-        System.out.println();
+		// System.out.print("pulseWidPos:" + pulseWidthWithoutOverflows +
+		// 				 "   =>    " + "selSenPos:" + selSenPos);
+		// System.out.print("      ");
+		// System.out.print("pulseWidDeg:" + ToDeg(pulseWidthWithoutOverflows) +
+		// 				 "   =>    " + "selSenDeg:" + ToDeg(selSenPos));
+        // System.out.println();
 	}
 
 	/**

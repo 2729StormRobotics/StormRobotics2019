@@ -35,7 +35,7 @@ public class DriveTrain extends Subsystem {
     private final TalonRelative leftTalon;
     private final TalonRelative rightTalon;
 
-
+    public boolean reverse = false;
 
 
     public DriveTrain() {
@@ -71,15 +71,19 @@ public class DriveTrain extends Subsystem {
 
 
 
-
-
-
     }
 
     public void tankDrive(double leftSpeed, double rightSpeed) {
 
-        leftMotor.set(-leftSpeed);
-        rightMotor.set(rightSpeed);
+
+        if(!reverse){
+            leftMotor.set(-leftSpeed);
+            rightMotor.set(rightSpeed);
+        } else if (reverse){
+            leftMotor.set(-rightSpeed);
+            rightMotor.set(leftSpeed);
+        }
+        
 
 
         //may need to adjust speed values

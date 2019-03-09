@@ -11,6 +11,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.buttons.Button;
 import frc.robot.constants.*;
 
@@ -38,8 +41,6 @@ public class OI {
     Controller driver = new Controller(ControllerMap.DRIVER_PORT);
     Controller weapons = new Controller(ControllerMap.WEAPONS_PORT);
 
-
-
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
     // commands the same as any other Button.
@@ -53,6 +54,8 @@ public class OI {
 
     public OI() {
 
+        driver.getABtn().whenPressed(new Reverse());
+
         weapons.getABtn().whenPressed(new GrabOut());
         weapons.getBBtn().whenPressed(new PunchOut());
         weapons.getXBtn().whenPressed(new ToggleArm());
@@ -65,7 +68,7 @@ public class OI {
         weapons.getLB().whenReleased(new StopIntake());
         weapons.getRB().whenReleased(new StopIntake());
 
-        weapons.getYBtn().whenPressed(new MoveArmPID(45));
+        weapons.getYBtn().whenPressed(new DriveDistance(SmartDashboard.getNumber("Distance", 0.0)));
 
         if (JoystickMath.getCubic(getLeftSpeedWeapons()) == 0) {
             Robot.cargoArm.stopPID = false;
