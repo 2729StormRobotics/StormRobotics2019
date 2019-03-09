@@ -65,6 +65,8 @@ public class OI {
         weapons.getLB().whenReleased(new StopIntake());
         weapons.getRB().whenReleased(new StopIntake());
 
+        driver.getXBtn().whenPressed(new PointTurn(0)); //Point Turn test
+
         weapons.getYBtn().whenPressed(new MoveArmPID(45));
 
         if (JoystickMath.getCubic(getLeftSpeedWeapons()) == 0) {
