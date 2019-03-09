@@ -68,7 +68,13 @@ public class OI {
         weapons.getLB().whenReleased(new StopIntake());
         weapons.getRB().whenReleased(new StopIntake());
 
+
         weapons.getYBtn().whenPressed(new DriveDistance(SmartDashboard.getNumber("Distance", 0.0)));
+
+        driver.getXBtn().whenPressed(new PointTurn(0)); //Point Turn test
+
+        weapons.getYBtn().whenPressed(new MoveArmPID(45));
+
 
         if (JoystickMath.getCubic(getLeftSpeedWeapons()) == 0) {
             Robot.cargoArm.stopPID = false;
