@@ -64,7 +64,7 @@ public class Robot extends TimedRobot {
         navX = new NavX();
         oi = new OI();
 
-        vision = NetworkTableInstance.getDefault().getTable("/Vision");
+        vision = NetworkTableInstance.getDefault().getTable("Vision");
         CameraServer.getInstance().startAutomaticCapture();
         CameraServer.getInstance().startAutomaticCapture();
 

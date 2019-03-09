@@ -25,6 +25,13 @@ public class ButtonVision extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+
+        double X = VisionMove.getX();
+        //DriveDistance(X);
+        VisionMove.getY();
+
+
+
         /*
         if (isCargo) {
             pt = new PointTurn(VisionMove.getCargoAngle());

@@ -16,34 +16,37 @@ public class VisionMove extends CommandGroup {
     }
 
     /**
-     * @return the hatchDistance
+     * @return the getX
      */
-    public static double getHatchDistance() {
-        NetworkTableEntry ntHatchDistance = Robot.vision.getEntry("hatchDistance");
-        return ntHatchDistance.getDouble(0.0);
+    public static double getX() {
+        NetworkTableEntry ntX = Robot.vision.getEntry("hatchX");
+        return ntX.getDouble(0.0);
     }
 
     /**
-     * @return the hatchAngle
+     * @return the getY
      */
-    public static double getHatchAngle() {
-        NetworkTableEntry ntHatchAngle = Robot.vision.getEntry("hatchAngle");
-        return ntHatchAngle.getDouble(0.0);
+    public static double getY() {
+        NetworkTableEntry ntY = Robot.vision.getEntry("hatchY");
+        return ntY.getDouble(0.0);
     }
 
     /**
-     * @return the cargoAngle
+     * @return the getAngle
      */
-    public static double getCargoAngle() {
-        NetworkTableEntry ntCargoAngle = Robot.vision.getEntry("cargoAngle");
-        return ntCargoAngle.getDouble(0.0);
+    public static double getAngle() {
+        NetworkTableEntry ntAngle = Robot.vision.getEntry("hatchAngle");
+        return ntAngle.getDouble(0.0);
     }
 
     /**
      * @return the cargoDistance
      */
+    /*
     public static double getCargoDistance() {
         NetworkTableEntry ntCargoDistance = Robot.vision.getEntry("cargoDistance");
         return ntCargoDistance.getDouble(0.0);
     }
+    */
+
 }
