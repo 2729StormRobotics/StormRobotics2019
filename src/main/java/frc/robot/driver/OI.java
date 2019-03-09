@@ -35,8 +35,8 @@ public class OI {
     // Joystick stick = new Joystick(port);
     // Button button = new JoystickButton(stick, buttonNumber);
 
-    private Controller driver = new Controller(ControllerMap.DRIVER_PORT);
-    private Controller weapons = new Controller(ControllerMap.WEAPONS_PORT);
+    Controller driver = new Controller(ControllerMap.DRIVER_PORT);
+    Controller weapons = new Controller(ControllerMap.WEAPONS_PORT);
 
 
 
@@ -107,6 +107,13 @@ public class OI {
 
     public double getLeftSpeedWeapons() {
         return weapons.getY(GenericHID.Hand.kLeft);
+    }
+
+    public boolean getArmMovement(){
+        if(weapons.getY(GenericHID.Hand.kLeft) != 0){
+            return true;
+        }
+        return false;
     }
 
     public double getRightSpeedWeapons() {

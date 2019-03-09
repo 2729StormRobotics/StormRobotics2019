@@ -13,6 +13,8 @@ import frc.robot.subsystems.*;
 import frc.robot.util.*;
 import frc.robot.*;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.driver.OI;
+import frc.robot.Robot;
 
 public class MoveArmPID extends Command {
 
@@ -34,6 +36,9 @@ public class MoveArmPID extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    if(Robot.oi.getArmMovement()){
+      interrupted();
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
