@@ -55,7 +55,7 @@ public class OI {
 
         driver.getYBtn().whenPressed(new SetSpeed(0.1, 0.1));
 
-
+        driver.getXBtn().whenPressed(new ButtonVision());
 
 
 
