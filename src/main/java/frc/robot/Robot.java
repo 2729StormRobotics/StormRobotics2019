@@ -13,10 +13,11 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.cameraserver.*;
-
+import edu.wpi.first.networktables.NetworkTableInstance;
 import frc.robot.commands.*;
 import frc.robot.commandgroups.*;
 import frc.robot.constants.*;
@@ -35,6 +36,7 @@ public class Robot extends TimedRobot {
 
     public static OI oi;
     public static DriveTrain driveTrain;
+    public static NetworkTable vision;
     CommandGroup resetSubsystems;
 
     /**
@@ -48,6 +50,7 @@ public class Robot extends TimedRobot {
         // chooser.addOption("My Auto", new MyAutoCommand());
         System.out.println("robotInit() has been called!");
         driveTrain = new DriveTrain();
+        vision = NetworkTableInstance.getDefault().getTable("Vision");
         oi = new OI();
 
 
