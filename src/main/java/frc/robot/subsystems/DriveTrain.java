@@ -54,12 +54,12 @@ public class DriveTrain extends Subsystem {
         leftTalon = new TalonRelative(RobotMap.LEFT_TALON_ID);
         rightTalon = new TalonRelative(RobotMap.RIGHT_TALON_ID);
 
-/*
-        leftMotor.setRampRate(RobotMap.RAMP_RATE);
-        rightMotor.setRampRate(RobotMap.RAMP_RATE);
-        leftMotor2.setRampRate(RobotMap.RAMP_RATE);
-        rightMotor2.setRampRate(RobotMap.RAMP_RATE);
-*/
+
+        leftMotor.setOpenLoopRampRate(RobotMap.RAMP_RATE);
+        rightMotor.setOpenLoopRampRate(RobotMap.RAMP_RATE);
+        leftMotor2.setOpenLoopRampRate(RobotMap.RAMP_RATE);
+        rightMotor2.setOpenLoopRampRate(RobotMap.RAMP_RATE);
+
 
         leftMotor.setSmartCurrentLimit(RobotMap.STALL_LIMIT, RobotMap.FREE_LIMIT, RobotMap.RPM_LIMIT);
         rightMotor.setSmartCurrentLimit(RobotMap.STALL_LIMIT, RobotMap.FREE_LIMIT, RobotMap.RPM_LIMIT);
