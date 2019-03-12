@@ -57,6 +57,8 @@ public class OI {
 
         driver.getXBtn().whenPressed(new ButtonVision());
 
+        driver.getBBtn().whenPressed(new PointTurn(0));
+
 
 
     }
