@@ -14,6 +14,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
+import com.revrobotics.CANSparkMax.IdleMode;
 
 
 import com.revrobotics.CANPIDController;
@@ -54,28 +55,31 @@ public class DriveTrain extends Subsystem {
         leftTalon = new TalonRelative(RobotMap.LEFT_TALON_ID);
         rightTalon = new TalonRelative(RobotMap.RIGHT_TALON_ID);
 
+        leftMotor.restoreFactoryDefaults();
+        leftMotor2.restoreFactoryDefaults();
+        rightMotor.restoreFactoryDefaults();
+        rightMotor2.restoreFactoryDefaults();
 
         leftMotor.setOpenLoopRampRate(RobotMap.RAMP_RATE);
         rightMotor.setOpenLoopRampRate(RobotMap.RAMP_RATE);
         leftMotor2.setOpenLoopRampRate(RobotMap.RAMP_RATE);
         rightMotor2.setOpenLoopRampRate(RobotMap.RAMP_RATE);
 
+        leftMotor.setSmartCurrentLimit(RobotMap.STALL_LIMIT);
+        rightMotor.setSmartCurrentLimit(RobotMap.STALL_LIMIT);
+        leftMotor2.setSmartCurrentLimit(RobotMap.STALL_LIMIT);
+        rightMotor2.setSmartCurrentLimit(RobotMap.STALL_LIMIT);
 
-        leftMotor.setSmartCurrentLimit(RobotMap.STALL_LIMIT, RobotMap.FREE_LIMIT, RobotMap.RPM_LIMIT);
-        rightMotor.setSmartCurrentLimit(RobotMap.STALL_LIMIT, RobotMap.FREE_LIMIT, RobotMap.RPM_LIMIT);
-        leftMotor2.setSmartCurrentLimit(RobotMap.STALL_LIMIT, RobotMap.FREE_LIMIT, RobotMap.RPM_LIMIT);
-        rightMotor2.setSmartCurrentLimit(RobotMap.STALL_LIMIT, RobotMap.FREE_LIMIT, RobotMap.RPM_LIMIT);
+        leftMotor.setIdleMode(IdleMode.kBrake);
+        leftMotor2.setIdleMode(IdleMode.kBrake);
+        rightMotor.setIdleMode(IdleMode.kBrake);
+        rightMotor2.setIdleMode(IdleMode.kBrake);
 
         leftMotor2.follow(leftMotor);
         rightMotor2.follow(rightMotor);
-
-
-
     }
 
     public void tankDrive(double leftSpeed, double rightSpeed) {
-
-
         if(!reverse){
             leftMotor.set(-leftSpeed);
             rightMotor.set(rightSpeed);
@@ -83,8 +87,6 @@ public class DriveTrain extends Subsystem {
             leftMotor.set(rightSpeed);
             rightMotor.set(-leftSpeed);
         }
-        
-
 
         //may need to adjust speed values
         //leftMotor.set(SmartDashboard.getNumber("leftSpeed", 0.0));
