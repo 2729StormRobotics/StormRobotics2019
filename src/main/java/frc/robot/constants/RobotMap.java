@@ -42,13 +42,13 @@ public class RobotMap {
     public static final double SHIP_ARM_ANGlE = 90;
 
 
-    public static final int RAMP_RATE = 0;
+    public static final double RAMP_RATE = 0.25;
 
     public static final double PROPORTION = 0;
     public static final double INTEGRAL = 0;
     public static final double DIFFERENTIAL = 0;
 
-    public static final int STALL_LIMIT = 255;
+    public static final int STALL_LIMIT = 45;
     public static final int FREE_LIMIT = 255;
     public static final int RPM_LIMIT = 5700;
 
