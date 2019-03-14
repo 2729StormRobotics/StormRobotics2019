@@ -56,12 +56,10 @@ public class OI {
 
         driver.getABtn().whenPressed(new Reverse());
 
-        weapons.getABtn().whenPressed(new GrabOut());
-        weapons.getBBtn().whenPressed(new PunchOut());
+        weapons.getABtn().whenPressed(new ToggleGrab());
+        weapons.getBBtn().whenPressed(new TogglePunch());
         weapons.getXBtn().whenPressed(new ToggleArm());
 
-        weapons.getABtn().whenReleased(new GrabIn());
-        weapons.getBBtn().whenReleased(new PunchIn());
 
         weapons.getLB().whenPressed(new Intake());
         weapons.getRB().whenPressed(new Outtake());
@@ -119,7 +117,7 @@ public class OI {
     }
 
     public boolean getArmMovement(){
-        if(weapons.getY(GenericHID.Hand.kLeft) != 0){
+        if(weapons.getY(GenericHID.Hand.kLeft) < 0.05 && weapons.getY(GenericHID.Hand.kLeft) > -0.05){
             return true;
         }
         return false;

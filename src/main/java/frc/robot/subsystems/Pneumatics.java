@@ -59,6 +59,22 @@ public class Pneumatics extends Subsystem {
 
     }
 
+    public void toggleGrab() {
+        if (solPickUp.get().equals(Value.kForward)) {
+            solPickUp.set(Value.kReverse);
+            return;
+        }
+        solPickUp.set(Value.kForward);
+    }
+
+    public void togglePunch() {
+        if (solPunch.get().equals(Value.kForward)) {
+            solPunch.set(Value.kReverse);
+            return;
+        }
+        solPunch.set(Value.kForward);
+    }
+
     public Value getArm() {
         return solPickUp.get();
     }
