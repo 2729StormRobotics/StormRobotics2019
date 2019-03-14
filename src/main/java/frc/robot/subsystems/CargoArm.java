@@ -58,7 +58,14 @@ public class CargoArm extends PIDSubsystem {
 
     public void holdArm() {
         double holdAngle = armTalon.getAngle();
-        leftMotor.set(RobotMap.HORIZONTAL_POWER * Math.cos(Math.toRadians(holdAngle)));
+        if (holdAngle > 0 && holdAngle < 90) {
+            leftMotor.set(RobotMap.HORIZONTAL_POWER * Math.cos(Math.toRadians(holdAngle)));
+            rightMotor.set(RobotMap.HORIZONTAL_POWER * Math.cos(Math.toRadians(holdAngle)));
+        }
+        else {
+            leftMotor.set(0);
+            rightMotor.set(0);
+        }
     }
 
     public void intake(double speed) {
