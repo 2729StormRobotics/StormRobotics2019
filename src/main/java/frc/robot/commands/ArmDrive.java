@@ -41,7 +41,7 @@ public class ArmDrive extends Command {
 
     @Override
     protected void end() {
-
+        Robot.cargoArm.holdArm();
     }
 
     @Override
