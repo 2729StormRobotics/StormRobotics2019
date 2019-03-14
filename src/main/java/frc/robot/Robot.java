@@ -42,6 +42,8 @@ public class Robot extends TimedRobot {
     public static LineFollowerC lineFollowerC;
     public static CargoArm cargoArm;
     public static NavX navX;
+    public static HatchVision hatchVision;
+    public static CargoVision cargoVision;
     public static NetworkTable vision;
     CommandGroup resetSubsystems;
 
@@ -62,6 +64,8 @@ public class Robot extends TimedRobot {
         cargoArm = new CargoArm();
         resetSubsystems = new ResetSubsystems(); //retracts grab and punch pistons
         navX = new NavX();
+        hatchVision = new HatchVision();
+        cargoVision = new CargoVision();
         oi = new OI();
 
         vision = NetworkTableInstance.getDefault().getTable("Vision");
