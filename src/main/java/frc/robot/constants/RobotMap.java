@@ -42,7 +42,7 @@ public class RobotMap {
     public static final double SHIP_ARM_ANGlE = 90;
 
 
-    public static final double RAMP_RATE = 0.25;
+    public static final double RAMP_RATE = 1;
 
     public static final double PROPORTION = 0;
     public static final double INTEGRAL = 0;
@@ -72,7 +72,7 @@ public class RobotMap {
     public static final double LIGHT_THRESHOLD = 3000;
 
     public static final int INFRA_PORT_H = 3;
-    public static final int INFRA_PORT_C = 0;
+    public static final int INFRA_PORT_C = 2;
 
     public static final double DISTANCE_FROM_LINE = 5; //cm
 
