@@ -71,7 +71,7 @@ public class OI {
 
         driver.getXBtn().whenPressed(new PointTurn(0)); //Point Turn test
 
-        weapons.getYBtn().whenPressed(new MoveArmPID(45));
+        weapons.getYBtn().whenPressed(new ToggleHab());
 
 
         if (JoystickMath.getCubic(getLeftSpeedWeapons()) == 0) {
@@ -81,7 +81,7 @@ public class OI {
         }
 
 
-        driver.getStartBack().whileHeld(new ToggleHab());
+        //driver.getStartBack().whileHeld(new ToggleHab());
 
         //weapons.getLB().whenPressed(new TogglePickupCargo());
         //weapons.getRB().whenPressed(new ToggleShoot());
