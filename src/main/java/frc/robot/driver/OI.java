@@ -67,9 +67,9 @@ public class OI {
         weapons.getRB().whenReleased(new StopIntake());
 
 
-        weapons.getYBtn().whenPressed(new DriveDistance(SmartDashboard.getNumber("Distance", 0.0)));
+        //weapons.getYBtn().whenPressed(new DriveDistance(SmartDashboard.getNumber("Distance", 0.0)));
 
-        driver.getXBtn().whenPressed(new PointTurn(0)); //Point Turn test
+        //driver.getXBtn().whenPressed(new PointTurn(0)); //Point Turn test
 
         weapons.getYBtn().whenPressed(new ToggleHab());
 
@@ -92,7 +92,10 @@ public class OI {
             driver.getRB().whileHeld(new FollowLineC());
         }
 
-        driver.getLB().whenPressed(new ResetSubsystems());
+        driver.getRB().whenPressed(new ResetSubsystems());
+
+        driver.getLB().whenPressed(new Slow());
+        driver.getLB().whenReleased(new Slow());
 
         weapons.getDPadRight().whenPressed(new MoveArmPID(RobotMap.LVL1_ARM_ANGlE));
         //weapons.getDPadLeft().whenPressed(new MoveArm(RobotMap.MAX_ARM_ANGLE));
