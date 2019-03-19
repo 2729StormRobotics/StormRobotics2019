@@ -99,6 +99,10 @@ public class Robot extends TimedRobot {
         //Dashboard.updateCANSparkMax(cargoArm.rightMotor, "CargoArm/Right");
         Dashboard.updateTalon(cargoArm.armTalon, "CargoArm/Talon");
 
+        boolean inPosition = cargoArm.isInPosition(RobotMap.SHOOT_ANGLE, RobotMap.SHOOT_ANGLE_TOLERANCE);
+
+        SmartDashboard.putBoolean("inPosition", inPosition);
+
 
         Dashboard.updateLineSensorsC(lineFollowerC);
         Dashboard.updateLineSensorsH(lineFollowerH);
