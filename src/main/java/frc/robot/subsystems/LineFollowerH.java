@@ -9,9 +9,9 @@ import frc.robot.constants.PIDMap;
 
 public class LineFollowerH extends PIDSubsystem {
     // private AxisCamera camera; //defines Axis Camera
-    public DigitalInput lineRightH; //hatch side
-    public DigitalInput lineLeftH;
-    public DigitalInput lineMiddleH;
+    public AnalogInput lineRightH; //hatch side
+    public AnalogInput lineLeftH;
+    public AnalogInput lineMiddleH;
     public AnalogInput infraredH;
     public boolean noLine;
 
@@ -20,9 +20,9 @@ public class LineFollowerH extends PIDSubsystem {
 
         super("LineFollower", PIDMap.LINE_FOLLOWER_P, PIDMap.LINE_FOLLOWER_I, PIDMap.LINE_FOLLOWER_D);// The constructor passes a name for the subsystem and the P, I and D constants that are useed when computing the motor output
 
-        lineLeftH = new DigitalInput(RobotMap.PHO_LEFT_PORT_H);
-        lineMiddleH = new DigitalInput(RobotMap.PHO_MIDDLE_PORT_H); // Photoelectric sensor ports
-        lineRightH = new DigitalInput(RobotMap.PHO_RIGHT_PORT_H);
+        lineLeftH = new AnalogInput(RobotMap.PHO_LEFT_PORT_H);
+        lineMiddleH = new AnalogInput(RobotMap.PHO_MIDDLE_PORT_H); // Photoelectric sensor ports
+        lineRightH = new  AnalogInput(RobotMap.PHO_RIGHT_PORT_H);
         infraredH = new AnalogInput(RobotMap.INFRA_PORT_H);
 
         noLine = false;
@@ -67,12 +67,20 @@ public class LineFollowerH extends PIDSubsystem {
         return isLine(lineLeftH) + isLine(lineMiddleH) + isLine(lineRightH);
     }
 
-    public String isLine(DigitalInput lineFollow) {
-        /*if (lineFollow.getValue() >= RobotMap.LIGHT_THRESHOLD) {
+    public String isLine(AnalogInput lineFollow) {
+        if (lineFollow.getValue() >= RobotMap.LIGHT_THRESHOLD) {
             return "1";
-        } */
+        }
+        else return "0";
 
-        return lineFollow.get() ? "1" : "0";
+        //return lineFollow.get() ? "1" : "0";
+    }
+
+    public boolean isLineBool(AnalogInput lineFollow) {
+        if (lineFollow.getValue() >= RobotMap.LIGHT_THRESHOLD) {
+            return true;
+        }
+        else return false;
     }
 
     public boolean isFinished() {

@@ -69,10 +69,10 @@ public class RobotMap {
 
     public static final double CONTROLLER_DEADZONE = 0.05;
 
-    public static final double LIGHT_THRESHOLD = 3000;
+    public static final double LIGHT_THRESHOLD = 2;
 
-    public static final int INFRA_PORT_H = 3;
-    public static final int INFRA_PORT_C = 2;
+    public static final int INFRA_PORT_H = 4;
+    public static final int INFRA_PORT_C = 4;
 
     public static final double DISTANCE_FROM_LINE = 5; //cm
 
