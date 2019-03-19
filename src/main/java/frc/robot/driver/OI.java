@@ -92,7 +92,7 @@ public class OI {
             driver.getRB().whileHeld(new FollowLineC());
         }
 
-        driver.getRB().whenPressed(new ResetSubsystems());
+        //driver.getRB().whenPressed(new ResetSubsystems());
 
         driver.getLB().whenPressed(new Slow());
         driver.getLB().whenReleased(new Slow());

@@ -81,31 +81,31 @@ public class Dashboard {
     public static  void updateNavX() {
         final String addressString = "StormDashboard/NavX/";
 
-        try {
-            if (NavX.getNavx() != null) {
-                SmartDashboard.putBoolean(addressString + "Connected", NavX.getNavx().isConnected());
-                SmartDashboard.putNumber(addressString + "Gyro/Pitch", NavX.getNavx().getPitch());
-                SmartDashboard.putNumber(addressString + "Gyro/Roll", NavX.getNavx().getRoll());
-                SmartDashboard.putNumber(addressString + "Gyro/Yaw", NavX.getNavx().getYaw());
-                SmartDashboard.putNumber(addressString + "Altitude", NavX.getNavx().getAltitude());
-                SmartDashboard.putNumber(addressString + "Displacement/X", NavX.getNavx().getDisplacementX());
-                SmartDashboard.putNumber(addressString + "Displacement/Y", NavX.getNavx().getDisplacementY());
-                SmartDashboard.putNumber(addressString + "Displacement/Z", NavX.getNavx().getDisplacementZ());
-                SmartDashboard.putNumber(addressString + "CompassHeading", NavX.getNavx().getCompassHeading());
-                SmartDashboard.putNumber(addressString + "Velocity/X", NavX.getNavx().getVelocityX());
-                SmartDashboard.putNumber(addressString + "Velocity/Y", NavX.getNavx().getVelocityY());
-                SmartDashboard.putNumber(addressString + "Velocity/Z", NavX.getNavx().getVelocityZ());
-                SmartDashboard.putNumber(addressString + "BarometricPressure", NavX.getNavx().getBarometricPressure());
-                SmartDashboard.putNumber(addressString + "Quaternion/W", NavX.getNavx().getQuaternionW());
-                SmartDashboard.putNumber(addressString + "Quaternion/X", NavX.getNavx().getQuaternionX());
-                SmartDashboard.putNumber(addressString + "Quaternion/Y", NavX.getNavx().getQuaternionY());
-                SmartDashboard.putNumber(addressString + "Quaternion/Z", NavX.getNavx().getQuaternionZ());
-            } else {
-                SmartDashboard.putBoolean(addressString + "Connected", false);
-            }
-        } catch (NullPointerException npe) {
-            SmartDashboard.putBoolean(addressString + "Connected", false);
-        }
+        // try {
+        //     if (NavX.getNavx() != null) {
+        //         SmartDashboard.putBoolean(addressString + "Connected", NavX.getNavx().isConnected());
+        //         SmartDashboard.putNumber(addressString + "Gyro/Pitch", NavX.getNavx().getPitch());
+        //         SmartDashboard.putNumber(addressString + "Gyro/Roll", NavX.getNavx().getRoll());
+        //         SmartDashboard.putNumber(addressString + "Gyro/Yaw", NavX.getNavx().getYaw());
+        //         SmartDashboard.putNumber(addressString + "Altitude", NavX.getNavx().getAltitude());
+        //         SmartDashboard.putNumber(addressString + "Displacement/X", NavX.getNavx().getDisplacementX());
+        //         SmartDashboard.putNumber(addressString + "Displacement/Y", NavX.getNavx().getDisplacementY());
+        //         SmartDashboard.putNumber(addressString + "Displacement/Z", NavX.getNavx().getDisplacementZ());
+        //         SmartDashboard.putNumber(addressString + "CompassHeading", NavX.getNavx().getCompassHeading());
+        //         SmartDashboard.putNumber(addressString + "Velocity/X", NavX.getNavx().getVelocityX());
+        //         SmartDashboard.putNumber(addressString + "Velocity/Y", NavX.getNavx().getVelocityY());
+        //         SmartDashboard.putNumber(addressString + "Velocity/Z", NavX.getNavx().getVelocityZ());
+        //         SmartDashboard.putNumber(addressString + "BarometricPressure", NavX.getNavx().getBarometricPressure());
+        //         SmartDashboard.putNumber(addressString + "Quaternion/W", NavX.getNavx().getQuaternionW());
+        //         SmartDashboard.putNumber(addressString + "Quaternion/X", NavX.getNavx().getQuaternionX());
+        //         SmartDashboard.putNumber(addressString + "Quaternion/Y", NavX.getNavx().getQuaternionY());
+        //         SmartDashboard.putNumber(addressString + "Quaternion/Z", NavX.getNavx().getQuaternionZ());
+        //     } else {
+        //         SmartDashboard.putBoolean(addressString + "Connected", false);
+        //     }
+        // } catch (NullPointerException npe) {
+        //     SmartDashboard.putBoolean(addressString + "Connected", false);
+        // }
     }
 
 }

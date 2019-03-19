@@ -31,27 +31,27 @@ public class PointTurn extends Command {
     this.angle = angle;
   }
 
-    private final PIDSource angleSource = new PIDSource() {
+    // private final PIDSource angleSource = new PIDSource() {
 
-        @Override
-        public void setPIDSourceType(PIDSourceType pidSource) {
+    //     @Override
+    //     public void setPIDSourceType(PIDSourceType pidSource) {
 
-        }
+    //     }
 
-        @Override
-        public PIDSourceType getPIDSourceType() {
-            return PIDSourceType.kDisplacement;
-        }
+    //     @Override
+    //     public PIDSourceType getPIDSourceType() {
+    //         return PIDSourceType.kDisplacement;
+    //     }
 
-        @Override
-        public double pidGet() {
-            try {
-                return NavX.getNavx().getYaw();
-            } catch (NullPointerException npe) {
-                return restrictAngleRange(angle + initAngle);
-            }
-        }
-    };
+    //     // @Override
+    //     // public double pidGet() {
+    //         // try {
+    //         //     return NavX.getNavx().getYaw();
+    //         // } catch (NullPointerException npe) {
+    //         //     return restrictAngleRange(angle + initAngle);
+    //         // }
+    //     // }
+    // };
 
 
     private final PIDOutput turnSpeedSetter = new PIDOutput() {
@@ -66,21 +66,21 @@ public class PointTurn extends Command {
   @Override
   protected void initialize() {
 
-        turnController = new PIDController(
-            PIDMap.POINT_TURN_P,
-            PIDMap.POINT_TURN_I,
-            PIDMap.POINT_TURN_D,
-            angleSource,
-            turnSpeedSetter,
-            PIDMap.POINT_TURN_PERIOD
-        );
+        // turnController = new PIDController(
+        //     PIDMap.POINT_TURN_P,
+        //     PIDMap.POINT_TURN_I,
+        //     PIDMap.POINT_TURN_D,
+        //     angleSource,
+        //     turnSpeedSetter,
+        //     PIDMap.POINT_TURN_PERIOD
+        // );
         turnController.setInputRange(0, 360);
         turnController.setOutputRange(-.80, .80);
         turnController.setAbsoluteTolerance(PIDMap.POINT_TURN_TOLERANCE);
         turnController.setContinuous(true);
 
     try{
-        initAngle = NavX.getNavx().getYaw();
+        // initAngle = NavX.getNavx().getYaw();
     } catch (NullPointerException npe){
         initAngle = 0;
         npe.printStackTrace();

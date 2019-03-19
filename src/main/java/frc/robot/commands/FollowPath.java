@@ -30,7 +30,7 @@ public class FollowPath extends Command {
 
     public FollowPath(String leftCSV, String rightCSV, double kd) {
         requires(Robot.driveTrain);
-        requires(Robot.navX);
+        // requires(Robot.navX);
 
         File leftMotionProfile = new File(leftCSV);
         File rightMotionProfile = new File(rightCSV);
@@ -59,7 +59,7 @@ public class FollowPath extends Command {
 
 
         try {
-            NavX.getNavx().zeroYaw();
+            // NavX.getNavx().zeroYaw();
         } catch (NullPointerException npe) {
             npe.printStackTrace();
         }
@@ -104,13 +104,13 @@ public class FollowPath extends Command {
         double r = right.calculate(rightTalon.getSelectedSensorPosition(0));
         double gyro_heading;
         try {
-            gyro_heading = NavX.getNavx().getYaw();
+            // gyro_heading = NavX.getNavx().getYaw();
         } catch(NullPointerException npe) {
             gyro_heading = 0;
         }
         double desired_heading = Pathfinder.r2d(left.getHeading());
-        double angleDifference = Pathfinder.boundHalfDegrees(desired_heading - gyro_heading);
-        double turn = 0.8 * (-1.0/80.0) * angleDifference;
+        // double angleDifference = Pathfinder.boundHalfDegrees(desired_heading - gyro_heading);
+        // double turn = 0.8 * (-1.0/80.0) * angleDifference;
         System.out.println("Left: " + l);// + turn));
         System.out.println("Right: " + r);// - turn));
         Robot.driveTrain.tankDrive(l, r);
