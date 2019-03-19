@@ -94,8 +94,8 @@ public class OI {
 
         driver.getRB().whenPressed(new ResetSubsystems());
 
-        // driver.getLB().whenPressed(new Slow());
-        // driver.getLB().whenReleased(new Slow());
+        driver.getLB().whenPressed(new Slow());
+        driver.getLB().whenReleased(new Slow());
 
         weapons.getDPadRight().whenPressed(new MoveArmPID(RobotMap.LVL1_ARM_ANGlE));
         //weapons.getDPadLeft().whenPressed(new MoveArm(RobotMap.MAX_ARM_ANGLE));
@@ -108,11 +108,11 @@ public class OI {
     }
 
     public double getLeftSpeedDriver() {
-        return driver.getY(GenericHID.Hand.kLeft);
+        return 0.5 * driver.getY(GenericHID.Hand.kLeft);
     }
 
     public double getRightSpeedDriver() {
-        return driver.getY(GenericHID.Hand.kRight);
+        return 0.5 * driver.getY(GenericHID.Hand.kRight);
     }
 
     public double getLeftSpeedWeapons() {
@@ -131,10 +131,10 @@ public class OI {
     }
 
     public double getLeftTriggerDriver() {
-        return 2 * driver.getTriggerAxis(GenericHID.Hand.kLeft);
+        return driver.getTriggerAxis(GenericHID.Hand.kLeft);
     }
     public double getRightTriggerDriver() {
-        return 2 * driver.getTriggerAxis(GenericHID.Hand.kRight);
+        return driver.getTriggerAxis(GenericHID.Hand.kRight);
     }
 
     public double getLeftTriggerWeapons() {
