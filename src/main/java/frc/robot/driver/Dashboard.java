@@ -27,9 +27,9 @@ public class Dashboard {
 
     public static void updateLineSensorsH(LineFollowerH lineFollower) {
         final String addressString = "StormDashboard/LineFollower/";
-        SmartDashboard.putBoolean(addressString + "Hatch Left", lineFollower.lineLeftH.get());
-        SmartDashboard.putBoolean(addressString + "Hatch Center", lineFollower.lineMiddleH.get());
-        SmartDashboard.putBoolean(addressString + "Hatch Right", lineFollower.lineRightH.get());
+        SmartDashboard.putBoolean(addressString + "Hatch Left", lineFollower.isLineBool(lineFollower.lineLeftH));
+        SmartDashboard.putBoolean(addressString + "Hatch Center", lineFollower.isLineBool(lineFollower.lineMiddleH));
+        SmartDashboard.putBoolean(addressString + "Hatch Right", lineFollower.isLineBool(lineFollower.lineRightH));
 
         SmartDashboard.putNumber(addressString + "Hatch Distance", lineFollower.infraredH.getVoltage());
     }
@@ -40,7 +40,7 @@ public class Dashboard {
         SmartDashboard.putBoolean(addressString + "Cargo Center", lineFollower.lineMiddleC.get());
         SmartDashboard.putBoolean(addressString + "Cargo Right", lineFollower.lineRightC.get());
 
-        SmartDashboard.putNumber(addressString + "Cargo Distance", lineFollower.infraredC.getVoltage());
+        //SmartDashboard.putNumber(addressString + "Cargo Distance", lineFollower.infraredC.getVoltage());
     }
 
     public static void updateCANSparkMax(CANSparkMax sparkMax, String label) {

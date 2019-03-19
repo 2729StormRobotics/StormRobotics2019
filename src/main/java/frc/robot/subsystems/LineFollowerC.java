@@ -12,7 +12,7 @@ public class LineFollowerC extends PIDSubsystem {
     public DigitalInput lineRightC; //cargo side
     public DigitalInput lineLeftC;
     public DigitalInput lineMiddleC;
-    public AnalogInput infraredC;
+    public DigitalInput infraredC;
     public boolean noLine;
 
     public LineFollowerC() {
@@ -22,7 +22,7 @@ public class LineFollowerC extends PIDSubsystem {
         lineLeftC = new DigitalInput(RobotMap.PHO_LEFT_PORT_C);
         lineMiddleC = new DigitalInput(RobotMap.PHO_MIDDLE_PORT_C);
         lineRightC = new DigitalInput(RobotMap.PHO_RIGHT_PORT_C);
-        infraredC = new AnalogInput(RobotMap.INFRA_PORT_C);
+        infraredC = new DigitalInput(RobotMap.INFRA_PORT_C);
 
         noLine = false;
 
@@ -75,7 +75,8 @@ public class LineFollowerC extends PIDSubsystem {
     }
 
     public boolean isFinished() {
-        return infraredC.getValue() <= RobotMap.DISTANCE_FROM_LINE || noLine /**|| !Robot.oi.isdriverRBHeld()*/;
+        //return infraredC.getValue() <= RobotMap.DISTANCE_FROM_LINE || noLine /**|| !Robot.oi.isdriverRBHeld()*/;
+        return false;
     }
 
     @Override
