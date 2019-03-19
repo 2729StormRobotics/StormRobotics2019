@@ -58,7 +58,7 @@ public class OI {
 
         weapons.getABtn().whenPressed(new ToggleGrab());
         weapons.getBBtn().whenPressed(new TogglePunch());
-        weapons.getXBtn().whenPressed(new ToggleArm());
+        //weapons.getXBtn().whenPressed(new ToggleArm());
 
 
         weapons.getLB().whenPressed(new Intake());
@@ -71,7 +71,7 @@ public class OI {
 
         //driver.getXBtn().whenPressed(new PointTurn(0)); //Point Turn test
 
-        weapons.getYBtn().whenPressed(new ToggleHab());
+        driver.getRB().whenPressed(new ToggleHab());
 
 
         if (JoystickMath.getCubic(getLeftSpeedWeapons()) == 0) {
@@ -94,8 +94,8 @@ public class OI {
 
         driver.getRB().whenPressed(new ResetSubsystems());
 
-        driver.getLB().whenPressed(new Slow());
-        driver.getLB().whenReleased(new Slow());
+        // driver.getLB().whenPressed(new Slow());
+        // driver.getLB().whenReleased(new Slow());
 
         weapons.getDPadRight().whenPressed(new MoveArmPID(RobotMap.LVL1_ARM_ANGlE));
         //weapons.getDPadLeft().whenPressed(new MoveArm(RobotMap.MAX_ARM_ANGLE));
@@ -131,10 +131,10 @@ public class OI {
     }
 
     public double getLeftTriggerDriver() {
-        return driver.getTriggerAxis(GenericHID.Hand.kLeft);
+        return 2 * driver.getTriggerAxis(GenericHID.Hand.kLeft);
     }
     public double getRightTriggerDriver() {
-        return driver.getTriggerAxis(GenericHID.Hand.kRight);
+        return 2 * driver.getTriggerAxis(GenericHID.Hand.kRight);
     }
 
     public double getLeftTriggerWeapons() {
