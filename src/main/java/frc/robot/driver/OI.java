@@ -108,10 +108,7 @@ public class OI {
     }
 
     public boolean getArmMovement() {
-        if (weapons.getY(GenericHID.Hand.kLeft) < 0.05 && weapons.getY(GenericHID.Hand.kLeft) > -0.05) {
-            return true;
-        }
-        return false;
+        return JoystickMath.getCubic(weapons.getY(GenericHID.Hand.kLeft)) != 0;
     }
 
     public double getRightSpeedWeapons() {
