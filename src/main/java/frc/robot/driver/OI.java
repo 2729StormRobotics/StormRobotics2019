@@ -63,7 +63,7 @@ public class OI {
         weapons.getRB().whenPressed(new Outtake());
         weapons.getLB().whenReleased(new StopIntake());
         weapons.getRB().whenReleased(new StopIntake());
-        weapons.getStickNeutral(GenericHID.Hand.kLeft).whenPressed(new MoveArmPID(Robot.cargoArm.armTalon.getAngle()));
+        weapons.getStickNeutral(GenericHID.Hand.kLeft).whenPressed(new HoldArm());
 
         // weapons.getYBtn().whenPressed(new
         // DriveDistance(SmartDashboard.getNumber("Distance", 0.0)));
