@@ -61,10 +61,12 @@ public class DriveTrain extends Subsystem {
         rightMotor.restoreFactoryDefaults();
         rightMotor2.restoreFactoryDefaults();
 
+        /*
         leftMotor.setOpenLoopRampRate(RobotMap.RAMP_RATE);
         rightMotor.setOpenLoopRampRate(RobotMap.RAMP_RATE);
         leftMotor2.setOpenLoopRampRate(RobotMap.RAMP_RATE);
         rightMotor2.setOpenLoopRampRate(RobotMap.RAMP_RATE);
+        */
 
         leftMotor.setSmartCurrentLimit(RobotMap.STALL_LIMIT);
         rightMotor.setSmartCurrentLimit(RobotMap.STALL_LIMIT);
@@ -81,7 +83,7 @@ public class DriveTrain extends Subsystem {
     }
 
     public void tankDrive(double leftSpeed, double rightSpeed) {
-        
+
         if(slow){
             if(!reverse){
                 leftMotor.set(-leftSpeed*0.5);
