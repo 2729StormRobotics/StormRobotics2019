@@ -108,11 +108,11 @@ public class OI {
     }
 
     public double getLeftSpeedDriver() {
-        return 0.5 * driver.getY(GenericHID.Hand.kLeft);
+        return driver.getY(GenericHID.Hand.kLeft);
     }
 
     public double getRightSpeedDriver() {
-        return 0.5 * driver.getY(GenericHID.Hand.kRight);
+        return driver.getY(GenericHID.Hand.kRight);
     }
 
     public double getLeftSpeedWeapons() {
