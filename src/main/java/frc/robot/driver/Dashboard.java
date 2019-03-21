@@ -72,7 +72,7 @@ public class Dashboard {
         final String addressString = "StormDashboard/Arm/";
 
         SmartDashboard.putBoolean(addressString + "ArmPositioned",
-                Robot.cargoArm.isInPosition(RobotMap.SHOOT_ANGLE, RobotMap.SHOOT_ANGLE_TOLERANCE));
+                Robot.cargoArm.inPosition(RobotMap.SHOOT_ANGLE, RobotMap.SHOOT_ANGLE_TOLERANCE));
     }
 
     public static void updateTalon(TalonAbsolute talon, String label) {

@@ -24,7 +24,6 @@ import frc.robot.subsystems.*;
 import frc.robot.util.*;
 import frc.robot.*;
 
-
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -58,33 +57,25 @@ public class OI {
 
         weapons.getABtn().whenPressed(new ToggleGrab());
         weapons.getBBtn().whenPressed(new TogglePunch());
-        //weapons.getXBtn().whenPressed(new ToggleArm());
-
+        // weapons.getXBtn().whenPressed(new ToggleArm());
 
         weapons.getLB().whenPressed(new Intake());
         weapons.getRB().whenPressed(new Outtake());
         weapons.getLB().whenReleased(new StopIntake());
         weapons.getRB().whenReleased(new StopIntake());
+        weapons.getStickNeutral(GenericHID.Hand.kLeft).whenPressed(new MoveArmPID(Robot.cargoArm.armTalon.getAngle()));
 
+        // weapons.getYBtn().whenPressed(new
+        // DriveDistance(SmartDashboard.getNumber("Distance", 0.0)));
 
-        //weapons.getYBtn().whenPressed(new DriveDistance(SmartDashboard.getNumber("Distance", 0.0)));
-
-        //driver.getXBtn().whenPressed(new PointTurn(0)); //Point Turn test
+        // driver.getXBtn().whenPressed(new PointTurn(0)); //Point Turn test
 
         driver.getRB().whenPressed(new ToggleHab());
 
+        // driver.getStartBack().whileHeld(new ToggleHab());
 
-        if (JoystickMath.getCubic(getLeftSpeedWeapons()) == 0) {
-            Robot.cargoArm.stopPID = false;
-        } else {
-            Robot.cargoArm.stopPID = true;
-        }
-
-
-        //driver.getStartBack().whileHeld(new ToggleHab());
-
-        //weapons.getLB().whenPressed(new TogglePickupCargo());
-        //weapons.getRB().whenPressed(new ToggleShoot());
+        // weapons.getLB().whenPressed(new TogglePickupCargo());
+        // weapons.getRB().whenPressed(new ToggleShoot());
 
         if (!Robot.lineFollowerH.getPIDController().isEnabled()) {
             driver.getRB().whileHeld(new FollowLineH());
@@ -92,18 +83,15 @@ public class OI {
             driver.getRB().whileHeld(new FollowLineC());
         }
 
-        //driver.getRB().whenPressed(new ResetSubsystems());
+        // driver.getRB().whenPressed(new ResetSubsystems());
 
         driver.getLB().whenPressed(new Slow());
         driver.getLB().whenReleased(new Slow());
 
         weapons.getDPadRight().whenPressed(new MoveArmPID(RobotMap.LVL1_ARM_ANGlE));
-        //weapons.getDPadLeft().whenPressed(new MoveArm(RobotMap.MAX_ARM_ANGLE));
+        // weapons.getDPadLeft().whenPressed(new MoveArm(RobotMap.MAX_ARM_ANGLE));
         weapons.getDPadDown().whenPressed(new MoveArmPID(RobotMap.HORIZONTAL_ARM_ANGlE));
         weapons.getDPadUp().whenPressed(new MoveArmPID(90));
-
-
-
 
     }
 
@@ -119,8 +107,8 @@ public class OI {
         return weapons.getY(GenericHID.Hand.kLeft);
     }
 
-    public boolean getArmMovement(){
-        if(weapons.getY(GenericHID.Hand.kLeft) < 0.05 && weapons.getY(GenericHID.Hand.kLeft) > -0.05){
+    public boolean getArmMovement() {
+        if (weapons.getY(GenericHID.Hand.kLeft) < 0.05 && weapons.getY(GenericHID.Hand.kLeft) > -0.05) {
             return true;
         }
         return false;
@@ -133,6 +121,7 @@ public class OI {
     public double getLeftTriggerDriver() {
         return driver.getTriggerAxis(GenericHID.Hand.kLeft);
     }
+
     public double getRightTriggerDriver() {
         return driver.getTriggerAxis(GenericHID.Hand.kRight);
     }
@@ -140,6 +129,7 @@ public class OI {
     public double getLeftTriggerWeapons() {
         return weapons.getTriggerAxis(GenericHID.Hand.kLeft);
     }
+
     public double getRightTriggerWeapons() {
         return weapons.getTriggerAxis(GenericHID.Hand.kRight);
     }
@@ -148,7 +138,6 @@ public class OI {
         return driver.getBumper(GenericHID.Hand.kRight);
     }
 
-
     // Run the command while the button is being held down and interrupt it once
     // the button is released.
     // button.whileHeld(new ExampleCommand());
@@ -156,6 +145,5 @@ public class OI {
     // Start the command when the button is released and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
-
 
 }

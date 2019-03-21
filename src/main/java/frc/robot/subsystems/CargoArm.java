@@ -72,7 +72,7 @@ public class CargoArm extends PIDSubsystem {
         intakeMotor.set(ControlMode.PercentOutput, speed);
     }
 
-    public boolean isInPosition(double angle, double tolerance) {
+    public boolean inPosition(double angle, double tolerance) {
         double lowerBound = angle - tolerance;
         double upperBound = angle + tolerance;
         return (armTalon.getAngle() <= upperBound) && (armTalon.getAngle() >= lowerBound);
