@@ -75,7 +75,7 @@ public class CargoArm extends PIDSubsystem {
     public boolean isInPosition(double angle, double tolerance) {
         double lowerBound = angle - tolerance;
         double upperBound = angle + tolerance;
-        return (angle <= upperBound) && (angle >= lowerBound);
+        return (armTalon.getAngle() <= upperBound) && (armTalon.getAngle() >= lowerBound);
     }
 
     @Override

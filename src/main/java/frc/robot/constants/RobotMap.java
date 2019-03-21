@@ -84,6 +84,6 @@ public class RobotMap {
 
     public static final double HORIZONTAL_POWER = 0.02/(Math.cos(Math.toRadians(48.6))); //% motor power to cargoArm to remain horizontal
 
-    public static final double SHOOT_ANGLE = 50;
+    public static final double SHOOT_ANGLE = 75;
     public static final double SHOOT_ANGLE_TOLERANCE = 5;
 }
