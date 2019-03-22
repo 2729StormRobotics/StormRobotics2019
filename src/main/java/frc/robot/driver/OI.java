@@ -55,9 +55,11 @@ public class OI {
     public OI() {
 
         driver.getABtn().whenPressed(new Reverse());
+        //driver.getBBtn().whenPressed(new PointTurn(true));
+        //driver.getXBtn().whenPressed(new PointTurn(false));
 
-        weapons.getABtn().whenPressed(new ToggleGrab());
-        weapons.getBBtn().whenPressed(new TogglePunch());
+        weapons.getABtn().whenPressed(new TogglePunch());
+        weapons.getBBtn().whenPressed(new ToggleArm());
         //weapons.getXBtn().whenPressed(new ToggleArm());
 
 
