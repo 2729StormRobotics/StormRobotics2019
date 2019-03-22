@@ -7,6 +7,7 @@ import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.GenericHID;
 import frc.robot.*;
 
 public class Controller extends XboxController {
@@ -109,6 +110,16 @@ public class Controller extends XboxController {
             @Override
             public boolean get() {
                 return getPOV(0) == 180;
+            }
+        };
+    }
+
+    public Button getStickNeutral(Hand hand) {
+
+        return new Button() {
+            @Override
+            public boolean get() {
+                return JoystickMath.getCubic(getY(hand)) == 0;
             }
         };
     }

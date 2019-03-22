@@ -15,6 +15,7 @@ public class PIDMap {
     public static final double CARGO_ARM_P = 1.0;
     public static final double CARGO_ARM_I = 0.0;
     public static final double CARGO_ARM_D = 0.0;
+    public static final double CARGO_ARM_f = 0.0;
 
     public static final double DRIVE_DISTANCE_P = 1.0;
     public static final double DRIVE_DISTANCE_I = 0.0;

@@ -36,7 +36,7 @@ public class MoveArmPID extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(Robot.oi.getArmMovement()){
+    if (Robot.oi.getArmMovement()) {
       interrupted();
     }
   }
@@ -44,7 +44,7 @@ public class MoveArmPID extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return Robot.cargoArm.stopPID;
+    return false;
     //return Robot.cargoArm.onTarget();
   }
 
