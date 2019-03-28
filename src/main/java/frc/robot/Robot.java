@@ -9,7 +9,9 @@ package frc.robot;
 
 import com.ctre.phoenix.schedulers.SequentialScheduler;
 
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.SPI.Port;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -49,6 +51,7 @@ public class Robot extends TimedRobot {
     public static CargoVision cargoVision;
     public static NetworkTable vision;
     CommandGroup resetSubsystems;
+    public static SerialPort jevois;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -70,6 +73,8 @@ public class Robot extends TimedRobot {
         hatchVision = new HatchVision();
         cargoVision = new CargoVision();
         oi = new OI();
+
+        jevois = new SerialPort(57600, SerialPort.Port.kMXP);
 
         vision = NetworkTableInstance.getDefault().getTable("Vision");
         CameraServer.getInstance().startAutomaticCapture();

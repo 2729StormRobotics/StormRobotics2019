@@ -18,28 +18,26 @@ public class HatchVision extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
+
   /**
      * @return the getX
      */
     public double getX() {
-        NetworkTableEntry ntX = Robot.vision.getEntry("hatchX");
-        return ntX.getDouble(0.0);
+        return Double.parseDouble(Robot.jevois.readString().split(" ")[0]);
     }
 
     /**
      * @return the getY
      */
     public double getY() {
-        NetworkTableEntry ntY = Robot.vision.getEntry("hatchY");
-        return ntY.getDouble(0.0);
+        return Double.parseDouble(Robot.jevois.readString().split(" ")[1]);
     }
 
     /**
      * @return the getAngle
      */
     public double getAngle() {
-        NetworkTableEntry ntAngle = Robot.vision.getEntry("hatchAngle");
-        return ntAngle.getDouble(0.0);
+        return Double.parseDouble(Robot.jevois.readString().split(" ")[2]);
     }
 
     /**
