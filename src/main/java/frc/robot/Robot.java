@@ -24,8 +24,11 @@ import frc.robot.driver.*;
 import frc.robot.subsystems.*;
 import frc.robot.util.*;
 
+
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import frc.robot.*;
+
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -71,6 +74,9 @@ public class Robot extends TimedRobot {
         vision = NetworkTableInstance.getDefault().getTable("Vision");
         CameraServer.getInstance().startAutomaticCapture();
         CameraServer.getInstance().startAutomaticCapture();
+
+        new PunchOut();
+        new ArmOut();
 
 
 
