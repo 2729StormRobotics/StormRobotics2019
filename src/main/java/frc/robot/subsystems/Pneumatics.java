@@ -50,6 +50,10 @@ public class Pneumatics extends Subsystem {
         solArm.set(out ? Value.kForward : Value.kReverse);
     }
 
+    public void habIn(boolean out) {
+        solHab.set(out ? Value.kForward : Value.kReverse);
+    }
+
     public Value getPunchHatch() {
         return solPunch.get();
     }

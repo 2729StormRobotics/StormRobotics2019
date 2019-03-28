@@ -77,6 +77,7 @@ public class Robot extends TimedRobot {
 
         new PunchOut();
         new ArmOut();
+        new HabIn();
 
 
 
