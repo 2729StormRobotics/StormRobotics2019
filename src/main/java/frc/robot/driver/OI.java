@@ -52,14 +52,6 @@ public class OI {
 
     public OI() {
 
-        weapons.getABtn().whenPressed(new ToggleGrab());
-        weapons.getBBtn().whenPressed(new TogglePunch());
-        weapons.getXBtn().whenPressed(new ToggleArm());
-        weapons.getYBtn().whenPressed(new ToggleHab());
-
-        weapons.getLB().whenPressed(new TogglePickupCargo());
-        weapons.getRB().whenPressed(new ToggleShoot());
-
         driver.getLT().whileHeld(new CheckLine());
 
     }
