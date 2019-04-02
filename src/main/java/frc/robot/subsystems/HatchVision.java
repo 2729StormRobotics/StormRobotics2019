@@ -40,6 +40,18 @@ public class HatchVision extends Subsystem {
         return Double.parseDouble(Robot.jevois.readString().split(" ")[2]);
     }
 
+    public double getInitialTurnAngle(double x, double y, double theta){
+        return Math.atan(x/y) - 180 + theta + Math.atan((Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))*Math.sin(theta)-1.5)/(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))*Math.cos(theta)));
+    }
+
+    public double getDistanceDrive(double x, double y, double theta){
+        return Math.sqrt(Math.pow(Math.sqrt((Math.pow(x, 2)+Math.pow(y, 2)*Math.sin(theta)-1.5)), 2) + Math.sqrt(Math.pow(x, 2)+Math.pow(y, 2))*Math.cos(theta));
+    }
+
+    public double getFinalTurnAngle(double x, double y, double theta){
+        return Math.atan(Math.sqrt(Math.pow(x, 2)+Math.pow(y, 2))*Math.cos(theta)/(Math.sqrt(Math.pow(x, 2)+Math.pow(y, 2))*Math.sin(theta) - 1.5));
+    }
+
     /**
      * @return the cargoDistance
      */

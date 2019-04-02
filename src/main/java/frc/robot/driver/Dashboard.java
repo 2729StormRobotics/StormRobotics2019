@@ -79,6 +79,8 @@ public class Dashboard {
 
         final String addressString = "StormDashboard/Talon/" + label + "/";
 
+        SmartDashboard.putNumber(addressString, Double.parseDouble(Robot.jevois.readString().split(" ")[0]));
+
         // SmartDashboard.putNumber(addressString + "Bus Voltage",
         // talon.getBusVoltage());
         SmartDashboard.putNumber(addressString + "Output Percent", talon.getMotorOutputPercent());
