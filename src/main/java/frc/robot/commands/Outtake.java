@@ -20,7 +20,7 @@ public class Outtake extends InstantCommand {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.cargoArm.intake(-1);
+    Robot.cargoArm.intake(-0.6);
   }
 
 }

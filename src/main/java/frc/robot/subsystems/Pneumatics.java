@@ -6,6 +6,7 @@ import frc.robot.driver.*;
 import frc.robot.util.*;
 import frc.robot.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.constants.RobotMap;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
@@ -29,7 +30,11 @@ public class Pneumatics extends Subsystem {
         solPickUp = new DoubleSolenoid(RobotMap.SOL_PICKUP_PORT, RobotMap.SOL_PICKUP_PORT + 1);                        // Solenoid port
         solPunch = new DoubleSolenoid(RobotMap.SOL_PUNCH_PORT, RobotMap.SOL_PUNCH_PORT + 1);
         solHab = new DoubleSolenoid(RobotMap.SOL_HAB_PORT, RobotMap.SOL_HAB_PORT + 1);
-        solArm = new DoubleSolenoid(RobotMap.SOL_ARM_PORT, RobotMap.SOL_ARM_PORT + 1);
+        solArm = new DoubleSolenoid(RobotMap.SOL_ARM_PORT+1, RobotMap.SOL_ARM_PORT);
+
+        solArm.set(Value.kReverse);
+        solPickUp.set(Value.kForward);
+        solHab.set(Value.kReverse);
 
     }
 
@@ -81,6 +86,10 @@ public class Pneumatics extends Subsystem {
             return;
         }
         solPunch.set(Value.kForward);
+    }
+
+    public Value getArmCorrect() {
+        return solArm.get();
     }
 
     public Value getArm() {

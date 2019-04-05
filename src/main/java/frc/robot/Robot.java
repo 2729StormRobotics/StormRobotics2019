@@ -44,7 +44,7 @@ public class Robot extends TimedRobot {
     public static LineFollowerH lineFollowerH;
     public static LineFollowerC lineFollowerC;
     public static CargoArm cargoArm;
-    public static NavX navX;
+    //public static NavX navX;
     public static HatchVision hatchVision;
     public static CargoVision cargoVision;
     public static NetworkTable vision;
@@ -66,7 +66,7 @@ public class Robot extends TimedRobot {
         lineFollowerH = new LineFollowerH();
         cargoArm = new CargoArm();
         resetSubsystems = new ResetSubsystems(); //retracts grab and punch pistons
-        navX = new NavX();
+        //navX = new NavX();
         hatchVision = new HatchVision();
         cargoVision = new CargoVision();
         oi = new OI();
@@ -75,9 +75,7 @@ public class Robot extends TimedRobot {
         CameraServer.getInstance().startAutomaticCapture();
         CameraServer.getInstance().startAutomaticCapture();
 
-        new PunchOut();
-        new ArmOut();
-        new HabIn();
+        
 
 
 
@@ -159,6 +157,9 @@ public class Robot extends TimedRobot {
     @Override
     public void teleopInit() {
         //retractPistons.start();
+        // new PunchOut();
+        // new ArmOut();
+        // new HabIn();
     }
 
     /**

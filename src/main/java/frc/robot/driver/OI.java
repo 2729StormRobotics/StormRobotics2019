@@ -58,9 +58,9 @@ public class OI {
         //driver.getXBtn().whenPressed(new PointTurn(false));
 
 
-        weapons.getABtn().whenPressed(new TogglePunch());
-        weapons.getBBtn().whenPressed(new ToggleArm());
-        //weapons.getXBtn().whenPressed(new ToggleArm());
+        //weapons.getXBtn().whenPressed(new TogglePunch());
+        weapons.getBBtn().whenPressed(new ToggleArm()); // Currently Extend
+        weapons.getABtn().whenPressed(new ToggleGrab()); // Currently Expand
 
 
         weapons.getLB().whenPressed(new Intake());
@@ -81,16 +81,16 @@ public class OI {
         // weapons.getLB().whenPressed(new TogglePickupCargo());
         // weapons.getRB().whenPressed(new ToggleShoot());
 
-        if (!Robot.lineFollowerH.getPIDController().isEnabled()) {
-            driver.getRB().whileHeld(new FollowLineH());
-        } else if (!Robot.lineFollowerC.getPIDController().isEnabled()) {
-            driver.getRB().whileHeld(new FollowLineC());
-        }
+        // if (!Robot.lineFollowerH.getPIDController().isEnabled()) {
+        //     driver.getRB().whileHeld(new FollowLineH());
+        // } else if (!Robot.lineFollowerC.getPIDController().isEnabled()) {
+        //     driver.getRB().whileHeld(new FollowLineC());
+        // }
 
         // driver.getRB().whenPressed(new ResetSubsystems());
 
-        driver.getLB().whenPressed(new Slow());
-        driver.getLB().whenReleased(new Slow());
+        // driver.getLB().whenPressed(new Slow());
+        // driver.getLB().whenReleased(new Slow());
 
         weapons.getDPadRight().whenPressed(new MoveArmPID(RobotMap.LVL1_ARM_ANGlE));
         // weapons.getDPadLeft().whenPressed(new MoveArm(RobotMap.MAX_ARM_ANGLE));

@@ -52,10 +52,10 @@ public class RobotMap {
     public static final int FREE_LIMIT = 255;
     public static final int RPM_LIMIT = 5700;
 
-    public static final int SOL_PICKUP_PORT = 6;
+    public static final int SOL_PICKUP_PORT = 6;  // Currently expand (grab)
     public static final int SOL_PUNCH_PORT = 2;
     public static final int SOL_HAB_PORT = 0;
-    public static final int SOL_ARM_PORT = 4;
+    public static final int SOL_ARM_PORT = 4; // Currently extend
 
     public static final int CARGO_INTAKE_PORT = 11;
 

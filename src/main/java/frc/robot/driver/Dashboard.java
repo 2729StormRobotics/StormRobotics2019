@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 public class Dashboard {
 
@@ -92,6 +93,8 @@ public class Dashboard {
         SmartDashboard.putNumber(addressString + "Angle", talon.getAngle());
         SmartDashboard.putNumber(addressString + "Negative_Angle", talon.getAngleNeg());
         // SmartDashboard.putBoolean(addressString + "Inverted", talon.getInverted());
+        SmartDashboard.putBoolean("PunchOut", Robot.pneumatics.getArmCorrect() == Value.kForward);
+        SmartDashboard.putBoolean("Expand", Robot.pneumatics.getPickupHatch() == Value.kForward);
     }
 
     public static void updateNavX() {
