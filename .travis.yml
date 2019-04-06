@@ -11,9 +11,9 @@ addons:
 jdk:
   - oraclejdk11
   - openjdk11
+git:
+  depth: false
 script:
-  - git fetch --unshallow
-  - ./gradlew clean
   - ./gradlew build
   - ./gradlew sonarqube
 before_cache:
