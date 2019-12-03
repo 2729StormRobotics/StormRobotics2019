@@ -52,7 +52,7 @@ dependencies {
     nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
     nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
     testCompile 'junit:junit:4.12'
-    errorprone("com.google.errorprone:error_prone_core:2.3.3")
+    errorprone("com.google.errorprone:error_prone_core:2.3.4")
 }
 
 tasks.withType(JavaCompile).configureEach {
